@@ -1,24 +1,26 @@
 MPLINK 4.39, Linker
-Linker Map File - Created Thu Oct 05 10:48:35 2017
+Linker Map File - Created Thu Oct 05 11:31:40 2017
 
                                  Section Info
                   Section       Type    Address   Location Size(Bytes)
                 ---------  ---------  ---------  ---------  ---------
-                   .org_0       code   0x000000    program   0x000010
+                   .org_0       code   0x000000    program   0x000026
 
 
 
                               Program Memory Usage 
                                Start         End      
                            ---------   ---------      
-                            0x000000    0x000007      
-            8 out of 1093 program addresses used, program memory utilization is 0%
+                            0x000000    0x000012      
+            19 out of 1093 program addresses used, program memory utilization is 1%
 
 
 
                               Symbols - Sorted by Name
                      Name    Address   Location    Storage File                     
                 ---------  ---------  ---------  --------- ---------                
+             end_exchange   0x000012    program     static D:\Documents\Facultate\Anul IV\Microcontrollere\LAB2\fisier_test.asm
+                 exchange   0x00000c    program     static D:\Documents\Facultate\Anul IV\Microcontrollere\LAB2\fisier_test.asm
                      main   0x000000    program     static D:\Documents\Facultate\Anul IV\Microcontrollere\LAB2\fisier_test.asm
 
 
@@ -27,5 +29,7 @@ Linker Map File - Created Thu Oct 05 10:48:35 2017
                      Name    Address   Location    Storage File                     
                 ---------  ---------  ---------  --------- ---------                
                      main   0x000000    program     static D:\Documents\Facultate\Anul IV\Microcontrollere\LAB2\fisier_test.asm
+                 exchange   0x00000c    program     static D:\Documents\Facultate\Anul IV\Microcontrollere\LAB2\fisier_test.asm
+             end_exchange   0x000012    program     static D:\Documents\Facultate\Anul IV\Microcontrollere\LAB2\fisier_test.asm
 
 

@@ -1,4 +1,4 @@
-MPASM  5.41                   FISIER_TEST.ASM   10-5-2017  10:48:34         PAGE  1
+MPASM  5.41                   FISIER_TEST.ASM   10-5-2017  11:31:39         PAGE  1
 
 
 LOC  OBJECT CODE     LINE SOURCE TEXT
@@ -19,38 +19,82 @@ LOC  OBJECT CODE     LINE SOURCE TEXT
                       00004 ;x is equivalent of memoriy zone 0x20, similar to C/C++ #define
   00000020            00005 x equ 0x20
   00000021            00006 y equ 0x21
-  00000022            00007 s equ 0x22
-                      00008 
-                      00009 ;instructions description
-                      00010 ;========================
-                      00011 ;MOVLW C - move constant into acumulator, C = constant
-                      00012 ;MOVWF Reg - move acumulator into register, Reg = register
-                      00013 ;MOVF Reg, d - move register
-                      00014 ;              d = 1 => destination is register
-                      00015 ;              d = 0 => destination is acumulator
-                      00016 ;usefull for testing if reg is zero
-                      00017 
-                      00018 ;ADDLW C - sum with constant, result saved into acumulator <=> W += C
-                      00019 ;ADDWF Reg, d - d = 0 => destination is W(acumulator)
-                      00020 ;               d = 1 => destination is register
-                      00021 
-                      00022 ;main program label
-0000                  00023 main:
-0000   3064           00024         MOVLW D'100'; W <- 100 - acumulator get value 100
-0001   00A0           00025         MOVWF x;x <- W - x gets acumulator value
-                      00026 
-0002   3096           00027         MOVLW D'150'; W <- 150 - acumulator get value 100
-0003   00A1           00028         MOVWF y;y <- W - y gets acumulator value
-                      00029 
-0004   0820           00030         MOVF x, 0; move x to acumulator, W = x
-0005   0721           00031         ADDWF y, 0; W = x + y (W has x value from previous instruction)
-                      00032 
-0006   00A2           00033         MOVWF s; s = W, move sum rsult into s
-                      00034 
-0007   0000           00035         NOP;no operation, usefull for breakpoints
+  00000022            00007 s equ 0x22; store sum.sub of x and y
+  00000023            00008 aux equ 0x23; used for exchange
+                      00009 
+                      00010 ;instructions description
+                      00011 ;========================
+                      00012 ;MOVLW C - move constant into acumulator, C = constant
+                      00013 ;MOVWF Reg - move acumulator into register, Reg = register
+                      00014 ;MOVF Reg, d - move register
+                      00015 ;              d = 1 => destination is register
+                      00016 ;              d = 0 => destination is acumulator
+                      00017 ;usefull for testing if reg is zero
+                      00018 
+                      00019 ;ADDLW C - sum with constant, result saved into acumulator <=> W += C
+                      00020 ;ADDWF Reg, d - d = 0 => destination is W(acumulator)
+                      00021 ;               d = 1 => destination is register
+                      00022 
+                      00023 ;SUBLW C - Substract acumulator from constant <=> C - W, result is stored into W(acumulator)
+                      00024 ;SUBWF Reg, d - Substracy acumulator from register <=> Reg - W
+                      00025 ;               d = 0, result stored into acumulator
+                      00026 ;               d = 1, result stored into register 
+                      00027 
+                      00028 ;BTFSC Reg, bit_position - bit test file skip clear => test a bit of a register and skip if it is zero [
+                            bit_position = 0, 1, ..., 7]
+                      00029 ;BTFSS Reg, bit_position - 
+                      00030 
+                      00031 ;main program label
+0000                  00032 main:
+                      00033         ; assign values to variables
+0000   30C8           00034         MOVLW D'200'; W <- 200 - acumulator get value 100
+0001   00A0           00035         MOVWF x;x <- W - x gets acumulator value
                       00036 
-                      00037         end
-MPASM  5.41                   FISIER_TEST.ASM   10-5-2017  10:48:34         PAGE  2
+0002   309C           00037         MOVLW D'156'; W <- 156 - acumulator get value 100
+0003   00A1           00038         MOVWF y;y <- W - y gets acumulator value
+                      00039 
+                      00040         ; calculate sum/sub
+                      00041 
+0004   0820           00042         MOVF x, 0; move x to acumulator, W = x
+                      00043         ;ADDWF y, 0; W = x + y (W has x value from previous instruction)
+MPASM  5.41                   FISIER_TEST.ASM   10-5-2017  11:31:39         PAGE  2
+
+
+LOC  OBJECT CODE     LINE SOURCE TEXT
+  VALUE
+
+0005   0221           00044         SUBWF y, 0; W = x - y (W has x value from previous instruction)
+                      00045 
+0006   00A2           00046         MOVWF s; s = W, move sum/substract result into s
+                      00047 
+0007   0000           00048         NOP;no operation, usefull for breakpoints
+                      00049 
+                      00050         ;end
+                      00051 
+                      00052 ; exchange variables if x > y
+                      00053 ; same as check if x - y > 0 or y - x < 0
+                      00054 ; if x - y >= 0 => carry = 1
+                      00055 ; if x - y < 0 => c = 0
+                      00056 
+                      00057 ; implemented testing if x - y < 0 => x must be put into acumulator 
+0008   0820           00058         MOVF x, 0; W = x
+0009   0221           00059         SUBWF y, 0; W = y - x
+000A   1803           00060         BTFSC STATUS, C; C = 0, position of carry flag bit      
+000B   2812           00061         GOTO end_exchange;skip echange function
+                      00062 ;exchange fucton label
+000C                  00063 exchange:
+000C   0820           00064         MOVF x, 0;W = x
+000D   00A3           00065         MOVWF aux;aux = W
+                      00066 
+000E   0821           00067         MOVF y, 0;W = y
+000F   00A0           00068         MOVWF x;x = W(y)
+                      00069 
+0010   0823           00070         MOVF aux, 0;W = aux
+0011   00A1           00071         MOVWF y;y = W(aux)
+0012                  00072 end_exchange:
+0012   0000           00073         NOP; no operation
+                      00074         end
+MPASM  5.41                   FISIER_TEST.ASM   10-5-2017  11:31:39         PAGE  3
 
 
 SYMBOL TABLE
@@ -109,7 +153,7 @@ T0IE                              00000005
 T0IF                              00000002
 T0SE                              00000004
 TMR0                              00000001
-MPASM  5.41                   FISIER_TEST.ASM   10-5-2017  10:48:34         PAGE  3
+MPASM  5.41                   FISIER_TEST.ASM   10-5-2017  11:31:39         PAGE  4
 
 
 SYMBOL TABLE
@@ -154,22 +198,25 @@ _WDT_ON                           00003FFF
 _XT_OSC                           00003FFD
 __16F84                           00000001
 __DEBUG                           1
+aux                               00000023
+end_exchange                      00000012
+exchange                          0000000C
 main                              00000000
 s                                 00000022
 x                                 00000020
 y                                 00000021
-MPASM  5.41                   FISIER_TEST.ASM   10-5-2017  10:48:34         PAGE  4
+MPASM  5.41                   FISIER_TEST.ASM   10-5-2017  11:31:39         PAGE  5
 
 
 MEMORY USAGE MAP ('X' = Used,  '-' = Unused)
 
 
-0000 : XXXXXXXX-------- ---------------- ---------------- ----------------
+0000 : XXXXXXXXXXXXXXXX XXX------------- ---------------- ----------------
 
 All other memory blocks unused.
 
-Program Memory Words Used:     8
-Program Memory Words Free:  1016
+Program Memory Words Used:    19
+Program Memory Words Free:  1005
 
 
 Errors   :     0
