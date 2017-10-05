@@ -1,0 +1,19 @@
+Scrieti enuntul!
+ASM + C
+tema:
+	nota 7:
+		interschimb a trei numere x, y, z
+		x = y
+		z = y
+		x = z
+		
+	nota 8:
+		interchimbare ordonata a trei numere x, y, z
+		rezultat final: x < y < z
+		
+	nota 10:
+		hint: nu se poate face in c
+		interschimb x si y fara aux
+		var1: folosire adunari si scaderi (trei instructiuni)
+		var2: folosire xor
+	
