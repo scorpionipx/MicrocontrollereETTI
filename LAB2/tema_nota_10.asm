@@ -1,33 +1,14 @@
-#include p16f84.inc
+#include <htc.h>
+#include <pic16f84.h>
 
-; Enunt: Sa se scrie un program ASM care sa interschimbe valorile a doua
-; variabile. Restricite: nu se poate folosi o variabila intermediara.
-; ScorpionIPX
+void main(voi)
+{
+	unsigned char x, y;
 
-;assign memory for variables
-x equ 0x20
-y equ 0x21
+	x = 200;
+	y = 150;
 
-main:
-	; assign values to variables
-	MOVLW D'13'; W <- 13 - acumulator get value 100
-	MOVWF x;x <- W - x gets acumulator value
-
-	MOVLW D'10'; W <- 10 - acumulator get value 100
-	MOVWF y;y <- W - y gets acumulator value
-
-	NOP;no operation, usefull for breakpoints
-
-	; swap variables' values
-	XORWF x, 1; x = W(=y) XOR x
-	NOP;no operation, usefull for breakpoints
-
-	MOVF x, 0
-	XORWF y, 1
-	NOP;no operation, usefull for breakpoints
-
-	MOVF y,0
-	XORWF x, 1; W = y XOR x
-	NOP;no operation, usefull for breakpoints
-
-	end
+	x ^= y;
+	y ^= x;
+	x ^=y;
+}
