@@ -1,7 +1,7 @@
 #include <htc.h>
 #include <pic16f84.h>
 
-void main(voi)
+void main(void)
 {
 	unsigned char x, y;
 
