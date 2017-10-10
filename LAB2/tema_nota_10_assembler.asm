@@ -10,10 +10,10 @@ y equ 0x21
 
 main:
 	; assign values to variables
-	MOVLW D'13'; W <- 13 - acumulator get value 100
+	MOVLW D'13'; W <- 13 - acumulator get value 13
 	MOVWF x;x <- W - x gets acumulator value
 
-	MOVLW D'10'; W <- 10 - acumulator get value 100
+	MOVLW D'10'; W <- 10 - acumulator get value 10
 	MOVWF y;y <- W - y gets acumulator value
 
 	NOP;no operation, usefull for breakpoints
