@@ -1,0 +1,19 @@
+# MPLAB IDE generated this makefile for use with GNU make.
+# Project: tema_nota_10.mcp
+# Date: Tue Oct 10 09:56:53 2017
+
+AS = MPASMWIN.exe
+CC = 
+LD = mplink.exe
+AR = mplib.exe
+RM = rm
+
+tema_nota_10.cof : ../tema_nota_10.o
+	$(CC) /p16F84 "..\tema_nota_10.o" /u_DEBUG /z__MPLAB_BUILD=1 /z__MPLAB_DEBUG=1 /o"tema_nota_10.cof" /M"tema_nota_10.map" /W /x
+
+../tema_nota_10.o : tema_nota_10.asm C:/Program\ Files\ (x86)/Microchip/MPASM\ Suite/p16f84.inc
+	$(AS) /q /p16F84 "tema_nota_10.asm" /l"tema_nota_10.lst" /e"tema_nota_10.err" /d__DEBUG=1
+
+clean : 
+	$(CC) "..\tema_nota_10.o" "..\tema_nota_10.hex" "..\tema_nota_10.err" "..\tema_nota_10.lst" "tema_nota_10.cof"
+

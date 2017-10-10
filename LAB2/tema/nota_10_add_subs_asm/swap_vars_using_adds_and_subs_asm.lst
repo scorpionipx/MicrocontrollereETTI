@@ -1,4 +1,4 @@
-MPASM  5.41                  TEMA_NOTA_10.ASM   10-10-2017  9:56:55         PAGE  1
+MPASM  5.41  SWAP_VARS_USING_ADDS_AND_SUBS_AS   10-10-2017  11:36:38         PAGE  1
 
 
 LOC  OBJECT CODE     LINE SOURCE TEXT
@@ -34,19 +34,15 @@ LOC  OBJECT CODE     LINE SOURCE TEXT
 0004   0000           00019         NOP;no operation, usefull for breakpoints
                       00020 
                       00021         ; swap variables' values
-0005   06A0           00022         XORWF x, 1; x = W(=y) XOR x
-0006   0000           00023         NOP;no operation, usefull for breakpoints
-                      00024 
-0007   0820           00025         MOVF x, 0
-0008   06A1           00026         XORWF y, 1
+0005   07A0           00022         ADDWF x, 1;x <- x + y 
+0006   0220           00023         SUBWF x, 0;W <- W - x
+0007   00A1           00024         MOVWF y;y = w
+0008   02A0           00025         SUBWF x,1;x <- x - w
+                      00026 
 0009   0000           00027         NOP;no operation, usefull for breakpoints
                       00028 
-000A   0821           00029         MOVF y,0
-000B   06A0           00030         XORWF x, 1; W = y XOR x
-000C   0000           00031         NOP;no operation, usefull for breakpoints
-                      00032 
-                      00033         end
-MPASM  5.41                  TEMA_NOTA_10.ASM   10-10-2017  9:56:55         PAGE  2
+                      00029         end
+MPASM  5.41  SWAP_VARS_USING_ADDS_AND_SUBS_AS   10-10-2017  11:36:38         PAGE  2
 
 
 SYMBOL TABLE
@@ -105,7 +101,7 @@ T0IE                              00000005
 T0IF                              00000002
 T0SE                              00000004
 TMR0                              00000001
-MPASM  5.41                  TEMA_NOTA_10.ASM   10-10-2017  9:56:55         PAGE  3
+MPASM  5.41  SWAP_VARS_USING_ADDS_AND_SUBS_AS   10-10-2017  11:36:38         PAGE  3
 
 
 SYMBOL TABLE
@@ -153,18 +149,18 @@ __DEBUG                           1
 main                              00000000
 x                                 00000020
 y                                 00000021
-MPASM  5.41                  TEMA_NOTA_10.ASM   10-10-2017  9:56:55         PAGE  4
+MPASM  5.41  SWAP_VARS_USING_ADDS_AND_SUBS_AS   10-10-2017  11:36:38         PAGE  4
 
 
 MEMORY USAGE MAP ('X' = Used,  '-' = Unused)
 
 
-0000 : XXXXXXXXXXXXX--- ---------------- ---------------- ----------------
+0000 : XXXXXXXXXX------ ---------------- ---------------- ----------------
 
 All other memory blocks unused.
 
-Program Memory Words Used:    13
-Program Memory Words Free:  1011
+Program Memory Words Used:    10
+Program Memory Words Free:  1014
 
 
 Errors   :     0

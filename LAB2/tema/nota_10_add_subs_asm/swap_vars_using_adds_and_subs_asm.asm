@@ -19,15 +19,11 @@ main:
 	NOP;no operation, usefull for breakpoints
 
 	; swap variables' values
-	XORWF x, 1; x = W(=y) XOR x
-	NOP;no operation, usefull for breakpoints
+	ADDWF x, 1;x <- x + y 
+	SUBWF x, 0;W <- W - x
+	MOVWF y;y = w
+	SUBWF x,1;x <- x - w
 
-	MOVF x, 0
-	XORWF y, 1
-	NOP;no operation, usefull for breakpoints
-
-	MOVF y,0
-	XORWF x, 1; W = y XOR x
 	NOP;no operation, usefull for breakpoints
 
 	end

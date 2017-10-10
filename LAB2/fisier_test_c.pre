@@ -266,7 +266,7 @@ extern void _delay(unsigned long);
 # 3 "D:\Documents\Facultate\Anul IV\Microcontrollere\LAB2\fisier_test_c.c"
 void main(voi)
 {
-unsigned char x@0x20, y, aux;
+unsigned char x, y, aux;
 
 x = 200;
 y = 150;
