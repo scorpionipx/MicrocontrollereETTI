@@ -1,0 +1,207 @@
+MPASM  5.41                      CAT_REST.ASM   10-16-2017  19:03:51         PAGE  1
+
+
+LOC  OBJECT CODE     LINE SOURCE TEXT
+  VALUE
+
+                      00001 #include p16f84.inc
+                      00001         LIST
+                      00002 
+                      00003 ;==========================================================================
+                      00004 ;  MPASM PIC16F84 processor include
+                      00005 ; 
+                      00006 ;  (c) Copyright 1999-2011 Microchip Technology, All rights reserved
+                      00007 ;==========================================================================
+                      00008 
+                      00199         LIST
+                      00002 
+                      00003 ; Enunt: sa se implementeze un program ASM care sa calculeze catul si restul 
+                      00004 ; impartirii numarului x la numarul y prin scaderi repetate.
+                      00005 ; ScorpionIPX
+                      00006 
+                      00007 ;assign memory for variables
+  00000020            00008 x equ 0x20
+  00000021            00009 y equ 0x21
+  00000022            00010 cat equ 0x22
+  00000023            00011 rest equ 0x23
+                      00012 
+0000                  00013 main:
+                      00014 
+                      00015         ; assign values to variables
+                      00016 
+0000   3014           00017         MOVLW D'20'; W <- 20 - acumulator gets value 20
+0001   00A0           00018         MOVWF x;n <- W, - x gets acumulator's value
+                      00019 
+0002   3003           00020         MOVLW D'3'; W <- 0 - acumulator gets value 0
+0003   00A1           00021         MOVWF y;y <- W - y gets acumulator's value
+                      00022 
+0004   3000           00023         MOVLW D'0'; W <- 0 - acumulator gets value 0
+0005   00A2           00024         MOVWF cat;cat <- W - cat gets acumulator's value
+                      00025 
+0006   3000           00026         MOVLW D'0'; W <- 0 - acumulator gets value 0
+0007   00A3           00027         MOVWF rest;rest <- W - rest gets acumulator's value
+                      00028 
+0008   0000           00029         NOP;
+                      00030 
+                      00031         ;if (x - y >= 0) => carry = 1
+                      00032 
+Warning[207]: Found label after column 1. (calculate)
+0009                  00033         calculate:
+                      00034 
+0009   0821           00035                 MOVF y, 0; load coef into acumulator
+000A   0220           00036                 SUBWF x, 0; x = x - y
+000B   0000           00037                 NOP;
+000C   1C03           00038                 BTFSS STATUS, C;check if carry; C = 0, position of carry flag bit
+000D   2813           00039                 GOTO end_calculate; if (x - y >= 0), results are not calculated
+000E   0000           00040                 NOP;
+                      00041                 
+                      00042                 
+Message[305]: Using default destination of 1 (file).
+MPASM  5.41                      CAT_REST.ASM   10-16-2017  19:03:51         PAGE  2
+
+
+LOC  OBJECT CODE     LINE SOURCE TEXT
+  VALUE
+
+000F   0AA2           00043                 INCF cat; increment cat's value
+0010   00A0           00044                 MOVWF x; x = x - y
+                      00045 
+0011   0000           00046                 NOP;
+0012   2809           00047                 GOTO calculate
+                      00048         
+Warning[207]: Found label after column 1. (end_calculate)
+0013                  00049         end_calculate:
+0013   0820           00050                 MOVF x, 0;
+0014   00A3           00051                 MOVWF rest;
+0015   0000           00052                 NOP
+                      00053         end
+MPASM  5.41                      CAT_REST.ASM   10-16-2017  19:03:51         PAGE  3
+
+
+SYMBOL TABLE
+  LABEL                             VALUE 
+
+C                                 00000000
+DC                                00000001
+EEADR                             00000009
+EECON1                            00000088
+EECON2                            00000089
+EEDATA                            00000008
+EEIE                              00000006
+EEIF                              00000004
+F                                 00000001
+FSR                               00000004
+GIE                               00000007
+INDF                              00000000
+INTCON                            0000000B
+INTE                              00000004
+INTEDG                            00000006
+INTF                              00000001
+IRP                               00000007
+NOT_PD                            00000003
+NOT_RBPU                          00000007
+NOT_TO                            00000004
+OPTION_REG                        00000081
+PCL                               00000002
+PCLATH                            0000000A
+PORTA                             00000005
+PORTB                             00000006
+PS0                               00000000
+PS1                               00000001
+PS2                               00000002
+PSA                               00000003
+RA0                               00000000
+RA1                               00000001
+RA2                               00000002
+RA3                               00000003
+RA4                               00000004
+RB0                               00000000
+RB1                               00000001
+RB2                               00000002
+RB3                               00000003
+RB4                               00000004
+RB5                               00000005
+RB6                               00000006
+RB7                               00000007
+RBIE                              00000003
+RBIF                              00000000
+RD                                00000000
+RP0                               00000005
+RP1                               00000006
+STATUS                            00000003
+T0CS                              00000005
+T0IE                              00000005
+T0IF                              00000002
+T0SE                              00000004
+TMR0                              00000001
+MPASM  5.41                      CAT_REST.ASM   10-16-2017  19:03:51         PAGE  4
+
+
+SYMBOL TABLE
+  LABEL                             VALUE 
+
+TMR0IE                            00000005
+TMR0IF                            00000002
+TRISA                             00000085
+TRISA0                            00000000
+TRISA1                            00000001
+TRISA2                            00000002
+TRISA3                            00000003
+TRISA4                            00000004
+TRISB                             00000086
+TRISB0                            00000000
+TRISB1                            00000001
+TRISB2                            00000002
+TRISB3                            00000003
+TRISB4                            00000004
+TRISB5                            00000005
+TRISB6                            00000006
+TRISB7                            00000007
+W                                 00000000
+WR                                00000001
+WREN                              00000002
+WRERR                             00000003
+Z                                 00000002
+_CONFIG                           00002007
+_CP_OFF                           00003FFF
+_CP_ON                            0000000F
+_HS_OSC                           00003FFE
+_IDLOC0                           00002000
+_IDLOC1                           00002001
+_IDLOC2                           00002002
+_IDLOC3                           00002003
+_LP_OSC                           00003FFC
+_PWRTE_OFF                        00003FFF
+_PWRTE_ON                         00003FF7
+_RC_OSC                           00003FFF
+_WDT_OFF                          00003FFB
+_WDT_ON                           00003FFF
+_XT_OSC                           00003FFD
+__16F84                           00000001
+__DEBUG                           1
+calculate                         00000009
+cat                               00000022
+end_calculate                     00000013
+main                              00000000
+rest                              00000023
+x                                 00000020
+y                                 00000021
+MPASM  5.41                      CAT_REST.ASM   10-16-2017  19:03:51         PAGE  5
+
+
+MEMORY USAGE MAP ('X' = Used,  '-' = Unused)
+
+
+0000 : XXXXXXXXXXXXXXXX XXXXXX---------- ---------------- ----------------
+
+All other memory blocks unused.
+
+Program Memory Words Used:    22
+Program Memory Words Free:  1002
+
+
+Errors   :     0
+Warnings :     2 reported,     0 suppressed
+Messages :     1 reported,     0 suppressed
+
+
