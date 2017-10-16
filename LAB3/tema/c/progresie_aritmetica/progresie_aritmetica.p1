@@ -390,50 +390,50 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;eeprom_routines.h: 41: extern void eeprom_write(unsigned char addr, unsigned char value);
 [; ;eeprom_routines.h: 42: extern unsigned char eeprom_read(unsigned char addr);
 [; ;pic.h: 148: extern void _delay(unsigned long);
-"4 D:\Documents\Facultate\Anul IV\Microcontrollere\LAB3\tema\c\progresie_aritmetica\progresie_aritmetica.c
+"9 D:\Documents\Facultate\Anul IV\Microcontrollere\LAB3\tema\c\progresie_aritmetica\progresie_aritmetica.c
 [v _main `(v 1 ef ]
 {
-[; ;progresie_aritmetica.c: 3: void main(void)
-[; ;progresie_aritmetica.c: 4: {
+[; ;progresie_aritmetica.c: 8: void main(void)
+[; ;progresie_aritmetica.c: 9: {
 [e :U _main ]
 [f ]
-"5
+"10
 [v _n `uc 1 a ]
 [v _sum `uc 1 a ]
-[; ;progresie_aritmetica.c: 5: unsigned char n, sum;
-[; ;progresie_aritmetica.c: 7: n = 7;
-"7
+[; ;progresie_aritmetica.c: 10: unsigned char n, sum;
+[; ;progresie_aritmetica.c: 12: n = 7;
+"12
 [e = _n -> -> 7 `i `uc ]
-[; ;progresie_aritmetica.c: 8: sum = 0;
-"8
+[; ;progresie_aritmetica.c: 13: sum = 0;
+"13
 [e = _sum -> -> 0 `i `uc ]
-[; ;progresie_aritmetica.c: 10: for(char c = 0; c <= n; c++)
-"10
+[; ;progresie_aritmetica.c: 15: for(char c = 0; c <= n; c++)
+"15
 {
 [v _c `uc 1 a ]
 [e = _c -> -> 0 `i `uc ]
 [e $U 26  ]
-"11
+"16
 [e :U 23 ]
-[; ;progresie_aritmetica.c: 11: {
+[; ;progresie_aritmetica.c: 16: {
 {
-[; ;progresie_aritmetica.c: 12: sum += c;
-"12
+[; ;progresie_aritmetica.c: 17: sum += c;
+"17
 [e =+ _sum _c ]
-"13
+"18
 }
-"10
+"15
 [e ++ _c -> -> 1 `i `uc ]
 [e :U 26 ]
 [e $ <= -> _c `i -> _n `i 23  ]
 [e :U 24 ]
-"13
+"18
 }
-[; ;progresie_aritmetica.c: 13: }
-[; ;progresie_aritmetica.c: 15: asm("NOP");
-"15
+[; ;progresie_aritmetica.c: 18: }
+[; ;progresie_aritmetica.c: 20: asm("NOP");
+"20
 [; NOP ;#
-[; ;progresie_aritmetica.c: 16: }
-"16
+[; ;progresie_aritmetica.c: 21: }
+"21
 [e :UE 22 ]
 }

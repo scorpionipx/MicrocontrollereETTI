@@ -1,5 +1,10 @@
 #include <htc.h>
 
+/*
+ Enunt: Sa se scrie un program C care sa calculeaza suma 1 + 2 + 3 + ... + n,
+ unde n este un numar predefinit.
+*/
+
 void main(void)
 {
 	unsigned char n, sum;

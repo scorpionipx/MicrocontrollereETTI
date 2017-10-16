@@ -1,7 +1,7 @@
 
 
 HI-TECH Software PIC LITE Macro Assembler V9.81 build 7503 
-                                                                                               Mon Oct 16 18:17:08 2017
+                                                                                               Mon Oct 16 18:25:07 2017
 
 HI-TECH Software Omniscient Code Generator (Lite mode) build 7503
      1  0000                     opt subtitle "HI-TECH Software Omniscient Code Generator (Lite mode) build 7503"
@@ -143,7 +143,7 @@ HI-TECH Software Omniscient Code Generator (Lite mode) build 7503
    137                           
    138 ;; *************** function _main *****************
    139 ;; Defined at:
-   140 ;;		line 4 in file "D:\Documents\Facultate\Anul IV\Microcontrollere\LAB3\tema\c\progresie_aritmetica\progresie_aritmetic
+   140 ;;		line 9 in file "D:\Documents\Facultate\Anul IV\Microcontrollere\LAB3\tema\c\progresie_aritmetica\progresie_aritmetic
        a.c"
    141 ;; Parameters:    Size  Location     Type
    142 ;;		None
@@ -174,47 +174,47 @@ HI-TECH Software Omniscient Code Generator (Lite mode) build 7503
    167                           psect	maintext
    168                           	file	"D:\Documents\Facultate\Anul IV\Microcontrollere\LAB3\tema\c\progresie_aritmetica\
                                  progresie_aritmetica.c"
-   169                           	line	4
+   169                           	line	9
    170                           	global	__size_of_main
    171  0019                     	__size_of_main	equ	__end_of_main-_main
    172                           	
    173  03E7                     _main:	
    174                           	opt	stack 8
    175                           ; Regs used in _main: [wreg+status,2+status,0]
-   176                           	line	7
+   176                           	line	12
    177                           	
    178  03E7                     l1315:	
-   179                           ;progresie_aritmetica.c: 5: unsigned char n, sum;
-   180                           ;progresie_aritmetica.c: 7: n = 7;
+   179                           ;progresie_aritmetica.c: 10: unsigned char n, sum;
+   180                           ;progresie_aritmetica.c: 12: n = 7;
    181  03E7  3007               	movlw	(07h)
    182  03E8  1283               	bcf	status, 5	;RP0=0, select bank0
    183  03E9  008C               	movwf	(??_main+0)+0
    184  03EA  080C               	movf	(??_main+0)+0,w
    185  03EB  008E               	movwf	(main@n)
-   186                           	line	8
+   186                           	line	13
    187                           	
    188  03EC                     l1317:	
-   189                           ;progresie_aritmetica.c: 8: sum = 0;
+   189                           ;progresie_aritmetica.c: 13: sum = 0;
    190  03EC  018D               	clrf	(main@sum)
-   191                           	line	10
+   191                           	line	15
    192                           	
    193  03ED                     l1319:	
-   194                           ;progresie_aritmetica.c: 10: for(char c = 0; c <= n; c++)
+   194                           ;progresie_aritmetica.c: 15: for(char c = 0; c <= n; c++)
    195  03ED  018F               	clrf	(main@c)
    196  03EE  2BF8               	goto	l1323
-   197                           	line	11
+   197                           	line	16
    198                           	
    199  03EF                     l168:	
-   200                           	line	12
+   200                           	line	17
    201                           	
    202  03EF                     l1321:	
-   203                           ;progresie_aritmetica.c: 11: {
-   204                           ;progresie_aritmetica.c: 12: sum += c;
+   203                           ;progresie_aritmetica.c: 16: {
+   204                           ;progresie_aritmetica.c: 17: sum += c;
    205  03EF  080F               	movf	(main@c),w
    206  03F0  008C               	movwf	(??_main+0)+0
    207  03F1  080C               	movf	(??_main+0)+0,w
    208  03F2  078D               	addwf	(main@sum),f
-   209                           	line	10
+   209                           	line	15
    210  03F3  3001               	movlw	(01h)
    211  03F4  008C               	movwf	(??_main+0)+0
    212  03F5  080C               	movf	(??_main+0)+0,w
@@ -234,12 +234,12 @@ HI-TECH Software Omniscient Code Generator (Lite mode) build 7503
    226  03FE                     u2150:
    227                           	
    228  03FE                     l169:	
-   229                           	line	15
-   230                           # 15 "D:\Documents\Facultate\Anul IV\Microcontrollere\LAB3\tema\c\progresie_aritmetica\p
+   229                           	line	20
+   230                           # 20 "D:\Documents\Facultate\Anul IV\Microcontrollere\LAB3\tema\c\progresie_aritmetica\p
                                  rogresie_aritmetica.c"
    231  03FE  0000               NOP ;#
    232                           psect	maintext
-   233                           	line	16
+   233                           	line	21
    234                           	
    235  03FF                     l170:	
    236                           	global	start
@@ -260,7 +260,7 @@ HI-TECH Software Omniscient Code Generator (Lite mode) build 7503
 
 
 HI-TECH Software PICC Macro Assembler V9.81 build 7503 
-Symbol Table                                                                                   Mon Oct 16 18:17:08 2017
+Symbol Table                                                                                   Mon Oct 16 18:25:07 2017
 
                  l170 03FF                   l167 03F8                   l168 03EF                   l169 03FE  
                 l1321 03EF                  l1323 03F8                  l1315 03E7                  l1317 03EC  

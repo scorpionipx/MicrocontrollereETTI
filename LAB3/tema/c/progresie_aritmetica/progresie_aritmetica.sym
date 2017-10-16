@@ -81,13 +81,13 @@ startup.as
 65 0 0 CODE
 progresie_aritmetica.obj
 D:\Documents\Facultate\Anul IV\Microcontrollere\LAB3\tema\c\progresie_aritmetica\progresie_aritmetica.c
-7 3E7 0 CODE
-8 3EC 0 CODE
-10 3ED 0 CODE
-12 3EF 0 CODE
-10 3F3 0 CODE
-15 3FE 0 CODE
-16 3FF 0 CODE
+12 3E7 0 CODE
+13 3EC 0 CODE
+15 3ED 0 CODE
+17 3EF 0 CODE
+15 3F3 0 CODE
+20 3FE 0 CODE
+21 3FF 0 CODE
 progresie_aritmetica.as
 58 3E5 0 CODE
 59 3E6 0 CODE

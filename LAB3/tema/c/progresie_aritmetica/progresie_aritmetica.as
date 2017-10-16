@@ -137,7 +137,7 @@ psect	maintext
 
 ;; *************** function _main *****************
 ;; Defined at:
-;;		line 4 in file "D:\Documents\Facultate\Anul IV\Microcontrollere\LAB3\tema\c\progresie_aritmetica\progresie_aritmetica.c"
+;;		line 9 in file "D:\Documents\Facultate\Anul IV\Microcontrollere\LAB3\tema\c\progresie_aritmetica\progresie_aritmetica.c"
 ;; Parameters:    Size  Location     Type
 ;;		None
 ;; Auto vars:     Size  Location     Type
@@ -166,47 +166,47 @@ psect	maintext
 ;;
 psect	maintext
 	file	"D:\Documents\Facultate\Anul IV\Microcontrollere\LAB3\tema\c\progresie_aritmetica\progresie_aritmetica.c"
-	line	4
+	line	9
 	global	__size_of_main
 	__size_of_main	equ	__end_of_main-_main
 	
 _main:	
 	opt	stack 8
 ; Regs used in _main: [wreg+status,2+status,0]
-	line	7
+	line	12
 	
 l1315:	
-;progresie_aritmetica.c: 5: unsigned char n, sum;
-;progresie_aritmetica.c: 7: n = 7;
+;progresie_aritmetica.c: 10: unsigned char n, sum;
+;progresie_aritmetica.c: 12: n = 7;
 	movlw	(07h)
 	bcf	status, 5	;RP0=0, select bank0
 	movwf	(??_main+0)+0
 	movf	(??_main+0)+0,w
 	movwf	(main@n)
-	line	8
+	line	13
 	
 l1317:	
-;progresie_aritmetica.c: 8: sum = 0;
+;progresie_aritmetica.c: 13: sum = 0;
 	clrf	(main@sum)
-	line	10
+	line	15
 	
 l1319:	
-;progresie_aritmetica.c: 10: for(char c = 0; c <= n; c++)
+;progresie_aritmetica.c: 15: for(char c = 0; c <= n; c++)
 	clrf	(main@c)
 	goto	l1323
-	line	11
+	line	16
 	
 l168:	
-	line	12
+	line	17
 	
 l1321:	
-;progresie_aritmetica.c: 11: {
-;progresie_aritmetica.c: 12: sum += c;
+;progresie_aritmetica.c: 16: {
+;progresie_aritmetica.c: 17: sum += c;
 	movf	(main@c),w
 	movwf	(??_main+0)+0
 	movf	(??_main+0)+0,w
 	addwf	(main@sum),f
-	line	10
+	line	15
 	movlw	(01h)
 	movwf	(??_main+0)+0
 	movf	(??_main+0)+0,w
@@ -226,11 +226,11 @@ u2151:
 u2150:
 	
 l169:	
-	line	15
-# 15 "D:\Documents\Facultate\Anul IV\Microcontrollere\LAB3\tema\c\progresie_aritmetica\progresie_aritmetica.c"
+	line	20
+# 20 "D:\Documents\Facultate\Anul IV\Microcontrollere\LAB3\tema\c\progresie_aritmetica\progresie_aritmetica.c"
 NOP ;#
 psect	maintext
-	line	16
+	line	21
 	
 l170:	
 	global	start
