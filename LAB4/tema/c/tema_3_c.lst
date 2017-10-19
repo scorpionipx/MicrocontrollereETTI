@@ -1,0 +1,707 @@
+
+
+HI-TECH Software PIC LITE Macro Assembler V9.81 build 7503 
+                                                                                               Thu Oct 19 16:54:29 2017
+
+HI-TECH Software Omniscient Code Generator (Lite mode) build 7503
+     1  0000                     opt subtitle "HI-TECH Software Omniscient Code Generator (Lite mode) build 7503"
+     2                           
+     3                           opt pagewidth 120
+     4                           
+     5                           	opt lm
+     6                           
+     7                           	processor	16F84
+     8                           clrc	macro
+     9                           	bcf	3,0
+    10  0000                     	endm
+    11                           clrz	macro
+    12                           	bcf	3,2
+    13  0000                     	endm
+    14                           setc	macro
+    15                           	bsf	3,0
+    16  0000                     	endm
+    17                           setz	macro
+    18                           	bsf	3,2
+    19  0000                     	endm
+    20                           skipc	macro
+    21                           	btfss	3,0
+    22  0000                     	endm
+    23                           skipz	macro
+    24                           	btfss	3,2
+    25  0000                     	endm
+    26                           skipnc	macro
+    27                           	btfsc	3,0
+    28  0000                     	endm
+    29                           skipnz	macro
+    30                           	btfsc	3,2
+    31  0000                     	endm
+    32  0000                     indf	equ	0
+    33  0000                     indf0	equ	0
+    34  0002                     pc	equ	2
+    35  0002                     pcl	equ	2
+    36  0003                     status	equ	3
+    37  0004                     fsr	equ	4
+    38  0004                     fsr0	equ	4
+    39  0001                     c	equ	1
+    40  0000                     z	equ	0
+    41  000A                     pclath	equ	10
+    42                           	FNCALL	_main,_calc_Y
+    43                           	FNCALL	_calc_Y,___wmul
+    44                           	FNROOT	_main
+    45                           psect	text135,local,class=CODE,delta=2
+    46                           global __ptext135
+    47  0000                     __ptext135:
+    48                           	file	"tema_3_c.as"
+    49                           	line	#
+    50                           psect cinit,class=CODE,delta=2
+    51                           global start_initialization
+    52  033B                     start_initialization:
+    53                           
+    54                           psect cinit,class=CODE,delta=2
+    55                           global end_of_initialization
+    56                           
+    57                           ;End of C runtime variable initialization code
+    58                           
+    59  033B                     end_of_initialization:
+    60  033B  0183               clrf status
+    61  033C  2B68               ljmp _main	;jump to C main() function
+    62                           psect	cstackCOMMON,class=COMMON,space=1
+    63                           global __pcstackCOMMON
+    64  0000                     __pcstackCOMMON:
+    65                           	global	??___wmul
+    66  0000                     ??___wmul:	; 0 bytes @ 0x0
+    67                           psect	cstackBANK0,class=BANK0,space=1
+    68                           global __pcstackBANK0
+    69  000C                     __pcstackBANK0:
+    70                           	global	?_main
+    71  000C                     ?_main:	; 2 bytes @ 0x0
+    72                           	global	?___wmul
+    73  000C                     ?___wmul:	; 2 bytes @ 0x0
+    74                           	global	___wmul@multiplier
+    75  000C                     ___wmul@multiplier:	; 2 bytes @ 0x0
+    76  000C                     	ds	2
+    77                           	global	___wmul@multiplicand
+    78  000E                     ___wmul@multiplicand:	; 2 bytes @ 0x2
+    79  000E                     	ds	2
+    80                           	global	___wmul@product
+    81  0010                     ___wmul@product:	; 2 bytes @ 0x4
+    82  0010                     	ds	2
+    83                           	global	?_calc_Y
+    84  0012                     ?_calc_Y:	; 2 bytes @ 0x6
+    85                           	global	calc_Y@coef_1
+    86  0012                     calc_Y@coef_1:	; 1 bytes @ 0x6
+    87  0012                     	ds	1
+    88                           	global	calc_Y@_y
+    89  0013                     calc_Y@_y:	; 2 bytes @ 0x7
+    90  0013                     	ds	2
+    91                           	global	??_calc_Y
+    92  0015                     ??_calc_Y:	; 0 bytes @ 0x9
+    93  0015                     	ds	10
+    94                           	global	calc_Y@coef_0
+    95  001F                     calc_Y@coef_0:	; 1 bytes @ 0x13
+    96  001F                     	ds	1
+    97                           	global	calc_Y@result
+    98  0020                     calc_Y@result:	; 2 bytes @ 0x14
+    99  0020                     	ds	2
+   100                           	global	??_main
+   101  0022                     ??_main:	; 0 bytes @ 0x16
+   102  0022                     	ds	1
+   103                           	global	main@y0
+   104  0023                     main@y0:	; 2 bytes @ 0x17
+   105  0023                     	ds	2
+   106                           	global	main@y1
+   107  0025                     main@y1:	; 2 bytes @ 0x19
+   108  0025                     	ds	2
+   109                           	global	main@x0
+   110  0027                     main@x0:	; 1 bytes @ 0x1B
+   111  0027                     	ds	1
+   112                           	global	main@x1
+   113  0028                     main@x1:	; 1 bytes @ 0x1C
+   114  0028                     	ds	1
+   115                           	global	main@i
+   116  0029                     main@i:	; 1 bytes @ 0x1D
+   117  0029                     	ds	1
+   118 ;;Data sizes: Strings 0, constant 0, data 0, bss 0, persistent 0 stack 0
+   119 ;;Auto spaces:   Size  Autos    Used
+   120 ;; COMMON           0      0       0
+   121 ;; BANK0           66     30      30
+   122                           
+   123 ;;
+   124 ;; Pointer list with targets:
+   125                           
+   126 ;; ?___wmul	unsigned int  size(1) Largest target is 0
+   127 ;;
+   128 ;; ?_calc_Y	int  size(1) Largest target is 1
+   129 ;;		 -> calc_Y@coef_0(BANK0[1]), 
+   130 ;;
+   131                           
+   132                           
+   133 ;;
+   134 ;; Critical Paths under _main in COMMON
+   135 ;;
+   136 ;;   None.
+   137 ;;
+   138 ;; Critical Paths under _main in BANK0
+   139 ;;
+   140 ;;   _main->_calc_Y
+   141 ;;   _calc_Y->___wmul
+   142                           
+   143 ;;
+   144 ;;Main: autosize = 0, tempsize = 1, incstack = 0, save=0
+   145 ;;
+   146                           
+   147 ;;
+   148 ;;Call Graph Tables:
+   149 ;;
+   150 ;; ---------------------------------------------------------------------------------
+   151 ;; (Depth) Function   	        Calls       Base Space   Used Autos Params    Refs
+   152 ;; ---------------------------------------------------------------------------------
+   153 ;; (0) _main                                                 8     8      0     322
+   154 ;;                                             22 BANK0      8     8      0
+   155 ;;                             _calc_Y
+   156 ;; ---------------------------------------------------------------------------------
+   157 ;; (1) _calc_Y                                              16    13      3     182
+   158 ;;                                              6 BANK0     16    13      3
+   159 ;;                             ___wmul
+   160 ;; ---------------------------------------------------------------------------------
+   161 ;; (2) ___wmul                                               6     2      4      92
+   162 ;;                                              0 BANK0      6     2      4
+   163 ;; ---------------------------------------------------------------------------------
+   164 ;; Estimated maximum stack depth 2
+   165 ;; ---------------------------------------------------------------------------------
+   166                           
+   167 ;; Call Graph Graphs:
+   168                           
+   169 ;; _main (ROOT)
+   170 ;;   _calc_Y
+   171 ;;     ___wmul
+   172 ;;
+   173                           
+   174 ;; Address spaces:
+   175                           
+   176 ;;Name               Size   Autos  Total    Cost      Usage
+   177 ;;BITCOMMON            0      0       0       0        0.0%
+   178 ;;EEDATA              40      0       0       0        0.0%
+   179 ;;NULL                 0      0       0       0        0.0%
+   180 ;;CODE                 0      0       0       0        0.0%
+   181 ;;BITSFR0              0      0       0       1        0.0%
+   182 ;;SFR0                 0      0       0       1        0.0%
+   183 ;;COMMON               0      0       0       1        0.0%
+   184 ;;BITSFR1              0      0       0       2        0.0%
+   185 ;;SFR1                 0      0       0       2        0.0%
+   186 ;;STACK                0      0       2       2        0.0%
+   187 ;;BANK0               42     1E      1E       3       45.5%
+   188 ;;ABS                  0      0       0       4        0.0%
+   189 ;;BITBANK0            42      0       0       5        0.0%
+   190 ;;DATA                 0      0       0       6        0.0%
+   191                           
+   192                           	global	_main
+   193                           psect	maintext,global,class=CODE,delta=2
+   194                           global __pmaintext
+   195  0368                     __pmaintext:
+   196                           
+   197 ;; *************** function _main *****************
+   198 ;; Defined at:
+   199 ;;		line 29 in file "D:\Home\Embedded\AVR\MicrocontrollereETTI\LAB4\tema\c\filtru.c"
+   200 ;; Parameters:    Size  Location     Type
+   201 ;;		None
+   202 ;; Auto vars:     Size  Location     Type
+   203 ;;  i               1   29[BANK0 ] unsigned char 
+   204 ;;  y1              2   25[BANK0 ] int 
+   205 ;;  y0              2   23[BANK0 ] int 
+   206 ;;  x1              1   28[BANK0 ] unsigned char 
+   207 ;;  x0              1   27[BANK0 ] unsigned char 
+   208 ;; Return value:  Size  Location     Type
+   209 ;;                  2  168[BANK0 ] int 
+   210 ;; Registers used:
+   211 ;;		wreg, status,2, status,0, btemp+1, pclath, cstack
+   212 ;; Tracked objects:
+   213 ;;		On entry : 17F/0
+   214 ;;		On exit  : 0/0
+   215 ;;		Unchanged: 0/0
+   216 ;; Data sizes:     COMMON   BANK0
+   217 ;;      Params:         0       0
+   218 ;;      Locals:         0       7
+   219 ;;      Temps:          0       1
+   220 ;;      Totals:         0       8
+   221 ;;Total ram usage:        8 bytes
+   222 ;; Hardware stack levels required when called:    2
+   223 ;; This function calls:
+   224 ;;		_calc_Y
+   225 ;; This function is called by:
+   226 ;;		Startup code after reset
+   227 ;; This function uses a non-reentrant model
+   228 ;;
+   229                           psect	maintext
+   230                           	file	"D:\Home\Embedded\AVR\MicrocontrollereETTI\LAB4\tema\c\filtru.c"
+   231                           	line	29
+   232                           	global	__size_of_main
+   233  0041                     	__size_of_main	equ	__end_of_main-_main
+   234                           	
+   235  0368                     _main:	
+   236                           	opt	stack 6
+   237                           ; Regs used in _main: [wreg+status,2+status,0+btemp+1+pclath+cstack]
+   238                           	line	30
+   239                           	
+   240  0368                     l1419:	
+   241                           ;filtru.c: 30: char x0 = 15;
+   242  0368  300F               	movlw	(0Fh)
+   243  0369  1283               	bcf	status, 5	;RP0=0, select bank0
+   244  036A  00A2               	movwf	(??_main+0)+0
+   245  036B  0822               	movf	(??_main+0)+0,w
+   246  036C  00A7               	movwf	(main@x0)
+   247                           	line	31
+   248                           ;filtru.c: 31: char x1 = 11;
+   249  036D  300B               	movlw	(0Bh)
+   250  036E  00A2               	movwf	(??_main+0)+0
+   251  036F  0822               	movf	(??_main+0)+0,w
+   252  0370  00A8               	movwf	(main@x1)
+   253                           	line	32
+   254                           ;filtru.c: 32: int y0 = 13;
+   255  0371  300D               	movlw	low(0Dh)
+   256  0372  00A3               	movwf	(main@y0)
+   257  0373  3000               	movlw	high(0Dh)
+   258  0374  00A4               	movwf	((main@y0))+1
+   259                           	line	33
+   260                           	
+   261  0375                     l1421:	
+   262                           ;filtru.c: 33: int y1 = 0;
+   263  0375  01A5               	clrf	(main@y1)
+   264  0376  01A6               	clrf	(main@y1+1)
+   265                           	line	35
+   266                           	
+   267  0377                     l1423:	
+   268                           # 35 "D:\Home\Embedded\AVR\MicrocontrollereETTI\LAB4\tema\c\filtru.c"
+   269  0377  0000               NOP ;#
+   270                           psect	maintext
+   271                           	line	37
+   272                           	
+   273  0378                     l1425:	
+   274                           ;filtru.c: 37: for(unsigned char i = 0; i< 5; i++)
+   275  0378  1283               	bcf	status, 5	;RP0=0, select bank0
+   276  0379  01A9               	clrf	(main@i)
+   277                           	
+   278  037A                     l1427:	
+   279  037A  3005               	movlw	(05h)
+   280  037B  0229               	subwf	(main@i),w
+   281  037C  1C03               	skipc
+   282  037D  2B7F               	goto	u2221
+   283  037E  2B80               	goto	u2220
+   284  037F                     u2221:
+   285  037F  2B82               	goto	l1431
+   286  0380                     u2220:
+   287  0380  2BA7               	goto	l170
+   288                           	
+   289  0381                     l1429:	
+   290  0381  2BA7               	goto	l170
+   291                           	line	38
+   292                           	
+   293  0382                     l169:	
+   294                           	line	39
+   295                           	
+   296  0382                     l1431:	
+   297                           ;filtru.c: 38: {
+   298                           ;filtru.c: 39: y1 = calc_Y(x0, x1, y0);
+   299  0382  0828               	movf	(main@x1),w
+   300  0383  00A2               	movwf	(??_main+0)+0
+   301  0384  0822               	movf	(??_main+0)+0,w
+   302  0385  0092               	movwf	(?_calc_Y)
+   303  0386  0824               	movf	(main@y0+1),w
+   304  0387  0194               	clrf	1+(?_calc_Y)+01h
+   305  0388  0794               	addwf	1+(?_calc_Y)+01h
+   306  0389  0823               	movf	(main@y0),w
+   307  038A  0193               	clrf	0+(?_calc_Y)+01h
+   308  038B  0793               	addwf	0+(?_calc_Y)+01h
+   309                           
+   310  038C  0827               	movf	(main@x0),w
+   311  038D  23A9               	fcall	_calc_Y
+   312  038E  1283               	bcf	status, 5	;RP0=0, select bank0
+   313  038F  0813               	movf	(1+(?_calc_Y)),w
+   314  0390  01A6               	clrf	(main@y1+1)
+   315  0391  07A6               	addwf	(main@y1+1)
+   316  0392  0812               	movf	(0+(?_calc_Y)),w
+   317  0393  01A5               	clrf	(main@y1)
+   318  0394  07A5               	addwf	(main@y1)
+   319                           
+   320                           	line	41
+   321                           	
+   322  0395                     l1433:	
+   323                           ;filtru.c: 41: y0 = y1;
+   324  0395  0826               	movf	(main@y1+1),w
+   325  0396  01A4               	clrf	(main@y0+1)
+   326  0397  07A4               	addwf	(main@y0+1)
+   327  0398  0825               	movf	(main@y1),w
+   328  0399  01A3               	clrf	(main@y0)
+   329  039A  07A3               	addwf	(main@y0)
+   330                           
+   331                           	line	42
+   332                           	
+   333  039B                     l1435:	
+   334                           # 42 "D:\Home\Embedded\AVR\MicrocontrollereETTI\LAB4\tema\c\filtru.c"
+   335  039B  0000               NOP ;#
+   336                           psect	maintext
+   337                           	line	37
+   338                           	
+   339  039C                     l1437:	
+   340  039C  3001               	movlw	(01h)
+   341  039D  1283               	bcf	status, 5	;RP0=0, select bank0
+   342  039E  00A2               	movwf	(??_main+0)+0
+   343  039F  0822               	movf	(??_main+0)+0,w
+   344  03A0  07A9               	addwf	(main@i),f
+   345                           	
+   346  03A1                     l1439:	
+   347  03A1  3005               	movlw	(05h)
+   348  03A2  0229               	subwf	(main@i),w
+   349  03A3  1C03               	skipc
+   350  03A4  2BA6               	goto	u2231
+   351  03A5  2BA7               	goto	u2230
+   352  03A6                     u2231:
+   353  03A6  2B82               	goto	l1431
+   354  03A7                     u2230:
+   355                           	
+   356  03A7                     l170:	
+   357                           	line	45
+   358                           # 45 "D:\Home\Embedded\AVR\MicrocontrollereETTI\LAB4\tema\c\filtru.c"
+   359  03A7  0000               NOP ;#
+   360                           psect	maintext
+   361                           	line	46
+   362                           	
+   363  03A8                     l171:	
+   364                           	global	start
+   365  03A8  2800               	ljmp	start
+   366                           	opt stack 0
+   367                           GLOBAL	__end_of_main
+   368  03A9                     	__end_of_main:
+   369 ;; =============== function _main ends ============
+   370                           
+   371                           	signat	_main,90
+   372                           	global	_calc_Y
+   373                           psect	text136,local,class=CODE,delta=2
+   374                           global __ptext136
+   375  03A9                     __ptext136:
+   376                           
+   377 ;; *************** function _calc_Y *****************
+   378 ;; Defined at:
+   379 ;;		line 49 in file "D:\Home\Embedded\AVR\MicrocontrollereETTI\LAB4\tema\c\filtru.c"
+   380 ;; Parameters:    Size  Location     Type
+   381 ;;  coef_0          1    wreg     const unsigned char 
+   382 ;;  coef_1          1    6[BANK0 ] const unsigned char 
+   383 ;;  _y              2    7[BANK0 ] const int 
+   384 ;; Auto vars:     Size  Location     Type
+   385 ;;  coef_0          1   19[BANK0 ] const unsigned char 
+   386 ;;  result          2   20[BANK0 ] int 
+   387 ;; Return value:  Size  Location     Type
+   388 ;;                  2    6[BANK0 ] int 
+   389 ;; Registers used:
+   390 ;;		wreg, status,2, status,0, btemp+1, pclath, cstack
+   391 ;; Tracked objects:
+   392 ;;		On entry : 0/0
+   393 ;;		On exit  : 0/0
+   394 ;;		Unchanged: 0/0
+   395 ;; Data sizes:     COMMON   BANK0
+   396 ;;      Params:         0       3
+   397 ;;      Locals:         0       3
+   398 ;;      Temps:          0      10
+   399 ;;      Totals:         0      16
+   400 ;;Total ram usage:       16 bytes
+   401 ;; Hardware stack levels used:    1
+   402 ;; Hardware stack levels required when called:    1
+   403 ;; This function calls:
+   404 ;;		___wmul
+   405 ;; This function is called by:
+   406 ;;		_main
+   407 ;; This function uses a non-reentrant model
+   408 ;;
+   409                           psect	text136
+   410                           	file	"D:\Home\Embedded\AVR\MicrocontrollereETTI\LAB4\tema\c\filtru.c"
+   411                           	line	49
+   412                           	global	__size_of_calc_Y
+   413  0057                     	__size_of_calc_Y	equ	__end_of_calc_Y-_calc_Y
+   414                           	
+   415  03A9                     _calc_Y:	
+   416                           	opt	stack 6
+   417                           ; Regs used in _calc_Y: [wreg+status,2+status,0+btemp+1+pclath+cstack]
+   418                           ;calc_Y@coef_0 stored from wreg
+   419  03A9  1283               	bcf	status, 5	;RP0=0, select bank0
+   420  03AA  009F               	movwf	(calc_Y@coef_0)
+   421                           	line	50
+   422                           	
+   423  03AB                     l1409:	
+   424                           ;filtru.c: 50: int result = 38 * coef_0 - 29 * coef_1 - 22 * _y;
+   425  03AB  0814               	movf	(calc_Y@_y+1),w
+   426  03AC  018D               	clrf	(?___wmul+1)
+   427  03AD  078D               	addwf	(?___wmul+1)
+   428  03AE  0813               	movf	(calc_Y@_y),w
+   429  03AF  018C               	clrf	(?___wmul)
+   430  03B0  078C               	addwf	(?___wmul)
+   431                           
+   432  03B1  3016               	movlw	low(016h)
+   433  03B2  008E               	movwf	0+(?___wmul)+02h
+   434  03B3  3000               	movlw	high(016h)
+   435  03B4  008F               	movwf	(0+(?___wmul)+02h)+1
+   436  03B5  233D               	fcall	___wmul
+   437  03B6  1283               	bcf	status, 5	;RP0=0, select bank0
+   438  03B7  090C               	comf	(0+(?___wmul)),w
+   439  03B8  0095               	movwf	(??_calc_Y+0)+0
+   440  03B9  090D               	comf	(1+(?___wmul)),w
+   441  03BA  0096               	movwf	((??_calc_Y+0)+0+1)
+   442  03BB  0A95               	incf	(??_calc_Y+0)+0,f
+   443  03BC  1903               	skipnz
+   444  03BD  0A96               	incf	((??_calc_Y+0)+0+1),f
+   445  03BE  0812               	movf	(calc_Y@coef_1),w
+   446  03BF  0097               	movwf	(??_calc_Y+2)+0
+   447  03C0  0198               	clrf	(??_calc_Y+2)+0+1
+   448  03C1  0817               	movf	0+(??_calc_Y+2)+0,w
+   449  03C2  008C               	movwf	(?___wmul)
+   450  03C3  0818               	movf	1+(??_calc_Y+2)+0,w
+   451  03C4  008D               	movwf	(?___wmul+1)
+   452  03C5  301D               	movlw	low(01Dh)
+   453  03C6  008E               	movwf	0+(?___wmul)+02h
+   454  03C7  3000               	movlw	high(01Dh)
+   455  03C8  008F               	movwf	(0+(?___wmul)+02h)+1
+   456  03C9  233D               	fcall	___wmul
+   457  03CA  1283               	bcf	status, 5	;RP0=0, select bank0
+   458  03CB  090C               	comf	(0+(?___wmul)),w
+   459  03CC  0099               	movwf	(??_calc_Y+4)+0
+   460  03CD  090D               	comf	(1+(?___wmul)),w
+   461  03CE  009A               	movwf	((??_calc_Y+4)+0+1)
+   462  03CF  0A99               	incf	(??_calc_Y+4)+0,f
+   463  03D0  1903               	skipnz
+   464  03D1  0A9A               	incf	((??_calc_Y+4)+0+1),f
+   465  03D2  081F               	movf	(calc_Y@coef_0),w
+   466  03D3  009B               	movwf	(??_calc_Y+6)+0
+   467  03D4  019C               	clrf	(??_calc_Y+6)+0+1
+   468  03D5  081B               	movf	0+(??_calc_Y+6)+0,w
+   469  03D6  008C               	movwf	(?___wmul)
+   470  03D7  081C               	movf	1+(??_calc_Y+6)+0,w
+   471  03D8  008D               	movwf	(?___wmul+1)
+   472  03D9  3026               	movlw	low(026h)
+   473  03DA  008E               	movwf	0+(?___wmul)+02h
+   474  03DB  3000               	movlw	high(026h)
+   475  03DC  008F               	movwf	(0+(?___wmul)+02h)+1
+   476  03DD  233D               	fcall	___wmul
+   477  03DE  1283               	bcf	status, 5	;RP0=0, select bank0
+   478  03DF  0819               	movf	0+(??_calc_Y+4)+0,w
+   479  03E0  070C               	addwf	(0+(?___wmul)),w
+   480  03E1  009D               	movwf	(??_calc_Y+8)+0
+   481  03E2  081A               	movf	1+(??_calc_Y+4)+0,w
+   482  03E3  1803               	skipnc
+   483  03E4  0A1A               	incf	1+(??_calc_Y+4)+0,w
+   484  03E5  070D               	addwf	(1+(?___wmul)),w
+   485  03E6  009E               	movwf	1+(??_calc_Y+8)+0
+   486  03E7  0815               	movf	0+(??_calc_Y+0)+0,w
+   487  03E8  071D               	addwf	0+(??_calc_Y+8)+0,w
+   488  03E9  00A0               	movwf	(calc_Y@result)
+   489  03EA  0816               	movf	1+(??_calc_Y+0)+0,w
+   490  03EB  1803               	skipnc
+   491  03EC  0A16               	incf	1+(??_calc_Y+0)+0,w
+   492  03ED  071E               	addwf	1+(??_calc_Y+8)+0,w
+   493  03EE  00A1               	movwf	1+(calc_Y@result)
+   494                           	line	51
+   495                           	
+   496  03EF                     l1411:	
+   497                           ;filtru.c: 51: result >>= 5;
+   498  03EF  3005               	movlw	05h
+   499  03F0  00CF               	movwf	btemp+1
+   500  03F1                     u2215:
+   501  03F1  0D21               	rlf	(calc_Y@result+1),w
+   502  03F2  0CA1               	rrf	(calc_Y@result+1),f
+   503  03F3  0CA0               	rrf	(calc_Y@result),f
+   504  03F4  0BCF               	decfsz	btemp+1,f
+   505  03F5  2BF1               	goto	u2215
+   506                           	line	52
+   507                           	
+   508  03F6                     l1413:	
+   509                           ;filtru.c: 52: return result;
+   510  03F6  0821               	movf	(calc_Y@result+1),w
+   511  03F7  0193               	clrf	(?_calc_Y+1)
+   512  03F8  0793               	addwf	(?_calc_Y+1)
+   513  03F9  0820               	movf	(calc_Y@result),w
+   514  03FA  0192               	clrf	(?_calc_Y)
+   515  03FB  0792               	addwf	(?_calc_Y)
+   516                           
+   517  03FC  2BFF               	goto	l174
+   518                           	
+   519  03FD                     l1415:	
+   520  03FD  2BFF               	goto	l174
+   521                           	line	53
+   522                           	
+   523  03FE                     l1417:	
+   524                           # 53 "D:\Home\Embedded\AVR\MicrocontrollereETTI\LAB4\tema\c\filtru.c"
+   525  03FE  0000               NOP ;#
+   526                           psect	text136
+   527                           	line	54
+   528                           	
+   529  03FF                     l174:	
+   530  03FF  0008               	return
+   531                           	opt stack 0
+   532                           GLOBAL	__end_of_calc_Y
+   533  0400                     	__end_of_calc_Y:
+   534 ;; =============== function _calc_Y ends ============
+   535                           
+   536                           	signat	_calc_Y,12410
+   537                           	global	___wmul
+   538                           psect	text137,local,class=CODE,delta=2
+   539                           global __ptext137
+   540  033D                     __ptext137:
+   541                           
+   542 ;; *************** function ___wmul *****************
+   543 ;; Defined at:
+   544 ;;		line 3 in file "C:\Program Files (x86)\HI-TECH Software\PICC\9.81\sources\wmul.c"
+   545 ;; Parameters:    Size  Location     Type
+   546 ;;  multiplier      2    0[BANK0 ] unsigned int 
+   547 ;;  multiplicand    2    2[BANK0 ] unsigned int 
+   548 ;; Auto vars:     Size  Location     Type
+   549 ;;  product         2    4[BANK0 ] unsigned int 
+   550 ;; Return value:  Size  Location     Type
+   551 ;;                  2    0[BANK0 ] unsigned int 
+   552 ;; Registers used:
+   553 ;;		wreg, status,2, status,0
+   554 ;; Tracked objects:
+   555 ;;		On entry : 0/0
+   556 ;;		On exit  : 0/0
+   557 ;;		Unchanged: 0/0
+   558 ;; Data sizes:     COMMON   BANK0
+   559 ;;      Params:         0       4
+   560 ;;      Locals:         0       2
+   561 ;;      Temps:          0       0
+   562 ;;      Totals:         0       6
+   563 ;;Total ram usage:        6 bytes
+   564 ;; Hardware stack levels used:    1
+   565 ;; This function calls:
+   566 ;;		Nothing
+   567 ;; This function is called by:
+   568 ;;		_calc_Y
+   569 ;; This function uses a non-reentrant model
+   570 ;;
+   571                           psect	text137
+   572                           	file	"C:\Program Files (x86)\HI-TECH Software\PICC\9.81\sources\wmul.c"
+   573                           	line	3
+   574                           	global	__size_of___wmul
+   575  002B                     	__size_of___wmul	equ	__end_of___wmul-___wmul
+   576                           	
+   577  033D                     ___wmul:	
+   578                           	opt	stack 6
+   579                           ; Regs used in ___wmul: [wreg+status,2+status,0]
+   580                           	line	4
+   581                           	
+   582  033D                     l1397:	
+   583  033D  1283               	bcf	status, 5	;RP0=0, select bank0
+   584  033E  0190               	clrf	(___wmul@product)
+   585  033F  0191               	clrf	(___wmul@product+1)
+   586  0340  2B41               	goto	l1399
+   587                           	line	6
+   588                           	
+   589  0341                     l183:	
+   590                           	line	7
+   591                           	
+   592  0341                     l1399:	
+   593  0341  1C0C               	btfss	(___wmul@multiplier),(0)&7
+   594  0342  2B44               	goto	u2171
+   595  0343  2B45               	goto	u2170
+   596  0344                     u2171:
+   597  0344  2B4B               	goto	l184
+   598  0345                     u2170:
+   599                           	line	8
+   600                           	
+   601  0345                     l1401:	
+   602  0345  080E               	movf	(___wmul@multiplicand),w
+   603  0346  0790               	addwf	(___wmul@product),f
+   604  0347  1803               	skipnc
+   605  0348  0A91               	incf	(___wmul@product+1),f
+   606  0349  080F               	movf	(___wmul@multiplicand+1),w
+   607  034A  0791               	addwf	(___wmul@product+1),f
+   608                           	
+   609  034B                     l184:	
+   610                           	line	9
+   611  034B  3001               	movlw	01h
+   612                           	
+   613  034C                     u2185:
+   614  034C  1003               	clrc
+   615  034D  0D8E               	rlf	(___wmul@multiplicand),f
+   616  034E  0D8F               	rlf	(___wmul@multiplicand+1),f
+   617  034F  3EFF               	addlw	-1
+   618  0350  1D03               	skipz
+   619  0351  2B4C               	goto	u2185
+   620                           	line	10
+   621                           	
+   622  0352                     l1403:	
+   623  0352  3001               	movlw	01h
+   624                           	
+   625  0353                     u2195:
+   626  0353  1003               	clrc
+   627  0354  0C8D               	rrf	(___wmul@multiplier+1),f
+   628  0355  0C8C               	rrf	(___wmul@multiplier),f
+   629  0356  3EFF               	addlw	-1
+   630  0357  1D03               	skipz
+   631  0358  2B53               	goto	u2195
+   632                           	line	11
+   633  0359  080D               	movf	((___wmul@multiplier+1)),w
+   634  035A  040C               	iorwf	((___wmul@multiplier)),w
+   635  035B  1D03               	skipz
+   636  035C  2B5E               	goto	u2201
+   637  035D  2B5F               	goto	u2200
+   638  035E                     u2201:
+   639  035E  2B41               	goto	l1399
+   640  035F                     u2200:
+   641  035F  2B60               	goto	l1405
+   642                           	
+   643  0360                     l185:	
+   644                           	line	12
+   645                           	
+   646  0360                     l1405:	
+   647  0360  0811               	movf	(___wmul@product+1),w
+   648  0361  018D               	clrf	(?___wmul+1)
+   649  0362  078D               	addwf	(?___wmul+1)
+   650  0363  0810               	movf	(___wmul@product),w
+   651  0364  018C               	clrf	(?___wmul)
+   652  0365  078C               	addwf	(?___wmul)
+   653                           
+   654  0366  2B67               	goto	l186
+   655                           	
+   656  0367                     l1407:	
+   657                           	line	13
+   658                           	
+   659  0367                     l186:	
+   660  0367  0008               	return
+   661                           	opt stack 0
+   662                           GLOBAL	__end_of___wmul
+   663  0368                     	__end_of___wmul:
+   664 ;; =============== function ___wmul ends ============
+   665                           
+   666                           	signat	___wmul,8314
+   667                           psect	text138,local,class=CODE,delta=2
+   668                           global __ptext138
+   669  0000                     __ptext138:
+   670                           	global	btemp
+   671  004E                     	btemp set 04Eh
+   672                           
+   673                           	DABS	1,78,2	;btemp
+   674                           	global	wtemp0
+   675  004E                     	wtemp0 set btemp
+
+
+HI-TECH Software PICC Macro Assembler V9.81 build 7503 
+Symbol Table                                                                                   Thu Oct 19 16:54:29 2017
+
+ ___wmul@multiplicand 000E                   l170 03A7                   l171 03A8                   l174 03FF  
+                 l183 0341                   l184 034B                   l185 0360                   l169 0382  
+                 l186 0367                  l1401 0345                  l1403 0352                  l1411 03EF  
+                l1405 0360                  l1413 03F6                  l1421 0375                  l1407 0367  
+                l1415 03FD                  l1431 0382                  l1423 0377                  l1417 03FE  
+                l1409 03AB                  l1433 0395                  l1425 0378                  l1435 039B  
+                l1427 037A                  l1419 0368                  l1437 039C                  l1429 0381  
+                l1439 03A1                  l1397 033D                  l1399 0341                  u2200 035F  
+                u2201 035E                  u2220 0380                  u2221 037F                  u2230 03A7  
+                u2215 03F1                  u2231 03A6                  u2170 0345                  u2171 0344  
+                u2185 034C                  u2195 0353                  _main 0368                  btemp 004E  
+                start 0000                 ?_main 000C                 main@i 0029                 status 0003  
+               wtemp0 004E          __end_of_main 03A9                ??_main 0022                _calc_Y 03A9  
+              ___wmul 033D                main@x0 0027                main@x1 0028                main@y0 0023  
+              main@y1 0025        __pcstackCOMMON 0000            __pmaintext 0368               ?_calc_Y 0012  
+             ?___wmul 000C       __size_of_calc_Y 0057       __size_of___wmul 002B          calc_Y@coef_0 001F  
+        calc_Y@coef_1 0012          calc_Y@result 0020  end_of_initialization 033B        __end_of_calc_Y 0400  
+      __end_of___wmul 0368   start_initialization 033B              ??_calc_Y 0015              ??___wmul 0000  
+       __pcstackBANK0 000C             __ptext135 0000             __ptext136 03A9             __ptext137 033D  
+           __ptext138 0000        ___wmul@product 0010     ___wmul@multiplier 000C              calc_Y@_y 0013  
+       __size_of_main 0041  
