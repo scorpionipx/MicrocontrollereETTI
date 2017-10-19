@@ -1,0 +1,487 @@
+
+
+HI-TECH Software PIC LITE Macro Assembler V9.81 build 7503 
+                                                                                               Thu Oct 19 11:32:42 2017
+
+HI-TECH Software Omniscient Code Generator (Lite mode) build 7503
+     1  0000                     opt subtitle "HI-TECH Software Omniscient Code Generator (Lite mode) build 7503"
+     2                           
+     3                           opt pagewidth 120
+     4                           
+     5                           	opt lm
+     6                           
+     7                           	processor	16F84
+     8                           clrc	macro
+     9                           	bcf	3,0
+    10  0000                     	endm
+    11                           clrz	macro
+    12                           	bcf	3,2
+    13  0000                     	endm
+    14                           setc	macro
+    15                           	bsf	3,0
+    16  0000                     	endm
+    17                           setz	macro
+    18                           	bsf	3,2
+    19  0000                     	endm
+    20                           skipc	macro
+    21                           	btfss	3,0
+    22  0000                     	endm
+    23                           skipz	macro
+    24                           	btfss	3,2
+    25  0000                     	endm
+    26                           skipnc	macro
+    27                           	btfsc	3,0
+    28  0000                     	endm
+    29                           skipnz	macro
+    30                           	btfsc	3,2
+    31  0000                     	endm
+    32  0000                     indf	equ	0
+    33  0000                     indf0	equ	0
+    34  0002                     pc	equ	2
+    35  0002                     pcl	equ	2
+    36  0003                     status	equ	3
+    37  0004                     fsr	equ	4
+    38  0004                     fsr0	equ	4
+    39  0001                     c	equ	1
+    40  0000                     z	equ	0
+    41  000A                     pclath	equ	10
+    42                           	FNCALL	_main,_produs
+    43                           	FNROOT	_main
+    44                           psect	maintext,global,class=CODE,delta=2
+    45                           global __pmaintext
+    46  03C1                     __pmaintext:
+    47                           	file	"filtru_digital_c.as"
+    48                           	line	#
+    49                           psect cinit,class=CODE,delta=2
+    50                           global start_initialization
+    51  0397                     start_initialization:
+    52                           
+    53                           psect cinit,class=CODE,delta=2
+    54                           global end_of_initialization
+    55                           
+    56                           ;End of C runtime variable initialization code
+    57                           
+    58  0397                     end_of_initialization:
+    59  0397  0183               clrf status
+    60  0398  2BC1               ljmp _main	;jump to C main() function
+    61                           psect	cstackBANK0,class=BANK0,space=1
+    62                           global __pcstackBANK0
+    63  000C                     __pcstackBANK0:
+    64                           	global	?_main
+    65  000C                     ?_main:	; 0 bytes @ 0x0
+    66                           	global	?_produs
+    67  000C                     ?_produs:	; 2 bytes @ 0x0
+    68                           	global	produs@Rb
+    69  000C                     produs@Rb:	; 1 bytes @ 0x0
+    70  000C                     	ds	2
+    71                           	global	??_produs
+    72  000E                     ??_produs:	; 0 bytes @ 0x2
+    73  000E                     	ds	2
+    74                           	global	produs@Ra
+    75  0010                     produs@Ra:	; 1 bytes @ 0x4
+    76  0010                     	ds	1
+    77                           	global	produs@prod
+    78  0011                     produs@prod:	; 2 bytes @ 0x5
+    79  0011                     	ds	2
+    80                           	global	produs@i
+    81  0013                     produs@i:	; 1 bytes @ 0x7
+    82  0013                     	ds	1
+    83                           	global	??_main
+    84  0014                     ??_main:	; 0 bytes @ 0x8
+    85  0014                     	ds	1
+    86                           	global	main@y
+    87  0015                     main@y:	; 2 bytes @ 0x9
+    88  0015                     	ds	2
+    89                           	global	main@x0
+    90  0017                     main@x0:	; 1 bytes @ 0xB
+    91  0017                     	ds	1
+    92                           	global	main@x1
+    93  0018                     main@x1:	; 1 bytes @ 0xC
+    94  0018                     	ds	1
+    95                           	global	main@x2
+    96  0019                     main@x2:	; 1 bytes @ 0xD
+    97  0019                     	ds	1
+    98 ;;Data sizes: Strings 0, constant 0, data 0, bss 0, persistent 0 stack 0
+    99 ;;Auto spaces:   Size  Autos    Used
+   100 ;; COMMON           0      0       0
+   101 ;; BANK0           66     14      14
+   102                           
+   103 ;;
+   104 ;; Pointer list with targets:
+   105                           
+   106 ;; ?_produs	unsigned int  size(1) Largest target is 0
+   107 ;;
+   108                           
+   109                           
+   110 ;;
+   111 ;; Critical Paths under _main in COMMON
+   112 ;;
+   113 ;;   None.
+   114 ;;
+   115 ;; Critical Paths under _main in BANK0
+   116 ;;
+   117 ;;   _main->_produs
+   118                           
+   119 ;;
+   120 ;;Main: autosize = 0, tempsize = 1, incstack = 0, save=0
+   121 ;;
+   122                           
+   123 ;;
+   124 ;;Call Graph Tables:
+   125 ;;
+   126 ;; ---------------------------------------------------------------------------------
+   127 ;; (Depth) Function   	        Calls       Base Space   Used Autos Params    Refs
+   128 ;; ---------------------------------------------------------------------------------
+   129 ;; (0) _main                                                 6     6      0     187
+   130 ;;                                              8 BANK0      6     6      0
+   131 ;;                             _produs
+   132 ;; ---------------------------------------------------------------------------------
+   133 ;; (1) _produs                                               8     6      2     114
+   134 ;;                                              0 BANK0      8     6      2
+   135 ;; ---------------------------------------------------------------------------------
+   136 ;; Estimated maximum stack depth 1
+   137 ;; ---------------------------------------------------------------------------------
+   138                           
+   139 ;; Call Graph Graphs:
+   140                           
+   141 ;; _main (ROOT)
+   142 ;;   _produs
+   143 ;;
+   144                           
+   145 ;; Address spaces:
+   146                           
+   147 ;;Name               Size   Autos  Total    Cost      Usage
+   148 ;;BITCOMMON            0      0       0       0        0.0%
+   149 ;;EEDATA              40      0       0       0        0.0%
+   150 ;;NULL                 0      0       0       0        0.0%
+   151 ;;CODE                 0      0       0       0        0.0%
+   152 ;;BITSFR0              0      0       0       1        0.0%
+   153 ;;SFR0                 0      0       0       1        0.0%
+   154 ;;COMMON               0      0       0       1        0.0%
+   155 ;;BITSFR1              0      0       0       2        0.0%
+   156 ;;SFR1                 0      0       0       2        0.0%
+   157 ;;STACK                0      0       1       2        0.0%
+   158 ;;BANK0               42      E       E       3       21.2%
+   159 ;;ABS                  0      0       0       4        0.0%
+   160 ;;BITBANK0            42      0       0       5        0.0%
+   161 ;;DATA                 0      0       0       6        0.0%
+   162                           
+   163                           	global	_main
+   164                           psect	maintext
+   165                           
+   166 ;; *************** function _main *****************
+   167 ;; Defined at:
+   168 ;;		line 6 in file "D:\Documents\Facultate\Anul IV\Microcontrollere\LAB4\in_laborator\filtru_digita_cl.c"
+   169 ;; Parameters:    Size  Location     Type
+   170 ;;		None
+   171 ;; Auto vars:     Size  Location     Type
+   172 ;;  y               2    9[BANK0 ] unsigned int 
+   173 ;;  x2              1   13[BANK0 ] unsigned char 
+   174 ;;  x1              1   12[BANK0 ] unsigned char 
+   175 ;;  x0              1   11[BANK0 ] unsigned char 
+   176 ;; Return value:  Size  Location     Type
+   177 ;;		None               void
+   178 ;; Registers used:
+   179 ;;		wreg, status,2, status,0, pclath, cstack
+   180 ;; Tracked objects:
+   181 ;;		On entry : 17F/0
+   182 ;;		On exit  : 0/0
+   183 ;;		Unchanged: 0/0
+   184 ;; Data sizes:     COMMON   BANK0
+   185 ;;      Params:         0       0
+   186 ;;      Locals:         0       5
+   187 ;;      Temps:          0       1
+   188 ;;      Totals:         0       6
+   189 ;;Total ram usage:        6 bytes
+   190 ;; Hardware stack levels required when called:    1
+   191 ;; This function calls:
+   192 ;;		_produs
+   193 ;; This function is called by:
+   194 ;;		Startup code after reset
+   195 ;; This function uses a non-reentrant model
+   196 ;;
+   197                           psect	maintext
+   198                           	file	"D:\Documents\Facultate\Anul IV\Microcontrollere\LAB4\in_laborator\filtru_digita_c
+                                 l.c"
+   199                           	line	6
+   200                           	global	__size_of_main
+   201  003F                     	__size_of_main	equ	__end_of_main-_main
+   202                           	
+   203  03C1                     _main:	
+   204                           	opt	stack 7
+   205                           ; Regs used in _main: [wreg+status,2+status,0+pclath+cstack]
+   206                           	line	10
+   207                           	
+   208  03C1                     l1355:	
+   209                           ;filtru_digita_cl.c: 7: unsigned char x0, x1, x2;
+   210                           ;filtru_digita_cl.c: 8: unsigned int y;
+   211                           ;filtru_digita_cl.c: 10: x0 = 100;
+   212  03C1  3064               	movlw	(064h)
+   213  03C2  1283               	bcf	status, 5	;RP0=0, select bank0
+   214  03C3  0094               	movwf	(??_main+0)+0
+   215  03C4  0814               	movf	(??_main+0)+0,w
+   216  03C5  0097               	movwf	(main@x0)
+   217                           	line	11
+   218                           ;filtru_digita_cl.c: 11: x1 = 50;
+   219  03C6  3032               	movlw	(032h)
+   220  03C7  0094               	movwf	(??_main+0)+0
+   221  03C8  0814               	movf	(??_main+0)+0,w
+   222  03C9  0098               	movwf	(main@x1)
+   223                           	line	12
+   224                           ;filtru_digita_cl.c: 12: x2 = 25l;
+   225  03CA  3019               	movlw	(019h)
+   226  03CB  0094               	movwf	(??_main+0)+0
+   227  03CC  0814               	movf	(??_main+0)+0,w
+   228  03CD  0099               	movwf	(main@x2)
+   229                           	line	13
+   230                           	
+   231  03CE                     l1357:	
+   232                           # 13 "D:\Documents\Facultate\Anul IV\Microcontrollere\LAB4\in_laborator\filtru_digita_cl
+                                 .c"
+   233  03CE  0000               NOP ;#
+   234                           psect	maintext
+   235                           	line	15
+   236                           	
+   237  03CF                     l1359:	
+   238                           ;filtru_digita_cl.c: 15: y = produs(x0, 6);
+   239  03CF  3006               	movlw	(06h)
+   240  03D0  1283               	bcf	status, 5	;RP0=0, select bank0
+   241  03D1  0094               	movwf	(??_main+0)+0
+   242  03D2  0814               	movf	(??_main+0)+0,w
+   243  03D3  008C               	movwf	(?_produs)
+   244  03D4  0817               	movf	(main@x0),w
+   245  03D5  2399               	fcall	_produs
+   246  03D6  1283               	bcf	status, 5	;RP0=0, select bank0
+   247  03D7  080D               	movf	(1+(?_produs)),w
+   248  03D8  0196               	clrf	(main@y+1)
+   249  03D9  0796               	addwf	(main@y+1)
+   250  03DA  080C               	movf	(0+(?_produs)),w
+   251  03DB  0195               	clrf	(main@y)
+   252  03DC  0795               	addwf	(main@y)
+   253                           
+   254                           	line	16
+   255                           	
+   256  03DD                     l1361:	
+   257                           ;filtru_digita_cl.c: 16: y += produs(x1,6);
+   258  03DD  3006               	movlw	(06h)
+   259  03DE  0094               	movwf	(??_main+0)+0
+   260  03DF  0814               	movf	(??_main+0)+0,w
+   261  03E0  008C               	movwf	(?_produs)
+   262  03E1  0818               	movf	(main@x1),w
+   263  03E2  2399               	fcall	_produs
+   264  03E3  1283               	bcf	status, 5	;RP0=0, select bank0
+   265  03E4  080C               	movf	(0+(?_produs)),w
+   266  03E5  0795               	addwf	(main@y),f
+   267  03E6  1803               	skipnc
+   268  03E7  0A96               	incf	(main@y+1),f
+   269  03E8  080D               	movf	(1+(?_produs)),w
+   270  03E9  0796               	addwf	(main@y+1),f
+   271                           	line	17
+   272                           	
+   273  03EA                     l1363:	
+   274                           ;filtru_digita_cl.c: 17: y += produs(x2, 4);
+   275  03EA  3004               	movlw	(04h)
+   276  03EB  0094               	movwf	(??_main+0)+0
+   277  03EC  0814               	movf	(??_main+0)+0,w
+   278  03ED  008C               	movwf	(?_produs)
+   279  03EE  0819               	movf	(main@x2),w
+   280  03EF  2399               	fcall	_produs
+   281  03F0  1283               	bcf	status, 5	;RP0=0, select bank0
+   282  03F1  080C               	movf	(0+(?_produs)),w
+   283  03F2  0795               	addwf	(main@y),f
+   284  03F3  1803               	skipnc
+   285  03F4  0A96               	incf	(main@y+1),f
+   286  03F5  080D               	movf	(1+(?_produs)),w
+   287  03F6  0796               	addwf	(main@y+1),f
+   288                           	line	19
+   289                           	
+   290  03F7                     l1365:	
+   291                           ;filtru_digita_cl.c: 19: y >>= 4;
+   292  03F7  3004               	movlw	04h
+   293                           	
+   294  03F8                     u2195:
+   295  03F8  1003               	clrc
+   296  03F9  0C96               	rrf	(main@y+1),f
+   297  03FA  0C95               	rrf	(main@y),f
+   298  03FB  3EFF               	addlw	-1
+   299  03FC  1D03               	skipz
+   300  03FD  2BF8               	goto	u2195
+   301                           	line	21
+   302                           	
+   303  03FE                     l1367:	
+   304                           # 21 "D:\Documents\Facultate\Anul IV\Microcontrollere\LAB4\in_laborator\filtru_digita_cl
+                                 .c"
+   305  03FE  0000               NOP ;#
+   306                           psect	maintext
+   307                           	line	22
+   308                           	
+   309  03FF                     l169:	
+   310                           	global	start
+   311  03FF  2800               	ljmp	start
+   312                           	opt stack 0
+   313                           GLOBAL	__end_of_main
+   314  0400                     	__end_of_main:
+   315 ;; =============== function _main ends ============
+   316                           
+   317                           	signat	_main,88
+   318                           	global	_produs
+   319                           psect	text102,local,class=CODE,delta=2
+   320                           global __ptext102
+   321  0399                     __ptext102:
+   322                           
+   323 ;; *************** function _produs *****************
+   324 ;; Defined at:
+   325 ;;		line 25 in file "D:\Documents\Facultate\Anul IV\Microcontrollere\LAB4\in_laborator\filtru_digita_cl.c"
+   326 ;; Parameters:    Size  Location     Type
+   327 ;;  Ra              1    wreg     unsigned char 
+   328 ;;  Rb              1    0[BANK0 ] unsigned char 
+   329 ;; Auto vars:     Size  Location     Type
+   330 ;;  Ra              1    4[BANK0 ] unsigned char 
+   331 ;;  prod            2    5[BANK0 ] unsigned int 
+   332 ;;  i               1    7[BANK0 ] unsigned char 
+   333 ;; Return value:  Size  Location     Type
+   334 ;;                  2    0[BANK0 ] unsigned int 
+   335 ;; Registers used:
+   336 ;;		wreg, status,2, status,0
+   337 ;; Tracked objects:
+   338 ;;		On entry : 0/0
+   339 ;;		On exit  : 0/0
+   340 ;;		Unchanged: 0/0
+   341 ;; Data sizes:     COMMON   BANK0
+   342 ;;      Params:         0       2
+   343 ;;      Locals:         0       4
+   344 ;;      Temps:          0       2
+   345 ;;      Totals:         0       8
+   346 ;;Total ram usage:        8 bytes
+   347 ;; Hardware stack levels used:    1
+   348 ;; This function calls:
+   349 ;;		Nothing
+   350 ;; This function is called by:
+   351 ;;		_main
+   352 ;; This function uses a non-reentrant model
+   353 ;;
+   354                           psect	text102
+   355                           	file	"D:\Documents\Facultate\Anul IV\Microcontrollere\LAB4\in_laborator\filtru_digita_c
+                                 l.c"
+   356                           	line	25
+   357                           	global	__size_of_produs
+   358  0028                     	__size_of_produs	equ	__end_of_produs-_produs
+   359                           	
+   360  0399                     _produs:	
+   361                           	opt	stack 7
+   362                           ; Regs used in _produs: [wreg+status,2+status,0]
+   363                           ;produs@Ra stored from wreg
+   364                           	line	27
+   365  0399  1283               	bcf	status, 5	;RP0=0, select bank0
+   366  039A  0090               	movwf	(produs@Ra)
+   367                           	
+   368  039B                     l1339:	
+   369                           ;filtru_digita_cl.c: 26: unsigned char i;
+   370                           ;filtru_digita_cl.c: 27: unsigned int prod = 0;
+   371  039B  0191               	clrf	(produs@prod)
+   372  039C  0192               	clrf	(produs@prod+1)
+   373                           	line	28
+   374                           	
+   375  039D                     l1341:	
+   376                           ;filtru_digita_cl.c: 28: for(i=Rb;i>0;i--)
+   377  039D  080C               	movf	(produs@Rb),w
+   378  039E  008E               	movwf	(??_produs+0)+0
+   379  039F  080E               	movf	(??_produs+0)+0,w
+   380  03A0  0093               	movwf	(produs@i)
+   381                           	
+   382  03A1                     l1343:	
+   383  03A1  0893               	movf	(produs@i),f
+   384  03A2  1D03               	skipz
+   385  03A3  2BA5               	goto	u2171
+   386  03A4  2BA6               	goto	u2170
+   387  03A5                     u2171:
+   388  03A5  2BA8               	goto	l1347
+   389  03A6                     u2170:
+   390  03A6  2BB9               	goto	l1351
+   391                           	
+   392  03A7                     l1345:	
+   393  03A7  2BB9               	goto	l1351
+   394                           	line	29
+   395                           	
+   396  03A8                     l172:	
+   397                           	line	30
+   398                           	
+   399  03A8                     l1347:	
+   400                           ;filtru_digita_cl.c: 29: {
+   401                           ;filtru_digita_cl.c: 30: prod += Ra;
+   402  03A8  0810               	movf	(produs@Ra),w
+   403  03A9  008E               	movwf	(??_produs+0)+0
+   404  03AA  018F               	clrf	(??_produs+0)+0+1
+   405  03AB  080E               	movf	0+(??_produs+0)+0,w
+   406  03AC  0791               	addwf	(produs@prod),f
+   407  03AD  1803               	skipnc
+   408  03AE  0A92               	incf	(produs@prod+1),f
+   409  03AF  080F               	movf	1+(??_produs+0)+0,w
+   410  03B0  0792               	addwf	(produs@prod+1),f
+   411                           	line	28
+   412                           	
+   413  03B1                     l1349:	
+   414  03B1  3001               	movlw	low(01h)
+   415  03B2  0293               	subwf	(produs@i),f
+   416  03B3  0893               	movf	(produs@i),f
+   417  03B4  1D03               	skipz
+   418  03B5  2BB7               	goto	u2181
+   419  03B6  2BB8               	goto	u2180
+   420  03B7                     u2181:
+   421  03B7  2BA8               	goto	l1347
+   422  03B8                     u2180:
+   423  03B8  2BB9               	goto	l1351
+   424                           	
+   425  03B9                     l173:	
+   426                           	line	32
+   427                           	
+   428  03B9                     l1351:	
+   429                           ;filtru_digita_cl.c: 31: }
+   430                           ;filtru_digita_cl.c: 32: return prod;
+   431  03B9  0812               	movf	(produs@prod+1),w
+   432  03BA  018D               	clrf	(?_produs+1)
+   433  03BB  078D               	addwf	(?_produs+1)
+   434  03BC  0811               	movf	(produs@prod),w
+   435  03BD  018C               	clrf	(?_produs)
+   436  03BE  078C               	addwf	(?_produs)
+   437                           
+   438  03BF  2BC0               	goto	l174
+   439                           	
+   440  03C0                     l1353:	
+   441                           	line	33
+   442                           	
+   443  03C0                     l174:	
+   444  03C0  0008               	return
+   445                           	opt stack 0
+   446                           GLOBAL	__end_of_produs
+   447  03C1                     	__end_of_produs:
+   448 ;; =============== function _produs ends ============
+   449                           
+   450                           	signat	_produs,8314
+   451                           psect	text103,local,class=CODE,delta=2
+   452                           global __ptext103
+   453  0000                     __ptext103:
+   454                           	global	btemp
+   455  004E                     	btemp set 04Eh
+   456                           
+   457                           	DABS	1,78,2	;btemp
+   458                           	global	wtemp0
+   459  004E                     	wtemp0 set btemp
+
+
+HI-TECH Software PICC Macro Assembler V9.81 build 7503 
+Symbol Table                                                                                   Thu Oct 19 11:32:42 2017
+
+                 l172 03A8                   l173 03B9                   l174 03C0                   l169 03FF  
+                l1341 039D                  l1351 03B9                  l1343 03A1                  l1353 03C0  
+                l1345 03A7                  l1361 03DD                  l1347 03A8                  l1339 039B  
+                l1363 03EA                  l1355 03C1                  l1349 03B1                  l1365 03F7  
+                l1357 03CE                  l1367 03FE                  l1359 03CF                  u2170 03A6  
+                u2171 03A5                  u2180 03B8                  u2181 03B7                  u2195 03F8  
+                _main 03C1                  btemp 004E                  start 0000                 ?_main 000C  
+               main@y 0015                 status 0003                 wtemp0 004E          __end_of_main 0400  
+              ??_main 0014                _produs 0399                main@x0 0017                main@x1 0018  
+              main@x2 0019            __pmaintext 03C1               ?_produs 000C       __size_of_produs 0028  
+end_of_initialization 0397               produs@i 0013        __end_of_produs 03C1   start_initialization 0397  
+            ??_produs 000E         __pcstackBANK0 000C             __ptext102 0399             __ptext103 0000  
+          produs@prod 0011         __size_of_main 003F              produs@Ra 0010              produs@Rb 000C  
