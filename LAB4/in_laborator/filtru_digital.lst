@@ -1,0 +1,262 @@
+MPASM  5.41                FILTRU_DIGITAL.ASM   10-19-2017  11:20:31         PAGE  1
+
+
+LOC  OBJECT CODE     LINE SOURCE TEXT
+  VALUE
+
+                      00001 #include p16f84.inc
+                      00001         LIST
+                      00002 
+                      00003 ;==========================================================================
+                      00004 ;  MPASM PIC16F84 processor include
+                      00005 ; 
+                      00006 ;  (c) Copyright 1999-2011 Microchip Technology, All rights reserved
+                      00007 ;==========================================================================
+                      00008 
+                      00199         LIST
+                      00002 
+  00000020            00003 yh equ 0x20
+  00000021            00004 yl equ 0x21
+                      00005 
+  00000022            00006 x0 equ 0x22
+  00000023            00007 x1 equ 0x23
+  00000024            00008 x2 equ 0x24
+                      00009 
+  00000025            00010 Ra equ 0x25
+  00000026            00011 Rb equ 0x26
+  00000027            00012 i  equ 0x27
+                      00013 
+Warning[205]: Found directive in column 1. (ORG)
+0000                  00014 ORG 0x00    ; rulare in relocable
+Warning[203]: Found opcode in column 1. (GOTO)
+0000   2810           00015 GOTO main   ; in relocable nu se poate folosi fereastra Watch
+Warning[205]: Found directive in column 1. (ORG)
+0010                  00016 ORG 0x10    ;
+                      00017 
+0010                  00018 main:
+0010   3064           00019         MOVLW D'100'
+0011   00A2           00020         MOVWF x0
+                      00021 
+0012   3032           00022         MOVLW D'50'
+0013   00A3           00023         MOVWF x1
+                      00024 
+0014   3019           00025         MOVLW D'25'
+0015   00A4           00026         MOVWF x2
+                      00027 
+0016   01A0           00028         CLRF yh
+0017   01A1           00029         CLRF yl
+                      00030 
+0018   0000           00031         NOP;
+                      00032 
+0019   0822           00033         MOVF x0, 0
+001A   00A5           00034         MOVWF Ra ; Ra = x0
+                      00035 
+001B   3006           00036         MOVLW D'6'
+001C   00A6           00037         MOVWF Rb ; Rb = 6
+                      00038 
+001D   2038           00039         CALL PRODUS
+                      00040 
+001E   0000           00041         NOP;
+MPASM  5.41                FILTRU_DIGITAL.ASM   10-19-2017  11:20:31         PAGE  2
+
+
+LOC  OBJECT CODE     LINE SOURCE TEXT
+  VALUE
+
+                      00042 
+001F   0823           00043         MOVF x1, 0
+0020   00A5           00044         MOVWF Ra ; Ra = x1
+                      00045 
+0021   3006           00046         MOVLW D'6'
+0022   00A6           00047         MOVWF Rb; Rb = 6
+                      00048 
+0023   2038           00049         CALL PRODUS
+                      00050 
+0024   0000           00051         NOP;
+                      00052 
+0025   0824           00053         MOVF x2, 0
+0026   00A5           00054         MOVWF Ra ; Ra = x2
+                      00055 
+0027   3004           00056         MOVLW D'4'
+0028   00A6           00057         MOVWF Rb; Rb = 6
+                      00058 
+0029   2038           00059         CALL PRODUS
+                      00060 
+002A   1003           00061         BCF STATUS, C
+002B   0CA0           00062         RRF yh, 1 ;nu se mai sterge carry, acesta se va muta in yl
+002C   0CA1           00063         RRF yl, 1
+                      00064 
+002D   1003           00065         BCF STATUS, C
+002E   0CA0           00066         RRF yh, 1 ;nu se mai sterge carry, acesta se va muta in yl
+002F   0CA1           00067         RRF yl, 1
+                      00068 
+0030   1003           00069         BCF STATUS, C
+0031   0CA0           00070         RRF yh, 1 ;nu se mai sterge carry, acesta se va muta in yl
+0032   0CA1           00071         RRF yl, 1
+                      00072 
+0033   1003           00073         BCF STATUS, C
+0034   0CA0           00074         RRF yh, 1 ;nu se mai sterge carry, acesta se va muta in yl
+0035   0CA1           00075         RRF yl, 1
+                      00076 
+                      00077         ; se pot sterge cei 4 biti de carry prin AND 0b00001111
+                      00078 
+0036   0000           00079         NOP;
+0037   2842           00080         GOTO END_
+                      00081 
+0038                  00082 PRODUS:
+0038   0826           00083         MOVF Rb, 0
+0039   00A7           00084         MOVWF i
+003A                  00085 LOOP:
+003A   0825           00086         MOVF Ra, 0
+003B   07A1           00087         ADDWF yl, 1
+003C   1803           00088         BTFSC STATUS, C
+003D   0AA0           00089                 INCF yh, 1
+003E   0BA7           00090         DECFSZ i, 1
+003F   283A           00091         GOTO LOOP
+0040   0008           00092         RETURN
+0041   0000           00093         NOP
+0042                  00094 END_:
+MPASM  5.41                FILTRU_DIGITAL.ASM   10-19-2017  11:20:31         PAGE  3
+
+
+LOC  OBJECT CODE     LINE SOURCE TEXT
+  VALUE
+
+0042   0000           00095         NOP;
+                      00096         end
+MPASM  5.41                FILTRU_DIGITAL.ASM   10-19-2017  11:20:31         PAGE  4
+
+
+SYMBOL TABLE
+  LABEL                             VALUE 
+
+C                                 00000000
+DC                                00000001
+EEADR                             00000009
+EECON1                            00000088
+EECON2                            00000089
+EEDATA                            00000008
+EEIE                              00000006
+EEIF                              00000004
+END_                              00000042
+F                                 00000001
+FSR                               00000004
+GIE                               00000007
+INDF                              00000000
+INTCON                            0000000B
+INTE                              00000004
+INTEDG                            00000006
+INTF                              00000001
+IRP                               00000007
+LOOP                              0000003A
+NOT_PD                            00000003
+NOT_RBPU                          00000007
+NOT_TO                            00000004
+OPTION_REG                        00000081
+PCL                               00000002
+PCLATH                            0000000A
+PORTA                             00000005
+PORTB                             00000006
+PRODUS                            00000038
+PS0                               00000000
+PS1                               00000001
+PS2                               00000002
+PSA                               00000003
+RA0                               00000000
+RA1                               00000001
+RA2                               00000002
+RA3                               00000003
+RA4                               00000004
+RB0                               00000000
+RB1                               00000001
+RB2                               00000002
+RB3                               00000003
+RB4                               00000004
+RB5                               00000005
+RB6                               00000006
+RB7                               00000007
+RBIE                              00000003
+RBIF                              00000000
+RD                                00000000
+RP0                               00000005
+RP1                               00000006
+Ra                                00000025
+Rb                                00000026
+STATUS                            00000003
+MPASM  5.41                FILTRU_DIGITAL.ASM   10-19-2017  11:20:31         PAGE  5
+
+
+SYMBOL TABLE
+  LABEL                             VALUE 
+
+T0CS                              00000005
+T0IE                              00000005
+T0IF                              00000002
+T0SE                              00000004
+TMR0                              00000001
+TMR0IE                            00000005
+TMR0IF                            00000002
+TRISA                             00000085
+TRISA0                            00000000
+TRISA1                            00000001
+TRISA2                            00000002
+TRISA3                            00000003
+TRISA4                            00000004
+TRISB                             00000086
+TRISB0                            00000000
+TRISB1                            00000001
+TRISB2                            00000002
+TRISB3                            00000003
+TRISB4                            00000004
+TRISB5                            00000005
+TRISB6                            00000006
+TRISB7                            00000007
+W                                 00000000
+WR                                00000001
+WREN                              00000002
+WRERR                             00000003
+Z                                 00000002
+_CONFIG                           00002007
+_CP_OFF                           00003FFF
+_CP_ON                            0000000F
+_HS_OSC                           00003FFE
+_IDLOC0                           00002000
+_IDLOC1                           00002001
+_IDLOC2                           00002002
+_IDLOC3                           00002003
+_LP_OSC                           00003FFC
+_PWRTE_OFF                        00003FFF
+_PWRTE_ON                         00003FF7
+_RC_OSC                           00003FFF
+_WDT_OFF                          00003FFB
+_WDT_ON                           00003FFF
+_XT_OSC                           00003FFD
+__16F84                           00000001
+__DEBUG                           1
+i                                 00000027
+main                              00000010
+x0                                00000022
+x1                                00000023
+x2                                00000024
+yh                                00000020
+yl                                00000021
+MPASM  5.41                FILTRU_DIGITAL.ASM   10-19-2017  11:20:31         PAGE  6
+
+
+MEMORY USAGE MAP ('X' = Used,  '-' = Unused)
+
+
+0000 : X--------------- XXXXXXXXXXXXXXXX XXXXXXXXXXXXXXXX XXXXXXXXXXXXXXXX
+0040 : XXX------------- ---------------- ---------------- ----------------
+
+All other memory blocks unused.
+
+Program Memory Words Used:    52
+Program Memory Words Free:   972
+
+
+Errors   :     0
+Warnings :     3 reported,     0 suppressed
+Messages :     0 reported,     0 suppressed
+
+
