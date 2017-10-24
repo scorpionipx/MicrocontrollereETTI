@@ -1,26 +1,28 @@
 MPLINK 4.39, Linker
-Linker Map File - Created Tue Oct 24 12:51:39 2017
+Linker Map File - Created Tue Oct 24 17:51:39 2017
 
                                  Section Info
                   Section       Type    Address   Location Size(Bytes)
                 ---------  ---------  ---------  ---------  ---------
-                   .org_0       code   0x000000    program   0x000026
+                   .org_0       code   0x000000    program   0x000058
 
 
 
                               Program Memory Usage 
                                Start         End      
                            ---------   ---------      
-                            0x000000    0x000012      
-            19 out of 1093 program addresses used, program memory utilization is 1%
+                            0x000000    0x00002b      
+            44 out of 1093 program addresses used, program memory utilization is 4%
 
 
 
                               Symbols - Sorted by Name
                      Name    Address   Location    Storage File                     
                 ---------  ---------  ---------  --------- ---------                
-            calculate_sum   0x000007    program     static D:\Home\Embedded\AVR\MicrocontrollereETTI\LAB4\tema\asm\filtru.asm
-        end_calculate_sum   0x000012    program     static D:\Home\Embedded\AVR\MicrocontrollereETTI\LAB4\tema\asm\filtru.asm
+                  CALC_T1   0x000023    program     static D:\Home\Embedded\AVR\MicrocontrollereETTI\LAB4\tema\asm\filtru.asm
+                   CALC_Y   0x00001b    program     static D:\Home\Embedded\AVR\MicrocontrollereETTI\LAB4\tema\asm\filtru.asm
+                     END_   0x00002b    program     static D:\Home\Embedded\AVR\MicrocontrollereETTI\LAB4\tema\asm\filtru.asm
+                ITER_LOOP   0x000015    program     static D:\Home\Embedded\AVR\MicrocontrollereETTI\LAB4\tema\asm\filtru.asm
                      main   0x000000    program     static D:\Home\Embedded\AVR\MicrocontrollereETTI\LAB4\tema\asm\filtru.asm
 
 
@@ -29,7 +31,9 @@ Linker Map File - Created Tue Oct 24 12:51:39 2017
                      Name    Address   Location    Storage File                     
                 ---------  ---------  ---------  --------- ---------                
                      main   0x000000    program     static D:\Home\Embedded\AVR\MicrocontrollereETTI\LAB4\tema\asm\filtru.asm
-            calculate_sum   0x000007    program     static D:\Home\Embedded\AVR\MicrocontrollereETTI\LAB4\tema\asm\filtru.asm
-        end_calculate_sum   0x000012    program     static D:\Home\Embedded\AVR\MicrocontrollereETTI\LAB4\tema\asm\filtru.asm
+                ITER_LOOP   0x000015    program     static D:\Home\Embedded\AVR\MicrocontrollereETTI\LAB4\tema\asm\filtru.asm
+                   CALC_Y   0x00001b    program     static D:\Home\Embedded\AVR\MicrocontrollereETTI\LAB4\tema\asm\filtru.asm
+                  CALC_T1   0x000023    program     static D:\Home\Embedded\AVR\MicrocontrollereETTI\LAB4\tema\asm\filtru.asm
+                     END_   0x00002b    program     static D:\Home\Embedded\AVR\MicrocontrollereETTI\LAB4\tema\asm\filtru.asm
 
 
