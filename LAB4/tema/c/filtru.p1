@@ -406,12 +406,12 @@ Version 3.2 HI-TECH Software Intermediate Code
 [e = _x0 -> -> 15 `i `uc ]
 "31
 [v _x1 `uc 1 a ]
-[; ;filtru.c: 31: char x1 = 11;
-[e = _x1 -> -> 11 `i `uc ]
+[; ;filtru.c: 31: char x1 = 7;
+[e = _x1 -> -> 7 `i `uc ]
 "32
 [v _y0 `i 1 a ]
-[; ;filtru.c: 32: int y0 = 13;
-[e = _y0 -> 13 `i ]
+[; ;filtru.c: 32: int y0 = 3;
+[e = _y0 -> 3 `i ]
 "33
 [v _y1 `i 1 a ]
 [; ;filtru.c: 33: int y1 = 0;

@@ -1,7 +1,7 @@
 
 
 HI-TECH Software PIC LITE Macro Assembler V9.81 build 7503 
-                                                                                               Thu Oct 19 16:54:29 2017
+                                                                                               Tue Oct 24 12:28:15 2017
 
 HI-TECH Software Omniscient Code Generator (Lite mode) build 7503
      1  0000                     opt subtitle "HI-TECH Software Omniscient Code Generator (Lite mode) build 7503"
@@ -251,16 +251,16 @@ HI-TECH Software Omniscient Code Generator (Lite mode) build 7503
    245  036B  0822               	movf	(??_main+0)+0,w
    246  036C  00A7               	movwf	(main@x0)
    247                           	line	31
-   248                           ;filtru.c: 31: char x1 = 11;
-   249  036D  300B               	movlw	(0Bh)
+   248                           ;filtru.c: 31: char x1 = 7;
+   249  036D  3007               	movlw	(07h)
    250  036E  00A2               	movwf	(??_main+0)+0
    251  036F  0822               	movf	(??_main+0)+0,w
    252  0370  00A8               	movwf	(main@x1)
    253                           	line	32
-   254                           ;filtru.c: 32: int y0 = 13;
-   255  0371  300D               	movlw	low(0Dh)
+   254                           ;filtru.c: 32: int y0 = 3;
+   255  0371  3003               	movlw	low(03h)
    256  0372  00A3               	movwf	(main@y0)
-   257  0373  3000               	movlw	high(0Dh)
+   257  0373  3000               	movlw	high(03h)
    258  0374  00A4               	movwf	((main@y0))+1
    259                           	line	33
    260                           	
@@ -682,7 +682,7 @@ HI-TECH Software Omniscient Code Generator (Lite mode) build 7503
 
 
 HI-TECH Software PICC Macro Assembler V9.81 build 7503 
-Symbol Table                                                                                   Thu Oct 19 16:54:29 2017
+Symbol Table                                                                                   Tue Oct 24 12:28:15 2017
 
  ___wmul@multiplicand 000E                   l170 03A7                   l171 03A8                   l174 03FF  
                  l183 0341                   l184 034B                   l185 0360                   l169 0382  

@@ -245,16 +245,16 @@ l1419:
 	movf	(??_main+0)+0,w
 	movwf	(main@x0)
 	line	31
-;filtru.c: 31: char x1 = 11;
-	movlw	(0Bh)
+;filtru.c: 31: char x1 = 7;
+	movlw	(07h)
 	movwf	(??_main+0)+0
 	movf	(??_main+0)+0,w
 	movwf	(main@x1)
 	line	32
-;filtru.c: 32: int y0 = 13;
-	movlw	low(0Dh)
+;filtru.c: 32: int y0 = 3;
+	movlw	low(03h)
 	movwf	(main@y0)
-	movlw	high(0Dh)
+	movlw	high(03h)
 	movwf	((main@y0))+1
 	line	33
 	

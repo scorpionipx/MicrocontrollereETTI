@@ -269,8 +269,8 @@ int calc_Y(const char coef_0, const char coef_1, const int _y);
 int main(void)
 {
 char x0 = 15;
-char x1 = 11;
-int y0 = 13;
+char x1 = 7;
+int y0 = 3;
 int y1 = 0;
 
 asm("NOP");

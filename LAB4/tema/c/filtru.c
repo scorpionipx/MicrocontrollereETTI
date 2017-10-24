@@ -2,7 +2,7 @@
 
 /*
 	Enunt: sa se scrie un program C in care sa se implementeze filtrul recurent
-definit de relatia: Yn = 1.2 * X - 0.9 * X1 - 0.7 Yn-1.
+definit de relatia: Yn = 1.2 * X0 - 0.9 * X1 - 0.7 Yn-1.
 */
 
 /*
@@ -20,7 +20,7 @@ a se folosi instructiuni de shiftare in locul celor de impartire.
 #define CONSTANT_1 29
 #define CONSTANT_2 22
 
-#define INIT_Y 13
+#define INIT_Y 3
 #define NUM_ITERATION 5 
 
 int calc_Y(const char coef_0, const char coef_1, const int _y);
@@ -28,7 +28,7 @@ int calc_Y(const char coef_0, const char coef_1, const int _y);
 int main(void)
 {
 	char x0 = 15;
-	char x1 = 11;
+	char x1 = 7;
 	int y0 = INIT_Y; /* se considera y initial ca avand valoarea INIT_Y */
 	int y1 = 0;
 
