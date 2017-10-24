@@ -1,0 +1,4 @@
+Message[305] D:\HOME\EMBEDDED\AVR\MICROCONTROLLEREETTI\LAB4\TEMA\ASM\FILTRU.ASM 26 : Using default destination of 1 (file).
+Warning[207] D:\HOME\EMBEDDED\AVR\MICROCONTROLLEREETTI\LAB4\TEMA\ASM\FILTRU.ASM 27 : Found label after column 1. (calculate_sum)
+Message[305] D:\HOME\EMBEDDED\AVR\MICROCONTROLLEREETTI\LAB4\TEMA\ASM\FILTRU.ASM 32 : Using default destination of 1 (file).
+Warning[207] D:\HOME\EMBEDDED\AVR\MICROCONTROLLEREETTI\LAB4\TEMA\ASM\FILTRU.ASM 40 : Found label after column 1. (end_calculate_sum)
