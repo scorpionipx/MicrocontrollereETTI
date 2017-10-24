@@ -1,4 +1,4 @@
-MPASM  5.41                        FILTRU.ASM   10-24-2017  12:50:26         PAGE  1
+MPASM  5.41                        FILTRU.ASM   10-24-2017  12:51:39         PAGE  1
 
 
 LOC  OBJECT CODE     LINE SOURCE TEXT
@@ -15,8 +15,8 @@ LOC  OBJECT CODE     LINE SOURCE TEXT
                       00008 
                       00199         LIST
                       00002 
-                      00003 ; Enunt: Sa se scrie un program ASM care sa calculeaza suma 1 + 2 + 3 + ... + n,
-                      00004 ; unde n este un numar predefinit.
+                      00003 ; Enunt: sa se scrie un program ASM in care sa se implementeze filtrul recurent
+                      00004 ; definit de relatia: Yn = 1.2 * X0 - 0.9 * X1 - 0.7 Yn-1.
                       00005 ; ScorpionIPX
                       00006 
                       00007 ;assign memory for variables
@@ -57,7 +57,7 @@ Message[305]: Using default destination of 1 (file).
                       00039         
 Warning[207]: Found label after column 1. (end_calculate_sum)
 0012                  00040         end_calculate_sum:
-MPASM  5.41                        FILTRU.ASM   10-24-2017  12:50:26         PAGE  2
+MPASM  5.41                        FILTRU.ASM   10-24-2017  12:51:39         PAGE  2
 
 
 LOC  OBJECT CODE     LINE SOURCE TEXT
@@ -65,7 +65,7 @@ LOC  OBJECT CODE     LINE SOURCE TEXT
 
 0012   0000           00041                 NOP
                       00042         end
-MPASM  5.41                        FILTRU.ASM   10-24-2017  12:50:26         PAGE  3
+MPASM  5.41                        FILTRU.ASM   10-24-2017  12:51:39         PAGE  3
 
 
 SYMBOL TABLE
@@ -124,7 +124,7 @@ T0IE                              00000005
 T0IF                              00000002
 T0SE                              00000004
 TMR0                              00000001
-MPASM  5.41                        FILTRU.ASM   10-24-2017  12:50:26         PAGE  4
+MPASM  5.41                        FILTRU.ASM   10-24-2017  12:51:39         PAGE  4
 
 
 SYMBOL TABLE
@@ -175,7 +175,7 @@ end_calculate_sum                 00000012
 main                              00000000
 n                                 00000020
 s                                 00000021
-MPASM  5.41                        FILTRU.ASM   10-24-2017  12:50:26         PAGE  5
+MPASM  5.41                        FILTRU.ASM   10-24-2017  12:51:39         PAGE  5
 
 
 MEMORY USAGE MAP ('X' = Used,  '-' = Unused)

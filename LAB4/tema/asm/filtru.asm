@@ -1,7 +1,7 @@
 #include p16f84.inc
 
-; Enunt: Sa se scrie un program ASM care sa calculeaza suma 1 + 2 + 3 + ... + n,
-; unde n este un numar predefinit.
+; Enunt: sa se scrie un program ASM in care sa se implementeze filtrul recurent
+; definit de relatia: Yn = 1.2 * X0 - 0.9 * X1 - 0.7 Yn-1.
 ; ScorpionIPX
 
 ;assign memory for variables
