@@ -39,6 +39,8 @@ i equ 0x26
 aux_L equ 0x27
 aux_H equ 0x28
 
+j equ 0x29
+
 
 main:
 	; assign values to variables
@@ -65,13 +67,13 @@ main:
 	NOP
 
 	MOVLW NUM_ITERATION; W<- NUM_ITERATION
-	MOVWF i; i <- W
+	MOVWF j; j <- W
 
 	NOP
 
-	MOVF i, 1;
+	MOVF j, 1;
 	NOP
-	BTFSS i, Z; skip if i is non zero
+	BTFSS j, Z; skip if i is non zero
 	GOTO END_
 
 	ITER_LOOP:
@@ -82,14 +84,13 @@ main:
 
 		NOP
 
-		DECFSZ i; if i is zero, skip
+		DECFSZ j; if i is zero, skip
 		GOTO ITER_LOOP
 
 		GOTO END_
 
 	
 	CALC_Y:
-		
 		MOVLW D'0'; W <- 0
 		MOVWF aux_L; aux_L <- 0
 		MOVWF aux_H; aux_H <- 0
@@ -104,14 +105,99 @@ main:
 
 		CALC_T1:
 			ADDWF x0, 0; W <_ W + x0
-			MOVWF aux_L; aux_L = W
 			BTFSC STATUS, C; if overflow, increase auh_H
-			INCF aux_H;
+			INCF aux_H, 1;
+			MOVWF aux_L; aux_L = W
 
 			NOP
 	
 			DECFSZ i
 			GOTO CALC_T1
+			MOVFW aux_L; W = aux_L
+			MOVWF y1_L; y1_L <- W
+			MOVFW aux_H; W = aux_H
+			MOVWF y1_H; y1_H <- W
+	
+			MOVLW CONSTANT_1; W <- CONSTANT_1
+			NOP
+			MOVWF i; i <- W
+	
+			MOVLW D'0'; W <- 0
+			MOVWF aux_L; aux_L <- 0
+			MOVWF aux_H; aux_H <- 0
+	
+			NOP
+
+		CALC_T2:
+			NOP
+			ADDWF x1, 0; W <_ W + x1
+			BTFSC STATUS, C; if overflow, increase auh_H
+			INCF aux_H, 1;
+
+			MOVWF aux_L; aux_L = W
+			
+			NOP
+	
+			DECFSZ i
+			GOTO CALC_T2
+
+			NOP
+			COMF aux_H, 1; aux_H = ~aux_H
+			COMF aux_L,1; aux_L = ~aux_L
+			INCF aux_H, 1; aux_H ++
+			INCF aux_L, 1; aux_L++
+		
+			NOP
+
+			MOVFW aux_H; W <- aux_H
+			ADDWF y1_H, 1; y1_H += W
+			MOVFW aux_L; W <- aux_L
+			ADDWF y1_L, 1; y1_L += W
+			
+			BTFSC STATUS, C; if overflow, decrease y1_H
+			DECF y1_H, 1; y1_H -- 
+			NOP
+	
+			MOVLW CONSTANT_2; W <- CONSTANT_2
+			NOP
+			MOVWF i; i <- W
+	
+			MOVLW D'0'; W <- 0
+			MOVWF aux_L; aux_L <- 0
+			MOVWF aux_H; aux_H <- 0
+			NOP
+			
+		CALC_T3:
+			NOP
+			MOVFW aux_L; W <- aux_L
+			ADDWF y0_L, 0; W <- W + y0_L
+			BTFSC STATUS, C; if overflow, increase auh_H
+			INCF aux_H, 1;
+			
+			MOVWF aux_L; aux_L = W
+			MOVFW aux_H; W <- aux_H
+			ADDWF y1_H, 1; y1_H += W
+ 			
+			DECFSZ i
+			GOTO CALC_T3
+
+			NOP
+			COMF aux_H, 1; aux_H = ~aux_H
+			COMF aux_L,1; aux_L = ~aux_L
+			INCF aux_H, 1; aux_H ++
+			INCF aux_L, 1; aux_L++
+		
+			NOP
+			MOVFW aux_H; W <- aux_H
+			ADDWF y1_H, 1; y1_H += W
+			NOP
+			MOVFW aux_L; W <- aux_L
+			ADDWF y1_L, 1; y1_L += W
+			BTFSC STATUS, C; if overflow, decrease y1_H
+			DECF y1_H, 1; y1_H -- 
+			NOP
+			
+			
 
 		RETURN
 	
