@@ -1,30 +1,31 @@
 MPLINK 4.39, Linker
-Linker Map File - Created Wed Oct 25 15:56:12 2017
+Linker Map File - Created Wed Oct 25 16:15:48 2017
 
                                  Section Info
                   Section       Type    Address   Location Size(Bytes)
                 ---------  ---------  ---------  ---------  ---------
-                   .org_0       code   0x000000    program   0x0000d6
+                   .org_0       code   0x000000    program   0x0000ee
 
 
 
                               Program Memory Usage 
                                Start         End      
                            ---------   ---------      
-                            0x000000    0x00006a      
-            107 out of 1093 program addresses used, program memory utilization is 9%
+                            0x000000    0x000076      
+            119 out of 1093 program addresses used, program memory utilization is 10%
 
 
 
                               Symbols - Sorted by Name
                      Name    Address   Location    Storage File                     
                 ---------  ---------  ---------  --------- ---------                
-                  CALC_T1   0x000023    program     static D:\Home\Embedded\AVR\MicrocontrollereETTI\LAB4\tema\asm\filtru.asm
-                  CALC_T2   0x000035    program     static D:\Home\Embedded\AVR\MicrocontrollereETTI\LAB4\tema\asm\filtru.asm
-                  CALC_T3   0x000051    program     static D:\Home\Embedded\AVR\MicrocontrollereETTI\LAB4\tema\asm\filtru.asm
-                   CALC_Y   0x00001b    program     static D:\Home\Embedded\AVR\MicrocontrollereETTI\LAB4\tema\asm\filtru.asm
-                     END_   0x00006a    program     static D:\Home\Embedded\AVR\MicrocontrollereETTI\LAB4\tema\asm\filtru.asm
+                  CALC_T1   0x000027    program     static D:\Home\Embedded\AVR\MicrocontrollereETTI\LAB4\tema\asm\filtru.asm
+                  CALC_T2   0x000039    program     static D:\Home\Embedded\AVR\MicrocontrollereETTI\LAB4\tema\asm\filtru.asm
+                  CALC_T3   0x000055    program     static D:\Home\Embedded\AVR\MicrocontrollereETTI\LAB4\tema\asm\filtru.asm
+                   CALC_Y   0x00001f    program     static D:\Home\Embedded\AVR\MicrocontrollereETTI\LAB4\tema\asm\filtru.asm
+                     END_   0x000076    program     static D:\Home\Embedded\AVR\MicrocontrollereETTI\LAB4\tema\asm\filtru.asm
                 ITER_LOOP   0x000015    program     static D:\Home\Embedded\AVR\MicrocontrollereETTI\LAB4\tema\asm\filtru.asm
+                    SHIFT   0x00006f    program     static D:\Home\Embedded\AVR\MicrocontrollereETTI\LAB4\tema\asm\filtru.asm
                      main   0x000000    program     static D:\Home\Embedded\AVR\MicrocontrollereETTI\LAB4\tema\asm\filtru.asm
 
 
@@ -34,10 +35,11 @@ Linker Map File - Created Wed Oct 25 15:56:12 2017
                 ---------  ---------  ---------  --------- ---------                
                      main   0x000000    program     static D:\Home\Embedded\AVR\MicrocontrollereETTI\LAB4\tema\asm\filtru.asm
                 ITER_LOOP   0x000015    program     static D:\Home\Embedded\AVR\MicrocontrollereETTI\LAB4\tema\asm\filtru.asm
-                   CALC_Y   0x00001b    program     static D:\Home\Embedded\AVR\MicrocontrollereETTI\LAB4\tema\asm\filtru.asm
-                  CALC_T1   0x000023    program     static D:\Home\Embedded\AVR\MicrocontrollereETTI\LAB4\tema\asm\filtru.asm
-                  CALC_T2   0x000035    program     static D:\Home\Embedded\AVR\MicrocontrollereETTI\LAB4\tema\asm\filtru.asm
-                  CALC_T3   0x000051    program     static D:\Home\Embedded\AVR\MicrocontrollereETTI\LAB4\tema\asm\filtru.asm
-                     END_   0x00006a    program     static D:\Home\Embedded\AVR\MicrocontrollereETTI\LAB4\tema\asm\filtru.asm
+                   CALC_Y   0x00001f    program     static D:\Home\Embedded\AVR\MicrocontrollereETTI\LAB4\tema\asm\filtru.asm
+                  CALC_T1   0x000027    program     static D:\Home\Embedded\AVR\MicrocontrollereETTI\LAB4\tema\asm\filtru.asm
+                  CALC_T2   0x000039    program     static D:\Home\Embedded\AVR\MicrocontrollereETTI\LAB4\tema\asm\filtru.asm
+                  CALC_T3   0x000055    program     static D:\Home\Embedded\AVR\MicrocontrollereETTI\LAB4\tema\asm\filtru.asm
+                    SHIFT   0x00006f    program     static D:\Home\Embedded\AVR\MicrocontrollereETTI\LAB4\tema\asm\filtru.asm
+                     END_   0x000076    program     static D:\Home\Embedded\AVR\MicrocontrollereETTI\LAB4\tema\asm\filtru.asm
 
 

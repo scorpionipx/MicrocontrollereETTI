@@ -82,6 +82,11 @@ main:
 
 		CALL CALC_Y
 
+		MOVFW y1_L; W <- y1_L
+		MOVWF y0_L; y0_L <- W
+		MOVFW y1_H; W <- y1_H
+		MOVWF y0_H; y0_H <- W
+
 		NOP
 
 		DECFSZ j; if i is zero, skip
@@ -196,8 +201,19 @@ main:
 			BTFSC STATUS, C; if overflow, decrease y1_H
 			DECF y1_H, 1; y1_H -- 
 			NOP
+			MOVLW FACTOR_POW; W <- CONSTANT_2
+			MOVWF i; i <- W
+
+		SHIFT:
+			NOP
+			BCF STATUS, C
+			RRF y1_H, 1;
+			RRF y1_L, 1;
 			
-			
+			DECFSZ i
+			GOTO SHIFT	
+		
+		
 
 		RETURN
 	
