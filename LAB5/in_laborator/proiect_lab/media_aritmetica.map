@@ -1,0 +1,31 @@
+MPLINK 4.39, Linker
+Linker Map File - Created Thu Oct 26 11:26:14 2017
+
+                                 Section Info
+                  Section       Type    Address   Location Size(Bytes)
+                ---------  ---------  ---------  ---------  ---------
+                   .org_0       code   0x000000    program   0x000000
+
+
+
+                              Program Memory Usage 
+                               Start         End      
+                           ---------   ---------      
+                            0x000000    0xae0000      
+            0 out of 8455 program addresses used, program memory utilization is 0%
+
+
+
+                              Symbols - Sorted by Name
+                     Name    Address   Location    Storage File                     
+                ---------  ---------  ---------  --------- ---------                
+                     main   0x000000    program     static D:\Documents\Facultate\Anul IV\Microcontrollere\LAB5\in_laborator\proiect_lab\media_aritmetica.asm
+
+
+
+                              Symbols - Sorted by Address
+                     Name    Address   Location    Storage File                     
+                ---------  ---------  ---------  --------- ---------                
+                     main   0x000000    program     static D:\Documents\Facultate\Anul IV\Microcontrollere\LAB5\in_laborator\proiect_lab\media_aritmetica.asm
+
+
