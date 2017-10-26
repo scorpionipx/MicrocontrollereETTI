@@ -38,3 +38,11 @@ Problema: sa se calc ma dintre Ra si Rb stocate in zonele specificate
 Ra      Rb      Rc
 0x20    0x25    0x20
 b0      b1      b2
+
+
+TEMA: se definesc 4 vars
+Ra,        Rb,      Rc,      Rd,     m(media)
+0x20 b0, 0x21 b0, 0x20 b1, 0x21 b1,   0x20 b3
+ 
+
+

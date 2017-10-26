@@ -1,4 +1,4 @@
-MPASM  5.41              MEDIA_ARITMETICA.ASM   10-26-2017  11:26:12         PAGE  1
+MPASM  5.41              MEDIA_ARITMETICA.ASM   10-26-2017  11:35:46         PAGE  1
 
 
 LOC  OBJECT CODE     LINE SOURCE TEXT
@@ -20,8 +20,32 @@ LOC  OBJECT CODE     LINE SOURCE TEXT
   00000020            00005 Rc equ 0x20; 120 bank2
                       00006 
 0000                  00007 main:
-                      00008         end
-MPASM  5.41              MEDIA_ARITMETICA.ASM   10-26-2017  11:26:12         PAGE  2
+0000   1303           00008         BCF STATUS, RP1
+0001   1283           00009         BCF STATUS, RP0; {0, 0} -> pozitionare in bank0
+                      00010         
+0002   30C8           00011         MOVLW D'200'
+0003   00A0           00012         MOVWF Ra
+                      00013 
+0004   1303           00014         BCF STATUS, RP1
+0005   1683           00015         BSF STATUS, RP0; {0, 1} -> pozitionare in bank1
+                      00016 
+0006   3096           00017         MOVLW D'150'
+0007   00A5           00018         MOVWF Rb
+                      00019         
+0008   1303           00020         BCF STATUS, RP1
+0009   1283           00021         BCF STATUS, RP0; {0, 0} -> pozitionare in bank0
+                      00022 
+000A   0720           00023         ADDWF Ra, 0; W += Ra
+                      00024         
+000B   1703           00025         BSF STATUS, RP1
+000C   1283           00026         BCF STATUS, RP0; {1, 0} -> pozitionare in bank2
+                      00027 
+000D   00A0           00028         MOVWF Rc
+000E   0CA0           00029         RRF Rc, 1
+000F   0000           00030         NOP
+                      00031         
+                      00032         end
+MPASM  5.41              MEDIA_ARITMETICA.ASM   10-26-2017  11:35:46         PAGE  2
 
 
 SYMBOL TABLE
@@ -80,7 +104,7 @@ BRG6                              00000006
 BRG7                              00000007
 BRG8                              00000000
 BRG9                              00000001
-MPASM  5.41              MEDIA_ARITMETICA.ASM   10-26-2017  11:26:12         PAGE  3
+MPASM  5.41              MEDIA_ARITMETICA.ASM   10-26-2017  11:35:46         PAGE  3
 
 
 SYMBOL TABLE
@@ -139,7 +163,7 @@ CHS2                              00000004
 CHS3                              00000005
 CKE                               00000006
 CKP                               00000004
-MPASM  5.41              MEDIA_ARITMETICA.ASM   10-26-2017  11:26:12         PAGE  4
+MPASM  5.41              MEDIA_ARITMETICA.ASM   10-26-2017  11:35:46         PAGE  4
 
 
 SYMBOL TABLE
@@ -198,7 +222,7 @@ IOCB0                             00000000
 IOCB1                             00000001
 IOCB2                             00000002
 IOCB3                             00000003
-MPASM  5.41              MEDIA_ARITMETICA.ASM   10-26-2017  11:26:12         PAGE  5
+MPASM  5.41              MEDIA_ARITMETICA.ASM   10-26-2017  11:35:46         PAGE  5
 
 
 SYMBOL TABLE
@@ -257,7 +281,7 @@ PDC2                              00000002
 PDC3                              00000003
 PDC4                              00000004
 PDC5                              00000005
-MPASM  5.41              MEDIA_ARITMETICA.ASM   10-26-2017  11:26:12         PAGE  6
+MPASM  5.41              MEDIA_ARITMETICA.ASM   10-26-2017  11:35:46         PAGE  6
 
 
 SYMBOL TABLE
@@ -316,7 +340,7 @@ RC4                               00000004
 RC5                               00000005
 RC6                               00000006
 RC7                               00000007
-MPASM  5.41              MEDIA_ARITMETICA.ASM   10-26-2017  11:26:12         PAGE  7
+MPASM  5.41              MEDIA_ARITMETICA.ASM   10-26-2017  11:35:46         PAGE  7
 
 
 SYMBOL TABLE
@@ -375,7 +399,7 @@ SSPCON                            00000014
 SSPCON2                           00000091
 SSPEN                             00000005
 SSPIE                             00000003
-MPASM  5.41              MEDIA_ARITMETICA.ASM   10-26-2017  11:26:12         PAGE  8
+MPASM  5.41              MEDIA_ARITMETICA.ASM   10-26-2017  11:35:46         PAGE  8
 
 
 SYMBOL TABLE
@@ -434,7 +458,7 @@ TOUTPS3                           00000006
 TRISA                             00000085
 TRISA0                            00000000
 TRISA1                            00000001
-MPASM  5.41              MEDIA_ARITMETICA.ASM   10-26-2017  11:26:12         PAGE  9
+MPASM  5.41              MEDIA_ARITMETICA.ASM   10-26-2017  11:35:46         PAGE  9
 
 
 SYMBOL TABLE
@@ -493,7 +517,7 @@ TXIE                              00000004
 TXIF                              00000004
 TXREG                             00000019
 TXSTA                             00000098
-MPASM  5.41              MEDIA_ARITMETICA.ASM   10-26-2017  11:26:12         PAGE 10
+MPASM  5.41              MEDIA_ARITMETICA.ASM   10-26-2017  11:35:46         PAGE 10
 
 
 SYMBOL TABLE
@@ -552,7 +576,7 @@ _DEBUG_ON                         00001FFF
 _DEVID1                           00002006
 _EC_OSC                           00003FFB
 _EXTRC                            00003FFF
-MPASM  5.41              MEDIA_ARITMETICA.ASM   10-26-2017  11:26:12         PAGE 11
+MPASM  5.41              MEDIA_ARITMETICA.ASM   10-26-2017  11:35:46         PAGE 11
 
 
 SYMBOL TABLE
@@ -595,11 +619,12 @@ main                              00000000
 
 MEMORY USAGE MAP ('X' = Used,  '-' = Unused)
 
+0000 : XXXXXXXXXXXXXXXX ---------------- ---------------- ----------------
 
 All other memory blocks unused.
 
-Program Memory Words Used:     0
-Program Memory Words Free:  8192
+Program Memory Words Used:    16
+Program Memory Words Free:  8176
 
 
 Errors   :     0
