@@ -9,7 +9,7 @@ void main(void)
 
 	x0 = 100; 
 	x1 = 50; 
-	x2 = 25l;
+	x2 = 25;
 	asm("NOP");
 	
 	y = produs(x0, 6);
