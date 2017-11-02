@@ -1,0 +1,33 @@
+MPLINK 4.39, Linker
+Linker Map File - Created Thu Nov 02 10:56:07 2017
+
+                                 Section Info
+                  Section       Type    Address   Location Size(Bytes)
+                ---------  ---------  ---------  ---------  ---------
+                   .org_0       code   0x000000    program   0x000026
+
+
+
+                              Program Memory Usage 
+                               Start         End      
+                           ---------   ---------      
+                            0x000000    0x000012      
+            19 out of 1093 program addresses used, program memory utilization is 1%
+
+
+
+                              Symbols - Sorted by Name
+                     Name    Address   Location    Storage File                     
+                ---------  ---------  ---------  --------- ---------                
+                     LOOP   0x000006    program     static D:\Documents\Facultate\Anul IV\Microcontrollere\LAB6\in_laborator\proiect_lab\generare_semnal.asm
+                     main   0x000000    program     static D:\Documents\Facultate\Anul IV\Microcontrollere\LAB6\in_laborator\proiect_lab\generare_semnal.asm
+
+
+
+                              Symbols - Sorted by Address
+                     Name    Address   Location    Storage File                     
+                ---------  ---------  ---------  --------- ---------                
+                     main   0x000000    program     static D:\Documents\Facultate\Anul IV\Microcontrollere\LAB6\in_laborator\proiect_lab\generare_semnal.asm
+                     LOOP   0x000006    program     static D:\Documents\Facultate\Anul IV\Microcontrollere\LAB6\in_laborator\proiect_lab\generare_semnal.asm
+
+
