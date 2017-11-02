@@ -1,0 +1,34 @@
+Porturi
+
+pipe line - citirea in avans a instructiunii urmatoare in timp ce se executa instructiunea curenta
+
+1 ciclu masina = 4 tacte
+
+
+TRISx - configurare: 0b11110000; Rx7 - Rx4 intrare, Rx3 - Rx0 iesire
+- situat in bancul 1 de memorie
+
+
+PORTx ; PORTx = 0 modifica doar pinii de iesire, nu are efect asupra pinilor de intrare
+- situat in bancul 0 de  memorie
+
+
+ANSELx - analog selection
+ANSELHx
+
+
+Pasi configurare
+1. schimbare banc 1
+2. configurare port
+3. schimbare banc 0
+4. operare port
+
+
+Cerinte:
+RB0 - generare semnal
+[1, 1, 1, 0, 0, 0, 0, 1, 1, 0]
+
+
+
+
+
