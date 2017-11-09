@@ -19,6 +19,7 @@ main:
 	MOVWF i
 
 LOOP_PWM:
+	NOP
 	BSF PORTB, 5
 	CALL delay_1ms
 	NOP 
@@ -26,6 +27,7 @@ LOOP_PWM:
 	NOP
 	NOP
 
+	NOP
 	BCF PORTB, 5
 	CALL delay_1ms
 	NOP
