@@ -1,4 +1,4 @@
-MPASM  5.41                           PWM.ASM   11-9-2017  10:41:06         PAGE  1
+MPASM  5.41                           PWM.ASM   11-9-2017  11:17:26         PAGE  1
 
 
 LOC  OBJECT CODE     LINE SOURCE TEXT
@@ -35,45 +35,82 @@ Message[302]: Register in operand not in bank 0.  Ensure that bank bits are corr
 0005   00A0           00019         MOVWF i
                       00020 
 0006                  00021 LOOP_PWM:
-0006   0000           00022         NOP
-0007   1686           00023         BSF PORTB, 5
-0008   2014           00024         CALL delay_1ms
-0009   0000           00025         NOP 
-000A   0000           00026         NOP
-000B   0000           00027         NOP
-000C   0000           00028         NOP
+                      00022         
+0006   1806           00023         BTFSC PORTB, 0
+0007   280F           00024         GOTO button_apasat
+                      00025         
+0008                  00026 button_neapasat:        
+0008   1686           00027         BSF PORTB, 5
+0009   2017           00028         CALL delay_1ms
                       00029 
-000D   0000           00030         NOP
-000E   1286           00031         BCF PORTB, 5
-000F   2014           00032         CALL delay_1ms
-0010   0000           00033         NOP
-                      00034 
-0011   0BA0           00035         DECFSZ i, 1
-0012   2806           00036         GOTO LOOP_PWM
-0013   0000           00037         NOP
+000A   1286           00030         BCF PORTB, 5
+000B   2017           00031         CALL delay_1ms
+                      00032 
+000C   0BA0           00033         DECFSZ i, 1
+000D   2814           00034         GOTO button_end
+000E   0000           00035         NOP
+                      00036         
+000F                  00037 button_apasat:
                       00038         
-                      00039 
-0014                  00040 delay_1ms:
-0014   30C6           00041         MOVLW D'198'
-0015   00A1           00042         MOVWF j
-                      00043         
-MPASM  5.41                           PWM.ASM   11-9-2017  10:41:06         PAGE  2
+000F   1686           00039         BSF PORTB, 5
+0010   2025           00040         CALL delay_third_ms
+0011   1286           00041         BCF PORTB, 5
+0012   2025           00042         CALL delay_third_ms
+0013   2025           00043         CALL delay_third_ms
+MPASM  5.41                           PWM.ASM   11-9-2017  11:17:26         PAGE  2
 
 
 LOC  OBJECT CODE     LINE SOURCE TEXT
   VALUE
 
-Warning[207]: Found label after column 1. (loop_j)
-0016                  00044         loop_j:
-0016   0000           00045                 NOP
-0017   0000           00046                 NOP
-0018   0BA1           00047                 DECFSZ j, 1
-0019   2816           00048                 GOTO loop_j
-001A   0008           00049                 RETURN
+                      00044 
+0014                  00045 button_end:
+0014   0BA0           00046         DECFSZ i,1
+0015   2806           00047         GOTO LOOP_PWM
+0016   0000           00048         NOP
+                      00049         
                       00050 
+0017                  00051 delay_1ms:
+0017   30C6           00052         MOVLW D'198'
+0018   00A1           00053         MOVWF j
+                      00054         
+Warning[207]: Found label after column 1. (loop_j)
+0019                  00055         loop_j:
+0019   0000           00056                 NOP
+001A   0000           00057                 NOP
+001B   0BA1           00058                 DECFSZ j, 1
+001C   2819           00059                 GOTO loop_j
+001D   0008           00060                 RETURN
+                      00061 
+001E                  00062 delay_half_ms:
+                      00063 
+001E   3063           00064         MOVLW D'99'
+001F   00A1           00065         MOVWF j
+                      00066         
+Warning[207]: Found label after column 1. (loop_ji)
+0020                  00067         loop_ji:
+0020   0000           00068                 NOP
+0021   0000           00069                 NOP
+0022   0BA1           00070                 DECFSZ j, 1
+0023   2820           00071                 GOTO loop_ji
+0024   0008           00072                 RETURN
+                      00073 
+0025                  00074 delay_third_ms:
+                      00075 
+0025   3043           00076         MOVLW D'67'
+0026   00A1           00077         MOVWF j
+                      00078         
+Warning[207]: Found label after column 1. (loop_jiy)
+0027                  00079         loop_jiy:
+0027   0000           00080                 NOP
+0028   0000           00081                 NOP
+0029   0BA1           00082                 DECFSZ j, 1
+002A   2827           00083                 GOTO loop_jiy
+002B   0008           00084                 RETURN
+                      00085 
 Warning[205]: Found directive in column 1. (end)
-                      00051 end
-MPASM  5.41                           PWM.ASM   11-9-2017  10:41:06         PAGE  3
+                      00086 end
+MPASM  5.41                           PWM.ASM   11-9-2017  11:17:26         PAGE  3
 
 
 SYMBOL TABLE
@@ -132,7 +169,7 @@ T0CS                              00000005
 T0IE                              00000005
 T0IF                              00000002
 T0SE                              00000004
-MPASM  5.41                           PWM.ASM   11-9-2017  10:41:06         PAGE  4
+MPASM  5.41                           PWM.ASM   11-9-2017  11:17:26         PAGE  4
 
 
 SYMBOL TABLE
@@ -178,27 +215,34 @@ _WDT_ON                           00003FFF
 _XT_OSC                           00003FFD
 __16F84                           00000001
 __DEBUG                           1
-delay_1ms                         00000014
+button_apasat                     0000000F
+button_end                        00000014
+button_neapasat                   00000008
+delay_1ms                         00000017
+delay_half_ms                     0000001E
+delay_third_ms                    00000025
 i                                 00000020
 j                                 00000021
-loop_j                            00000016
+loop_j                            00000019
+loop_ji                           00000020
+loop_jiy                          00000027
 main                              00000000
-MPASM  5.41                           PWM.ASM   11-9-2017  10:41:06         PAGE  5
+MPASM  5.41                           PWM.ASM   11-9-2017  11:17:26         PAGE  5
 
 
 MEMORY USAGE MAP ('X' = Used,  '-' = Unused)
 
 
-0000 : XXXXXXXXXXXXXXXX XXXXXXXXXXX----- ---------------- ----------------
+0000 : XXXXXXXXXXXXXXXX XXXXXXXXXXXXXXXX XXXXXXXXXXXX---- ----------------
 
 All other memory blocks unused.
 
-Program Memory Words Used:    27
-Program Memory Words Free:   997
+Program Memory Words Used:    44
+Program Memory Words Free:   980
 
 
 Errors   :     0
-Warnings :     2 reported,     0 suppressed
+Warnings :     4 reported,     0 suppressed
 Messages :     1 reported,     0 suppressed
 
 

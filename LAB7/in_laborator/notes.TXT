@@ -1,2 +1,6 @@
 generare pwm dc 50%, f = 2ms, generat pe rB 5
 RB0 pin de intrare cu buton care modifica factorul de umplere la 25%
+
+
+
+tema
