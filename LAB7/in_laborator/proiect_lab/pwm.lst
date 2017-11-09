@@ -1,0 +1,202 @@
+MPASM  5.41                           PWM.ASM   11-9-2017  10:34:50         PAGE  1
+
+
+LOC  OBJECT CODE     LINE SOURCE TEXT
+  VALUE
+
+                      00001 ; fosc = 4MHz
+                      00002 ; 1 cm = 4 tacte
+                      00003 ; 1 sec = 10^6 cm
+                      00004 ; 1 cm = 1 us
+                      00005 ; 1 ms = 1000 cm
+                      00006 
+                      00007 #include p16f84.inc
+                      00001         LIST
+                      00002 
+                      00003 ;==========================================================================
+                      00004 ;  MPASM PIC16F84 processor include
+                      00005 ; 
+                      00006 ;  (c) Copyright 1999-2011 Microchip Technology, All rights reserved
+                      00007 ;==========================================================================
+                      00008 
+                      00199         LIST
+                      00008 
+  00000020            00009 i equ 0x20
+  00000021            00010 j equ 0x21
+                      00011 
+0000                  00012 main:
+0000   1683           00013         BSF STATUS, RP0
+0001   300F           00014         MOVLW B'00001111'
+Message[302]: Register in operand not in bank 0.  Ensure that bank bits are correct.
+0002   0086           00015         MOVWF TRISB
+0003   1283           00016         BCF STATUS, RP0
+                      00017         
+0004   300A           00018         MOVLW D'10'
+0005   00A0           00019         MOVWF i
+                      00020 
+0006                  00021 LOOP_PWM:
+0006   1686           00022         BSF PORTB, 5
+0007   2012           00023         CALL delay_1ms
+0008   0000           00024         NOP 
+0009   0000           00025         NOP
+000A   0000           00026         NOP
+000B   0000           00027         NOP
+                      00028 
+000C   1286           00029         BCF PORTB, 5
+000D   2012           00030         CALL delay_1ms
+000E   0000           00031         NOP
+                      00032 
+000F   0BA0           00033         DECFSZ i, 1
+0010   2806           00034         GOTO LOOP_PWM
+0011   0000           00035         NOP
+                      00036         
+                      00037 
+0012                  00038 delay_1ms:
+0012   30C6           00039         MOVLW D'198'
+0013   00A1           00040         MOVWF j
+                      00041         
+Warning[207]: Found label after column 1. (loop_j)
+0014                  00042         loop_j:
+MPASM  5.41                           PWM.ASM   11-9-2017  10:34:50         PAGE  2
+
+
+LOC  OBJECT CODE     LINE SOURCE TEXT
+  VALUE
+
+0014   0000           00043                 NOP
+0015   0000           00044                 NOP
+0016   0BA1           00045                 DECFSZ j, 1
+0017   2814           00046                 GOTO loop_j
+0018   0008           00047                 RETURN
+                      00048 
+Warning[205]: Found directive in column 1. (end)
+                      00049 end
+MPASM  5.41                           PWM.ASM   11-9-2017  10:34:50         PAGE  3
+
+
+SYMBOL TABLE
+  LABEL                             VALUE 
+
+C                                 00000000
+DC                                00000001
+EEADR                             00000009
+EECON1                            00000088
+EECON2                            00000089
+EEDATA                            00000008
+EEIE                              00000006
+EEIF                              00000004
+F                                 00000001
+FSR                               00000004
+GIE                               00000007
+INDF                              00000000
+INTCON                            0000000B
+INTE                              00000004
+INTEDG                            00000006
+INTF                              00000001
+IRP                               00000007
+LOOP_PWM                          00000006
+NOT_PD                            00000003
+NOT_RBPU                          00000007
+NOT_TO                            00000004
+OPTION_REG                        00000081
+PCL                               00000002
+PCLATH                            0000000A
+PORTA                             00000005
+PORTB                             00000006
+PS0                               00000000
+PS1                               00000001
+PS2                               00000002
+PSA                               00000003
+RA0                               00000000
+RA1                               00000001
+RA2                               00000002
+RA3                               00000003
+RA4                               00000004
+RB0                               00000000
+RB1                               00000001
+RB2                               00000002
+RB3                               00000003
+RB4                               00000004
+RB5                               00000005
+RB6                               00000006
+RB7                               00000007
+RBIE                              00000003
+RBIF                              00000000
+RD                                00000000
+RP0                               00000005
+RP1                               00000006
+STATUS                            00000003
+T0CS                              00000005
+T0IE                              00000005
+T0IF                              00000002
+T0SE                              00000004
+MPASM  5.41                           PWM.ASM   11-9-2017  10:34:50         PAGE  4
+
+
+SYMBOL TABLE
+  LABEL                             VALUE 
+
+TMR0                              00000001
+TMR0IE                            00000005
+TMR0IF                            00000002
+TRISA                             00000085
+TRISA0                            00000000
+TRISA1                            00000001
+TRISA2                            00000002
+TRISA3                            00000003
+TRISA4                            00000004
+TRISB                             00000086
+TRISB0                            00000000
+TRISB1                            00000001
+TRISB2                            00000002
+TRISB3                            00000003
+TRISB4                            00000004
+TRISB5                            00000005
+TRISB6                            00000006
+TRISB7                            00000007
+W                                 00000000
+WR                                00000001
+WREN                              00000002
+WRERR                             00000003
+Z                                 00000002
+_CONFIG                           00002007
+_CP_OFF                           00003FFF
+_CP_ON                            0000000F
+_HS_OSC                           00003FFE
+_IDLOC0                           00002000
+_IDLOC1                           00002001
+_IDLOC2                           00002002
+_IDLOC3                           00002003
+_LP_OSC                           00003FFC
+_PWRTE_OFF                        00003FFF
+_PWRTE_ON                         00003FF7
+_RC_OSC                           00003FFF
+_WDT_OFF                          00003FFB
+_WDT_ON                           00003FFF
+_XT_OSC                           00003FFD
+__16F84                           00000001
+__DEBUG                           1
+delay_1ms                         00000012
+i                                 00000020
+j                                 00000021
+loop_j                            00000014
+main                              00000000
+MPASM  5.41                           PWM.ASM   11-9-2017  10:34:50         PAGE  5
+
+
+MEMORY USAGE MAP ('X' = Used,  '-' = Unused)
+
+
+0000 : XXXXXXXXXXXXXXXX XXXXXXXXX------- ---------------- ----------------
+
+All other memory blocks unused.
+
+Program Memory Words Used:    25
+Program Memory Words Free:   999
+
+
+Errors   :     0
+Warnings :     2 reported,     0 suppressed
+Messages :     1 reported,     0 suppressed
+
+
