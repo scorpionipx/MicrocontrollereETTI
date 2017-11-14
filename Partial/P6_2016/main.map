@@ -1,0 +1,37 @@
+MPLINK 4.39, Linker
+Linker Map File - Created Tue Nov 14 20:06:45 2017
+
+                                 Section Info
+                  Section       Type    Address   Location Size(Bytes)
+                ---------  ---------  ---------  ---------  ---------
+                   .org_0       code   0x000000    program   0x000032
+
+
+
+                              Program Memory Usage 
+                               Start         End      
+                           ---------   ---------      
+                            0x000000    0x000018      
+            25 out of 1093 program addresses used, program memory utilization is 2%
+
+
+
+                              Symbols - Sorted by Name
+                     Name    Address   Location    Storage File                     
+                ---------  ---------  ---------  --------- ---------                
+        a_aparut_depasire   0x000010    program     static D:\Documents\Facultate\Anul IV\Microcontrollere\Partial\P6_2016\main.asm
+                     main   0x000000    program     static D:\Documents\Facultate\Anul IV\Microcontrollere\Partial\P6_2016\main.asm
+     nu_a_aparut_depasire   0x000015    program     static D:\Documents\Facultate\Anul IV\Microcontrollere\Partial\P6_2016\main.asm
+          sfarsit_program   0x000019    program     static D:\Documents\Facultate\Anul IV\Microcontrollere\Partial\P6_2016\main.asm
+
+
+
+                              Symbols - Sorted by Address
+                     Name    Address   Location    Storage File                     
+                ---------  ---------  ---------  --------- ---------                
+                     main   0x000000    program     static D:\Documents\Facultate\Anul IV\Microcontrollere\Partial\P6_2016\main.asm
+        a_aparut_depasire   0x000010    program     static D:\Documents\Facultate\Anul IV\Microcontrollere\Partial\P6_2016\main.asm
+     nu_a_aparut_depasire   0x000015    program     static D:\Documents\Facultate\Anul IV\Microcontrollere\Partial\P6_2016\main.asm
+          sfarsit_program   0x000019    program     static D:\Documents\Facultate\Anul IV\Microcontrollere\Partial\P6_2016\main.asm
+
+

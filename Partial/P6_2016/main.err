@@ -1,0 +1,5 @@
+Message[301] C:\PROGRAM FILES (X86)\MICROCHIP\MPASM SUITE\P16F887.INC 33 : MESSAGE: (Processor-header file mismatch.  Verify selected processor.)
+Message[302] D:\DOCUMENTS\FACULTATE\ANUL IV\MICROCONTROLLERE\PARTIAL\P6_2016\MAIN.ASM 12 : Register in operand not in bank 0.  Ensure that bank bits are correct.
+Warning[207] D:\DOCUMENTS\FACULTATE\ANUL IV\MICROCONTROLLERE\PARTIAL\P6_2016\MAIN.ASM 35 : Found label after column 1. (a_aparut_depasire)
+Warning[207] D:\DOCUMENTS\FACULTATE\ANUL IV\MICROCONTROLLERE\PARTIAL\P6_2016\MAIN.ASM 45 : Found label after column 1. (nu_a_aparut_depasire)
+Warning[207] D:\DOCUMENTS\FACULTATE\ANUL IV\MICROCONTROLLERE\PARTIAL\P6_2016\MAIN.ASM 52 : Found label after column 1. (sfarsit_program)
