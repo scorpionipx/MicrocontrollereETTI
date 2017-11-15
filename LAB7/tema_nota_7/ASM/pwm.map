@@ -1,0 +1,39 @@
+MPLINK 4.39, Linker
+Linker Map File - Created Wed Nov 15 20:34:57 2017
+
+                                 Section Info
+                  Section       Type    Address   Location Size(Bytes)
+                ---------  ---------  ---------  ---------  ---------
+                   .org_0       code   0x000000    program   0x000038
+
+
+
+                              Program Memory Usage 
+                               Start         End      
+                           ---------   ---------      
+                            0x000000    0x00001b      
+            28 out of 1093 program addresses used, program memory utilization is 2%
+
+
+
+                              Symbols - Sorted by Name
+                     Name    Address   Location    Storage File                     
+                ---------  ---------  ---------  --------- ---------                
+               DELAY_50US   0x000015    program     static D:\Documents\Facultate\Anul IV\Microcontrollere\LAB7\tema_nota_7\ASM\pwm.asm
+           END_OF_PROGRAM   0x00001c    program     static D:\Documents\Facultate\Anul IV\Microcontrollere\LAB7\tema_nota_7\ASM\pwm.asm
+                MAIN_LOOP   0x000009    program     static D:\Documents\Facultate\Anul IV\Microcontrollere\LAB7\tema_nota_7\ASM\pwm.asm
+                   loop_j   0x000017    program     static D:\Documents\Facultate\Anul IV\Microcontrollere\LAB7\tema_nota_7\ASM\pwm.asm
+                     main   0x000000    program     static D:\Documents\Facultate\Anul IV\Microcontrollere\LAB7\tema_nota_7\ASM\pwm.asm
+
+
+
+                              Symbols - Sorted by Address
+                     Name    Address   Location    Storage File                     
+                ---------  ---------  ---------  --------- ---------                
+                     main   0x000000    program     static D:\Documents\Facultate\Anul IV\Microcontrollere\LAB7\tema_nota_7\ASM\pwm.asm
+                MAIN_LOOP   0x000009    program     static D:\Documents\Facultate\Anul IV\Microcontrollere\LAB7\tema_nota_7\ASM\pwm.asm
+               DELAY_50US   0x000015    program     static D:\Documents\Facultate\Anul IV\Microcontrollere\LAB7\tema_nota_7\ASM\pwm.asm
+                   loop_j   0x000017    program     static D:\Documents\Facultate\Anul IV\Microcontrollere\LAB7\tema_nota_7\ASM\pwm.asm
+           END_OF_PROGRAM   0x00001c    program     static D:\Documents\Facultate\Anul IV\Microcontrollere\LAB7\tema_nota_7\ASM\pwm.asm
+
+

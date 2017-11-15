@@ -1,0 +1,52 @@
+#include p16f84.inc
+
+i equ 0x20
+j equ 0x21
+
+main:
+	BSF STATUS, RP0; pozitionare bank 1
+	MOVLW B'00111111'
+	MOVWF TRISB; RB6, RB7 output
+	BCF STATUS, RP0; revenire in bank 0
+	
+	MOVLW D'5'
+	MOVWF i
+
+	MOVLW B'00000000'
+	MOVWF PORTB
+
+	BSF PORTB, RB6
+
+	MAIN_LOOP:
+		
+		BCF PORTB, RB7
+		CALL DELAY_50US
+		BSF PORTB, RB7
+		CALL DELAY_50US
+		BCF PORTB, RB6
+		CALL DELAY_50US
+		BCF PORTB, RB7
+		CALL DELAY_50US
+		BSF PORTB, RB6
+
+		DECFSZ i, 1
+			GOTO MAIN_LOOP
+		GOTO END_OF_PROGRAM
+
+	DELAY_50US:
+		
+		MOVLW D'9'
+		MOVWF j
+		
+		loop_j:
+			NOP
+			NOP
+			DECFSZ j, 1
+			GOTO loop_j
+			RETURN
+
+	END_OF_PROGRAM:
+		end
+
+
+	
