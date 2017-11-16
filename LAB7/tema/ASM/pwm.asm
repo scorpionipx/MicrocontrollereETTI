@@ -12,6 +12,9 @@
 #define BUTTON RB0
 #define SIGNAL RB7
 
+contor_delay equ 0x20
+
+
 main:
 	BSF STATUS, RP0; pozitionare bank 1
 	MOVLW B'01111111'
@@ -22,11 +25,15 @@ main:
 	MOVWF PORTB 
 
 	PWM_0:
+		NOP
+		BCF PORTB, SIGNAL
+		call DELAY_800US
 		BTFSC PORTB, BUTTON
 			GOTO PWM_1_5
 		GOTO PWM_0
 
 	PWM_1_5:
+		NOP
 		BSF PORTB, SIGNAL
 		call DELAY_200US
 
@@ -38,6 +45,7 @@ main:
 		GOTO PWM_1_5
 
 	PWM_2_5:
+		NOP
 		BSF PORTB, SIGNAL
 		call DELAY_400US
 
@@ -49,6 +57,7 @@ main:
 		GOTO PWM_2_5
 
 	PWM_3_5:
+		NOP
 		BSF PORTB, SIGNAL
 		call DELAY_600US
 
@@ -60,27 +69,56 @@ main:
 		GOTO PWM_3_5
 
 	PWM_4_5:
+		NOP
 		BSF PORTB, SIGNAL
-		call DELAY_600US
+		call DELAY_800US
 
 		BCF PORTB, SIGNAL
-		call DELAY_400US
+		call DELAY_200US
 
 		BTFSC PORTB, BUTTON
 			GOTO PWM_1
 		GOTO PWM_4_5
 
 	PWM_1:
+		NOP
+		call DELAY_800US
+		BSF PORTB, SIGNAL
 		BTFSC PORTB, BUTTON
 			GOTO PWM_0
 		GOTO PWM_1
 		
 	DELAY_200US:
 		MOVLW D'39'
-		ADDLW D'255'
-		BTFSC STATUS, Z
-			RETURN
-		GOTO DELAY_200US
+		MOVWF contor_delay
+		DELAY_200US_INNER:
+			DECFSZ contor_delay, 1
+				GOTO DELAY_200US_INNER
+		RETURN
+		
+	DELAY_400US:
+		MOVLW D'78'
+		MOVWF contor_delay
+		DELAY_400US_INNER:
+		DECFSZ contor_delay, 1
+			GOTO DELAY_400US_INNER
+		RETURN
+		
+	DELAY_600US:
+		MOVLW D'117'
+		MOVWF contor_delay
+		DELAY_600US_INNER:
+		DECFSZ contor_delay, 1
+			GOTO DELAY_600US_INNER
+		RETURN
+		
+	DELAY_800US:
+		MOVLW D'156'
+		MOVWF contor_delay
+		DELAY_800US_INNER:
+		DECFSZ contor_delay, 1
+			GOTO DELAY_800US_INNER
+		RETURN
 		
 
 NOP
