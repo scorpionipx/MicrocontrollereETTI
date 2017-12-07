@@ -1,4 +1,4 @@
-MPASM  5.41                           PWM.ASM   11-15-2017  22:43:12         PAGE  1
+MPASM  5.41                           PWM.ASM   12-7-2017  11:28:40         PAGE  1
 
 
 LOC  OBJECT CODE     LINE SOURCE TEXT
@@ -57,7 +57,7 @@ Warning[207]: Found label after column 1. (PWM_1_5)
                       00039 
 000F   1386           00040                 BCF PORTB, SIGNAL
 0010   2041           00041                 call DELAY_800US
-MPASM  5.41                           PWM.ASM   11-15-2017  22:43:12         PAGE  2
+MPASM  5.41                           PWM.ASM   12-7-2017  11:28:40         PAGE  2
 
 
 LOC  OBJECT CODE     LINE SOURCE TEXT
@@ -116,7 +116,7 @@ Warning[207]: Found label after column 1. (PWM_1)
 0030   2806           00088                         GOTO PWM_0
 0031   282C           00089                 GOTO PWM_1
                       00090                 
-MPASM  5.41                           PWM.ASM   11-15-2017  22:43:12         PAGE  3
+MPASM  5.41                           PWM.ASM   12-7-2017  11:28:40         PAGE  3
 
 
 LOC  OBJECT CODE     LINE SOURCE TEXT
@@ -167,7 +167,7 @@ Warning[203]: Found opcode in column 1. (NOP)
 0046   0000           00124 NOP
 Warning[205]: Found directive in column 1. (end)
                       00125 end
-MPASM  5.41                           PWM.ASM   11-15-2017  22:43:12         PAGE  4
+MPASM  5.41                           PWM.ASM   12-7-2017  11:28:40         PAGE  4
 
 
 SYMBOL TABLE
@@ -226,7 +226,7 @@ RB0                               00000000
 RB1                               00000001
 RB2                               00000002
 RB3                               00000003
-MPASM  5.41                           PWM.ASM   11-15-2017  22:43:12         PAGE  5
+MPASM  5.41                           PWM.ASM   12-7-2017  11:28:40         PAGE  5
 
 
 SYMBOL TABLE
@@ -285,7 +285,7 @@ _RC_OSC                           00003FFF
 _WDT_OFF                          00003FFB
 _WDT_ON                           00003FFF
 _XT_OSC                           00003FFD
-MPASM  5.41                           PWM.ASM   11-15-2017  22:43:12         PAGE  6
+MPASM  5.41                           PWM.ASM   12-7-2017  11:28:40         PAGE  6
 
 
 SYMBOL TABLE
