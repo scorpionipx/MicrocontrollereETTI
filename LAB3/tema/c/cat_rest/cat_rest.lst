@@ -1,0 +1,288 @@
+
+
+HI-TECH Software PIC LITE Macro Assembler V9.81 build 7503 
+                                                                                               Mon Oct 16 18:22:59 2017
+
+HI-TECH Software Omniscient Code Generator (Lite mode) build 7503
+     1  0000                     opt subtitle "HI-TECH Software Omniscient Code Generator (Lite mode) build 7503"
+     2                           
+     3                           opt pagewidth 120
+     4                           
+     5                           	opt lm
+     6                           
+     7                           	processor	16F84
+     8                           clrc	macro
+     9                           	bcf	3,0
+    10  0000                     	endm
+    11                           clrz	macro
+    12                           	bcf	3,2
+    13  0000                     	endm
+    14                           setc	macro
+    15                           	bsf	3,0
+    16  0000                     	endm
+    17                           setz	macro
+    18                           	bsf	3,2
+    19  0000                     	endm
+    20                           skipc	macro
+    21                           	btfss	3,0
+    22  0000                     	endm
+    23                           skipz	macro
+    24                           	btfss	3,2
+    25  0000                     	endm
+    26                           skipnc	macro
+    27                           	btfsc	3,0
+    28  0000                     	endm
+    29                           skipnz	macro
+    30                           	btfsc	3,2
+    31  0000                     	endm
+    32  0000                     indf	equ	0
+    33  0000                     indf0	equ	0
+    34  0002                     pc	equ	2
+    35  0002                     pcl	equ	2
+    36  0003                     status	equ	3
+    37  0004                     fsr	equ	4
+    38  0004                     fsr0	equ	4
+    39  0001                     c	equ	1
+    40  0000                     z	equ	0
+    41  000A                     pclath	equ	10
+    42                           	FNROOT	_main
+    43                           psect	maintext,global,class=CODE,delta=2
+    44                           global __pmaintext
+    45  03E1                     __pmaintext:
+    46                           	file	"cat_rest.as"
+    47                           	line	#
+    48                           psect cinit,class=CODE,delta=2
+    49                           global start_initialization
+    50  03DF                     start_initialization:
+    51                           
+    52                           psect cinit,class=CODE,delta=2
+    53                           global end_of_initialization
+    54                           
+    55                           ;End of C runtime variable initialization code
+    56                           
+    57  03DF                     end_of_initialization:
+    58  03DF  0183               clrf status
+    59  03E0  2BE1               ljmp _main	;jump to C main() function
+    60                           psect	cstackBANK0,class=BANK0,space=1
+    61                           global __pcstackBANK0
+    62  000C                     __pcstackBANK0:
+    63                           	global	?_main
+    64  000C                     ?_main:	; 0 bytes @ 0x0
+    65                           	global	??_main
+    66  000C                     ??_main:	; 0 bytes @ 0x0
+    67  000C                     	ds	1
+    68                           	global	main@rest
+    69  000D                     main@rest:	; 1 bytes @ 0x1
+    70  000D                     	ds	1
+    71                           	global	main@cat
+    72  000E                     main@cat:	; 1 bytes @ 0x2
+    73  000E                     	ds	1
+    74                           	global	main@y
+    75  000F                     main@y:	; 1 bytes @ 0x3
+    76  000F                     	ds	1
+    77                           	global	main@x
+    78  0010                     main@x:	; 1 bytes @ 0x4
+    79  0010                     	ds	1
+    80 ;;Data sizes: Strings 0, constant 0, data 0, bss 0, persistent 0 stack 0
+    81 ;;Auto spaces:   Size  Autos    Used
+    82 ;; COMMON           0      0       0
+    83 ;; BANK0           66      5       5
+    84                           
+    85 ;;
+    86 ;; Pointer list with targets:
+    87                           
+    88                           
+    89                           
+    90 ;;
+    91 ;; Critical Paths under _main in COMMON
+    92 ;;
+    93 ;;   None.
+    94 ;;
+    95 ;; Critical Paths under _main in BANK0
+    96 ;;
+    97 ;;   None.
+    98                           
+    99 ;;
+   100 ;;Main: autosize = 0, tempsize = 1, incstack = 0, save=0
+   101 ;;
+   102                           
+   103 ;;
+   104 ;;Call Graph Tables:
+   105 ;;
+   106 ;; ---------------------------------------------------------------------------------
+   107 ;; (Depth) Function   	        Calls       Base Space   Used Autos Params    Refs
+   108 ;; ---------------------------------------------------------------------------------
+   109 ;; (0) _main                                                 5     5      0      94
+   110 ;;                                              0 BANK0      5     5      0
+   111 ;; ---------------------------------------------------------------------------------
+   112 ;; Estimated maximum stack depth 0
+   113 ;; ---------------------------------------------------------------------------------
+   114                           
+   115 ;; Call Graph Graphs:
+   116                           
+   117 ;; _main (ROOT)
+   118 ;;
+   119                           
+   120 ;; Address spaces:
+   121                           
+   122 ;;Name               Size   Autos  Total    Cost      Usage
+   123 ;;BITCOMMON            0      0       0       0        0.0%
+   124 ;;EEDATA              40      0       0       0        0.0%
+   125 ;;NULL                 0      0       0       0        0.0%
+   126 ;;CODE                 0      0       0       0        0.0%
+   127 ;;BITSFR0              0      0       0       1        0.0%
+   128 ;;SFR0                 0      0       0       1        0.0%
+   129 ;;COMMON               0      0       0       1        0.0%
+   130 ;;BITSFR1              0      0       0       2        0.0%
+   131 ;;SFR1                 0      0       0       2        0.0%
+   132 ;;STACK                0      0       0       2        0.0%
+   133 ;;BANK0               42      5       5       3        7.6%
+   134 ;;ABS                  0      0       0       4        0.0%
+   135 ;;BITBANK0            42      0       0       5        0.0%
+   136 ;;DATA                 0      0       0       6        0.0%
+   137                           
+   138                           	global	_main
+   139                           psect	maintext
+   140                           
+   141 ;; *************** function _main *****************
+   142 ;; Defined at:
+   143 ;;		line 9 in file "D:\Documents\Facultate\Anul IV\Microcontrollere\LAB3\tema\c\cat_rest\cat_rest.c"
+   144 ;; Parameters:    Size  Location     Type
+   145 ;;		None
+   146 ;; Auto vars:     Size  Location     Type
+   147 ;;  x               1    4[BANK0 ] unsigned char 
+   148 ;;  y               1    3[BANK0 ] unsigned char 
+   149 ;;  cat             1    2[BANK0 ] unsigned char 
+   150 ;;  rest            1    1[BANK0 ] unsigned char 
+   151 ;; Return value:  Size  Location     Type
+   152 ;;		None               void
+   153 ;; Registers used:
+   154 ;;		wreg, status,2, status,0
+   155 ;; Tracked objects:
+   156 ;;		On entry : 17F/0
+   157 ;;		On exit  : 0/0
+   158 ;;		Unchanged: 0/0
+   159 ;; Data sizes:     COMMON   BANK0
+   160 ;;      Params:         0       0
+   161 ;;      Locals:         0       4
+   162 ;;      Temps:          0       1
+   163 ;;      Totals:         0       5
+   164 ;;Total ram usage:        5 bytes
+   165 ;; This function calls:
+   166 ;;		Nothing
+   167 ;; This function is called by:
+   168 ;;		Startup code after reset
+   169 ;; This function uses a non-reentrant model
+   170 ;;
+   171                           psect	maintext
+   172                           	file	"D:\Documents\Facultate\Anul IV\Microcontrollere\LAB3\tema\c\cat_rest\cat_rest.c"
+   173                           	line	9
+   174                           	global	__size_of_main
+   175  001F                     	__size_of_main	equ	__end_of_main-_main
+   176                           	
+   177  03E1                     _main:	
+   178                           	opt	stack 8
+   179                           ; Regs used in _main: [wreg+status,2+status,0]
+   180                           	line	11
+   181                           	
+   182  03E1                     l1317:	
+   183                           ;cat_rest.c: 10: unsigned char x, y, rest, cat;
+   184                           ;cat_rest.c: 11: x = 20;
+   185  03E1  3014               	movlw	(014h)
+   186  03E2  1283               	bcf	status, 5	;RP0=0, select bank0
+   187  03E3  008C               	movwf	(??_main+0)+0
+   188  03E4  080C               	movf	(??_main+0)+0,w
+   189  03E5  0090               	movwf	(main@x)
+   190                           	line	12
+   191                           ;cat_rest.c: 12: y = 3;
+   192  03E6  3003               	movlw	(03h)
+   193  03E7  008C               	movwf	(??_main+0)+0
+   194  03E8  080C               	movf	(??_main+0)+0,w
+   195  03E9  008F               	movwf	(main@y)
+   196                           	line	14
+   197                           	
+   198  03EA                     l1319:	
+   199                           ;cat_rest.c: 14: cat = 0;
+   200  03EA  018E               	clrf	(main@cat)
+   201                           	line	16
+   202                           ;cat_rest.c: 16: while(x >= y)
+   203  03EB  2BF3               	goto	l1323
+   204                           	
+   205  03EC                     l168:	
+   206                           	line	18
+   207                           	
+   208  03EC                     l1321:	
+   209                           ;cat_rest.c: 17: {
+   210                           ;cat_rest.c: 18: cat ++;
+   211  03EC  3001               	movlw	(01h)
+   212  03ED  008C               	movwf	(??_main+0)+0
+   213  03EE  080C               	movf	(??_main+0)+0,w
+   214  03EF  078E               	addwf	(main@cat),f
+   215                           	line	19
+   216                           ;cat_rest.c: 19: x -= y;
+   217  03F0  080F               	movf	(main@y),w
+   218  03F1  0290               	subwf	(main@x),f
+   219  03F2  2BF3               	goto	l1323
+   220                           	line	20
+   221                           	
+   222  03F3                     l167:	
+   223                           	line	16
+   224                           	
+   225  03F3                     l1323:	
+   226  03F3  080F               	movf	(main@y),w
+   227  03F4  0210               	subwf	(main@x),w
+   228  03F5  1803               	skipnc
+   229  03F6  2BF8               	goto	u2151
+   230  03F7  2BF9               	goto	u2150
+   231  03F8                     u2151:
+   232  03F8  2BEC               	goto	l1321
+   233  03F9                     u2150:
+   234  03F9  2BFA               	goto	l1325
+   235                           	
+   236  03FA                     l169:	
+   237                           	line	21
+   238                           	
+   239  03FA                     l1325:	
+   240                           ;cat_rest.c: 20: }
+   241                           ;cat_rest.c: 21: rest = x;
+   242  03FA  0810               	movf	(main@x),w
+   243  03FB  008C               	movwf	(??_main+0)+0
+   244  03FC  080C               	movf	(??_main+0)+0,w
+   245  03FD  008D               	movwf	(main@rest)
+   246                           	line	23
+   247                           	
+   248  03FE                     l1327:	
+   249                           # 23 "D:\Documents\Facultate\Anul IV\Microcontrollere\LAB3\tema\c\cat_rest\cat_rest.c"
+   250  03FE  0000               NOP ;#
+   251                           psect	maintext
+   252                           	line	24
+   253                           	
+   254  03FF                     l170:	
+   255                           	global	start
+   256  03FF  2800               	ljmp	start
+   257                           	opt stack 0
+   258                           GLOBAL	__end_of_main
+   259  0400                     	__end_of_main:
+   260 ;; =============== function _main ends ============
+   261                           
+   262                           	signat	_main,88
+   263                           psect	maintext
+   264                           	global	btemp
+   265  004E                     	btemp set 04Eh
+   266                           
+   267                           	DABS	1,78,2	;btemp
+   268                           	global	wtemp0
+   269  004E                     	wtemp0 set btemp
+
+
+HI-TECH Software PICC Macro Assembler V9.81 build 7503 
+Symbol Table                                                                                   Mon Oct 16 18:22:59 2017
+
+                 l170 03FF                   l167 03F3                   l168 03EC                   l169 03FA  
+                l1321 03EC                  l1323 03F3                  l1325 03FA                  l1317 03E1  
+                l1327 03FE                  l1319 03EA                  u2150 03F9                  u2151 03F8  
+                _main 03E1                  btemp 004E                  start 0000                 ?_main 000C  
+               main@x 0010                 main@y 000F                 status 0003                 wtemp0 004E  
+        __end_of_main 0400                ??_main 000C            __pmaintext 03E1               main@cat 000E  
+end_of_initialization 03DF   start_initialization 03DF         __pcstackBANK0 000C         __size_of_main 001F  
+            main@rest 000D  

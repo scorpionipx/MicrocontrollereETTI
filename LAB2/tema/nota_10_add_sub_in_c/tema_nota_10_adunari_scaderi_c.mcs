@@ -1,0 +1,185 @@
+[Header]
+MagicCookie={0b13fe8c-dfe0-40eb-8900-6712719559a7}
+Version=1.0
+[File000]
+Location=D:\Documents\Facultate\Anul IV\Microcontrollere\LAB2\tema\nota_10_add_sub_in_c\swap_vars_using_adds_and_subs.p1
+Folder=Intermediary
+DeviceName=PIC16F84
+LanguageToolSuiteID={507D93FD-16F1-4270-980F-0C7C0207E6D3}
+LanguageToolID={0F51667C-2BAF-4EF8-A2C9-AB83788A793D}
+LanguageToolLocation=C:\Program Files (x86)\HI-TECH Software\PICC\9.81\bin\picc.exe
+PPAD=$(BINDIR)||$(TMPDIR)||$(AINDIR)||$(INCDIR)||$(LIBDIR)||$(LKRDIR)||
+SOLK=<src>|D:\Documents\Facultate\Anul IV\Microcontrollere\LAB2\tema\nota_10_add_sub\swap_vars_using_adds_and_subs.c||<obj>||<lib>||<lkr>||
+SuiteArgsString=
+ToolArgsString=C9=1
+TraceCmdString=
+DebugOptions=
+[File001]
+Location=D:\Documents\Facultate\Anul IV\Microcontrollere\LAB2\tema\nota_10_add_sub_in_c\tema_nota_10_adunari_scaderi_c.cof
+Folder=Output
+DeviceName=PIC16F84
+LanguageToolSuiteID={507D93FD-16F1-4270-980F-0C7C0207E6D3}
+LanguageToolID={0F51667C-2BAF-4EF8-A2C9-AB83788A793D}
+LanguageToolLocation=C:\Program Files (x86)\HI-TECH Software\PICC\9.81\bin\picc.exe
+PPAD=$(BINDIR)||$(TMPDIR)||$(AINDIR)||$(INCDIR)||$(LIBDIR)||$(LKRDIR)||
+SOLK=<src>|D:\Documents\Facultate\Anul IV\Microcontrollere\LAB2\tema\nota_10_add_sub\swap_vars_using_adds_and_subs.c||<obj>||<lib>||<lkr>||
+SuiteArgsString=
+ToolArgsString=C9=1
+TraceCmdString=
+DebugOptions=
+[File002]
+Location=D:\Documents\Facultate\Anul IV\Microcontrollere\LAB2\tema\nota_10_add_sub_in_c\tema_nota_10_adunari_scaderi_c.hex
+Folder=Output
+DeviceName=PIC16F84
+LanguageToolSuiteID={507D93FD-16F1-4270-980F-0C7C0207E6D3}
+LanguageToolID={0F51667C-2BAF-4EF8-A2C9-AB83788A793D}
+LanguageToolLocation=C:\Program Files (x86)\HI-TECH Software\PICC\9.81\bin\picc.exe
+PPAD=$(BINDIR)||$(TMPDIR)||$(AINDIR)||$(INCDIR)||$(LIBDIR)||$(LKRDIR)||
+SOLK=<src>|D:\Documents\Facultate\Anul IV\Microcontrollere\LAB2\tema\nota_10_add_sub\swap_vars_using_adds_and_subs.c||<obj>||<lib>||<lkr>||
+SuiteArgsString=
+ToolArgsString=C9=1
+TraceCmdString=
+DebugOptions=
+[File003]
+Location=D:\Documents\Facultate\Anul IV\Microcontrollere\LAB2\tema\nota_10_add_sub_in_c\tema_nota_10_adunari_scaderi_c.sym
+Folder=Output
+DeviceName=PIC16F84
+LanguageToolSuiteID={507D93FD-16F1-4270-980F-0C7C0207E6D3}
+LanguageToolID={0F51667C-2BAF-4EF8-A2C9-AB83788A793D}
+LanguageToolLocation=C:\Program Files (x86)\HI-TECH Software\PICC\9.81\bin\picc.exe
+PPAD=$(BINDIR)||$(TMPDIR)||$(AINDIR)||$(INCDIR)||$(LIBDIR)||$(LKRDIR)||
+SOLK=<src>|D:\Documents\Facultate\Anul IV\Microcontrollere\LAB2\tema\nota_10_add_sub\swap_vars_using_adds_and_subs.c||<obj>||<lib>||<lkr>||
+SuiteArgsString=
+ToolArgsString=C9=1
+TraceCmdString=
+DebugOptions=
+[File004]
+Location=D:\Documents\Facultate\Anul IV\Microcontrollere\LAB2\tema\nota_10_add_sub_in_c\tema_nota_10_adunari_scaderi_c.map
+Folder=Output
+DeviceName=PIC16F84
+LanguageToolSuiteID={507D93FD-16F1-4270-980F-0C7C0207E6D3}
+LanguageToolID={0F51667C-2BAF-4EF8-A2C9-AB83788A793D}
+LanguageToolLocation=C:\Program Files (x86)\HI-TECH Software\PICC\9.81\bin\picc.exe
+PPAD=$(BINDIR)||$(TMPDIR)||$(AINDIR)||$(INCDIR)||$(LIBDIR)||$(LKRDIR)||
+SOLK=<src>|D:\Documents\Facultate\Anul IV\Microcontrollere\LAB2\tema\nota_10_add_sub\swap_vars_using_adds_and_subs.c||<obj>||<lib>||<lkr>||
+SuiteArgsString=
+ToolArgsString=C9=1
+TraceCmdString=
+DebugOptions=
+[File005]
+Location=D:\Documents\Facultate\Anul IV\Microcontrollere\LAB2\tema\nota_10_add_sub_in_c\tema_nota_10_adunari_scaderi_c.hxl
+Folder=Output
+DeviceName=PIC16F84
+LanguageToolSuiteID={507D93FD-16F1-4270-980F-0C7C0207E6D3}
+LanguageToolID={0F51667C-2BAF-4EF8-A2C9-AB83788A793D}
+LanguageToolLocation=C:\Program Files (x86)\HI-TECH Software\PICC\9.81\bin\picc.exe
+PPAD=$(BINDIR)||$(TMPDIR)||$(AINDIR)||$(INCDIR)||$(LIBDIR)||$(LKRDIR)||
+SOLK=<src>|D:\Documents\Facultate\Anul IV\Microcontrollere\LAB2\tema\nota_10_add_sub\swap_vars_using_adds_and_subs.c||<obj>||<lib>||<lkr>||
+SuiteArgsString=
+ToolArgsString=C9=1
+TraceCmdString=
+DebugOptions=
+[File006]
+Location=D:\Documents\Facultate\Anul IV\Microcontrollere\LAB2\tema\nota_10_add_sub_in_c\startup.lst
+Folder=Output
+DeviceName=PIC16F84
+LanguageToolSuiteID={507D93FD-16F1-4270-980F-0C7C0207E6D3}
+LanguageToolID={0F51667C-2BAF-4EF8-A2C9-AB83788A793D}
+LanguageToolLocation=C:\Program Files (x86)\HI-TECH Software\PICC\9.81\bin\picc.exe
+PPAD=$(BINDIR)||$(TMPDIR)||$(AINDIR)||$(INCDIR)||$(LIBDIR)||$(LKRDIR)||
+SOLK=<src>|D:\Documents\Facultate\Anul IV\Microcontrollere\LAB2\tema\nota_10_add_sub\swap_vars_using_adds_and_subs.c||<obj>||<lib>||<lkr>||
+SuiteArgsString=
+ToolArgsString=C9=1
+TraceCmdString=
+DebugOptions=
+[File007]
+Location=D:\Documents\Facultate\Anul IV\Microcontrollere\LAB2\tema\nota_10_add_sub_in_c\startup.rlf
+Folder=Output
+DeviceName=PIC16F84
+LanguageToolSuiteID={507D93FD-16F1-4270-980F-0C7C0207E6D3}
+LanguageToolID={0F51667C-2BAF-4EF8-A2C9-AB83788A793D}
+LanguageToolLocation=C:\Program Files (x86)\HI-TECH Software\PICC\9.81\bin\picc.exe
+PPAD=$(BINDIR)||$(TMPDIR)||$(AINDIR)||$(INCDIR)||$(LIBDIR)||$(LKRDIR)||
+SOLK=<src>|D:\Documents\Facultate\Anul IV\Microcontrollere\LAB2\tema\nota_10_add_sub\swap_vars_using_adds_and_subs.c||<obj>||<lib>||<lkr>||
+SuiteArgsString=
+ToolArgsString=C9=1
+TraceCmdString=
+DebugOptions=
+[File008]
+Location=D:\Documents\Facultate\Anul IV\Microcontrollere\LAB2\tema\nota_10_add_sub_in_c\doprnt.p1
+Folder=Output
+DeviceName=PIC16F84
+LanguageToolSuiteID={507D93FD-16F1-4270-980F-0C7C0207E6D3}
+LanguageToolID={0F51667C-2BAF-4EF8-A2C9-AB83788A793D}
+LanguageToolLocation=C:\Program Files (x86)\HI-TECH Software\PICC\9.81\bin\picc.exe
+PPAD=$(BINDIR)||$(TMPDIR)||$(AINDIR)||$(INCDIR)||$(LIBDIR)||$(LKRDIR)||
+SOLK=<src>|D:\Documents\Facultate\Anul IV\Microcontrollere\LAB2\tema\nota_10_add_sub\swap_vars_using_adds_and_subs.c||<obj>||<lib>||<lkr>||
+SuiteArgsString=
+ToolArgsString=C9=1
+TraceCmdString=
+DebugOptions=
+[File009]
+Location=D:\Documents\Facultate\Anul IV\Microcontrollere\LAB2\tema\nota_10_add_sub_in_c\doprnt.pre
+Folder=Output
+DeviceName=PIC16F84
+LanguageToolSuiteID={507D93FD-16F1-4270-980F-0C7C0207E6D3}
+LanguageToolID={0F51667C-2BAF-4EF8-A2C9-AB83788A793D}
+LanguageToolLocation=C:\Program Files (x86)\HI-TECH Software\PICC\9.81\bin\picc.exe
+PPAD=$(BINDIR)||$(TMPDIR)||$(AINDIR)||$(INCDIR)||$(LIBDIR)||$(LKRDIR)||
+SOLK=<src>|D:\Documents\Facultate\Anul IV\Microcontrollere\LAB2\tema\nota_10_add_sub\swap_vars_using_adds_and_subs.c||<obj>||<lib>||<lkr>||
+SuiteArgsString=
+ToolArgsString=C9=1
+TraceCmdString=
+DebugOptions=
+[File010]
+Location=D:\Documents\Facultate\Anul IV\Microcontrollere\LAB2\tema\nota_10_add_sub_in_c\tema_nota_10_adunari_scaderi_c.obj
+Folder=Output
+DeviceName=PIC16F84
+LanguageToolSuiteID={507D93FD-16F1-4270-980F-0C7C0207E6D3}
+LanguageToolID={0F51667C-2BAF-4EF8-A2C9-AB83788A793D}
+LanguageToolLocation=C:\Program Files (x86)\HI-TECH Software\PICC\9.81\bin\picc.exe
+PPAD=$(BINDIR)||$(TMPDIR)||$(AINDIR)||$(INCDIR)||$(LIBDIR)||$(LKRDIR)||
+SOLK=<src>|D:\Documents\Facultate\Anul IV\Microcontrollere\LAB2\tema\nota_10_add_sub\swap_vars_using_adds_and_subs.c||<obj>||<lib>||<lkr>||
+SuiteArgsString=
+ToolArgsString=C9=1
+TraceCmdString=
+DebugOptions=
+[File011]
+Location=D:\Documents\Facultate\Anul IV\Microcontrollere\LAB2\tema\nota_10_add_sub_in_c\tema_nota_10_adunari_scaderi_c.lst
+Folder=Output
+DeviceName=PIC16F84
+LanguageToolSuiteID={507D93FD-16F1-4270-980F-0C7C0207E6D3}
+LanguageToolID={0F51667C-2BAF-4EF8-A2C9-AB83788A793D}
+LanguageToolLocation=C:\Program Files (x86)\HI-TECH Software\PICC\9.81\bin\picc.exe
+PPAD=$(BINDIR)||$(TMPDIR)||$(AINDIR)||$(INCDIR)||$(LIBDIR)||$(LKRDIR)||
+SOLK=<src>|D:\Documents\Facultate\Anul IV\Microcontrollere\LAB2\tema\nota_10_add_sub\swap_vars_using_adds_and_subs.c||<obj>||<lib>||<lkr>||
+SuiteArgsString=
+ToolArgsString=C9=1
+TraceCmdString=
+DebugOptions=
+[File012]
+Location=D:\Documents\Facultate\Anul IV\Microcontrollere\LAB2\tema\nota_10_add_sub_in_c\tema_nota_10_adunari_scaderi_c.rlf
+Folder=Output
+DeviceName=PIC16F84
+LanguageToolSuiteID={507D93FD-16F1-4270-980F-0C7C0207E6D3}
+LanguageToolID={0F51667C-2BAF-4EF8-A2C9-AB83788A793D}
+LanguageToolLocation=C:\Program Files (x86)\HI-TECH Software\PICC\9.81\bin\picc.exe
+PPAD=$(BINDIR)||$(TMPDIR)||$(AINDIR)||$(INCDIR)||$(LIBDIR)||$(LKRDIR)||
+SOLK=<src>|D:\Documents\Facultate\Anul IV\Microcontrollere\LAB2\tema\nota_10_add_sub\swap_vars_using_adds_and_subs.c||<obj>||<lib>||<lkr>||
+SuiteArgsString=
+ToolArgsString=C9=1
+TraceCmdString=
+DebugOptions=
+[File013]
+Location=D:\Documents\Facultate\Anul IV\Microcontrollere\LAB2\tema\nota_10_add_sub_in_c\tema_nota_10_adunari_scaderi_c.sdb
+Folder=Output
+DeviceName=PIC16F84
+LanguageToolSuiteID={507D93FD-16F1-4270-980F-0C7C0207E6D3}
+LanguageToolID={0F51667C-2BAF-4EF8-A2C9-AB83788A793D}
+LanguageToolLocation=C:\Program Files (x86)\HI-TECH Software\PICC\9.81\bin\picc.exe
+PPAD=$(BINDIR)||$(TMPDIR)||$(AINDIR)||$(INCDIR)||$(LIBDIR)||$(LKRDIR)||
+SOLK=<src>|D:\Documents\Facultate\Anul IV\Microcontrollere\LAB2\tema\nota_10_add_sub\swap_vars_using_adds_and_subs.c||<obj>||<lib>||<lkr>||
+SuiteArgsString=
+ToolArgsString=C9=1
+TraceCmdString=
+DebugOptions=

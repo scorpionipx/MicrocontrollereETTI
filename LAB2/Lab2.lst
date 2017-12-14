@@ -1,0 +1,270 @@
+
+
+HI-TECH Software PIC LITE Macro Assembler V9.81 build 7503 
+                                                                                               Sat Oct 07 17:27:49 2017
+
+HI-TECH Software Omniscient Code Generator (Lite mode) build 7503
+     1  0000                     opt subtitle "HI-TECH Software Omniscient Code Generator (Lite mode) build 7503"
+     2                           
+     3                           opt pagewidth 120
+     4                           
+     5                           	opt lm
+     6                           
+     7                           	processor	16F84
+     8                           clrc	macro
+     9                           	bcf	3,0
+    10  0000                     	endm
+    11                           clrz	macro
+    12                           	bcf	3,2
+    13  0000                     	endm
+    14                           setc	macro
+    15                           	bsf	3,0
+    16  0000                     	endm
+    17                           setz	macro
+    18                           	bsf	3,2
+    19  0000                     	endm
+    20                           skipc	macro
+    21                           	btfss	3,0
+    22  0000                     	endm
+    23                           skipz	macro
+    24                           	btfss	3,2
+    25  0000                     	endm
+    26                           skipnc	macro
+    27                           	btfsc	3,0
+    28  0000                     	endm
+    29                           skipnz	macro
+    30                           	btfsc	3,2
+    31  0000                     	endm
+    32  0000                     indf	equ	0
+    33  0000                     indf0	equ	0
+    34  0002                     pc	equ	2
+    35  0002                     pcl	equ	2
+    36  0003                     status	equ	3
+    37  0004                     fsr	equ	4
+    38  0004                     fsr0	equ	4
+    39  0001                     c	equ	1
+    40  0000                     z	equ	0
+    41  000A                     pclath	equ	10
+    42                           	FNROOT	_main
+    43                           psect	maintext,global,class=CODE,delta=2
+    44                           global __pmaintext
+    45  03E2                     __pmaintext:
+    46                           	file	"Lab2.as"
+    47                           	line	#
+    48                           psect cinit,class=CODE,delta=2
+    49                           global start_initialization
+    50  03E0                     start_initialization:
+    51                           
+    52                           psect cinit,class=CODE,delta=2
+    53                           global end_of_initialization
+    54                           
+    55                           ;End of C runtime variable initialization code
+    56                           
+    57  03E0                     end_of_initialization:
+    58  03E0  0183               clrf status
+    59  03E1  2BE2               ljmp _main	;jump to C main() function
+    60                           psect	cstackBANK0,class=BANK0,space=1
+    61                           global __pcstackBANK0
+    62  000C                     __pcstackBANK0:
+    63                           	global	?_main
+    64  000C                     ?_main:	; 0 bytes @ 0x0
+    65                           	global	main@voi
+    66  000C                     main@voi:	; 2 bytes @ 0x0
+    67  000C                     	ds	2
+    68                           	global	??_main
+    69  000E                     ??_main:	; 0 bytes @ 0x2
+    70  000E                     	ds	1
+    71                           	global	main@aux
+    72  000F                     main@aux:	; 1 bytes @ 0x3
+    73  000F                     	ds	1
+    74                           	global	main@x
+    75  0010                     main@x:	; 1 bytes @ 0x4
+    76  0010                     	ds	1
+    77                           	global	main@y
+    78  0011                     main@y:	; 1 bytes @ 0x5
+    79  0011                     	ds	1
+    80 ;;Data sizes: Strings 0, constant 0, data 0, bss 0, persistent 0 stack 0
+    81 ;;Auto spaces:   Size  Autos    Used
+    82 ;; COMMON           0      0       0
+    83 ;; BANK0           66      6       6
+    84                           
+    85 ;;
+    86 ;; Pointer list with targets:
+    87                           
+    88                           
+    89                           
+    90 ;;
+    91 ;; Critical Paths under _main in COMMON
+    92 ;;
+    93 ;;   None.
+    94 ;;
+    95 ;; Critical Paths under _main in BANK0
+    96 ;;
+    97 ;;   None.
+    98                           
+    99 ;;
+   100 ;;Main: autosize = 0, tempsize = 1, incstack = 0, save=0
+   101 ;;
+   102                           
+   103 ;;
+   104 ;;Call Graph Tables:
+   105 ;;
+   106 ;; ---------------------------------------------------------------------------------
+   107 ;; (Depth) Function   	        Calls       Base Space   Used Autos Params    Refs
+   108 ;; ---------------------------------------------------------------------------------
+   109 ;; (0) _main                                                 6     4      2     115
+   110 ;;                                              0 BANK0      6     4      2
+   111 ;; ---------------------------------------------------------------------------------
+   112 ;; Estimated maximum stack depth 0
+   113 ;; ---------------------------------------------------------------------------------
+   114                           
+   115 ;; Call Graph Graphs:
+   116                           
+   117 ;; _main (ROOT)
+   118 ;;
+   119                           
+   120 ;; Address spaces:
+   121                           
+   122 ;;Name               Size   Autos  Total    Cost      Usage
+   123 ;;BITCOMMON            0      0       0       0        0.0%
+   124 ;;EEDATA              40      0       0       0        0.0%
+   125 ;;NULL                 0      0       0       0        0.0%
+   126 ;;CODE                 0      0       0       0        0.0%
+   127 ;;BITSFR0              0      0       0       1        0.0%
+   128 ;;SFR0                 0      0       0       1        0.0%
+   129 ;;COMMON               0      0       0       1        0.0%
+   130 ;;BITSFR1              0      0       0       2        0.0%
+   131 ;;SFR1                 0      0       0       2        0.0%
+   132 ;;STACK                0      0       0       2        0.0%
+   133 ;;BANK0               42      6       6       3        9.1%
+   134 ;;ABS                  0      0       0       4        0.0%
+   135 ;;BITBANK0            42      0       0       5        0.0%
+   136 ;;DATA                 0      0       0       6        0.0%
+   137                           
+   138                           	global	_main
+   139                           psect	maintext
+   140                           
+   141 ;; *************** function _main *****************
+   142 ;; Defined at:
+   143 ;;		line 4 in file "D:\Documents\Facultate\Anul IV\Microcontrollere\LAB2\fisier_test_c.c"
+   144 ;; Parameters:    Size  Location     Type
+   145 ;;  voi             2    0[BANK0 ] int 
+   146 ;; Auto vars:     Size  Location     Type
+   147 ;;  y               1    5[BANK0 ] unsigned char 
+   148 ;;  x               1    4[BANK0 ] unsigned char 
+   149 ;;  aux             1    3[BANK0 ] unsigned char 
+   150 ;; Return value:  Size  Location     Type
+   151 ;;		None               void
+   152 ;; Registers used:
+   153 ;;		wreg
+   154 ;; Tracked objects:
+   155 ;;		On entry : 17F/0
+   156 ;;		On exit  : 0/0
+   157 ;;		Unchanged: 0/0
+   158 ;; Data sizes:     COMMON   BANK0
+   159 ;;      Params:         0       2
+   160 ;;      Locals:         0       3
+   161 ;;      Temps:          0       1
+   162 ;;      Totals:         0       6
+   163 ;;Total ram usage:        6 bytes
+   164 ;; This function calls:
+   165 ;;		Nothing
+   166 ;; This function is called by:
+   167 ;;		Startup code after reset
+   168 ;; This function uses a non-reentrant model
+   169 ;;
+   170                           psect	maintext
+   171                           	file	"D:\Documents\Facultate\Anul IV\Microcontrollere\LAB2\fisier_test_c.c"
+   172                           	line	4
+   173                           	global	__size_of_main
+   174  001E                     	__size_of_main	equ	__end_of_main-_main
+   175                           	
+   176  03E2                     _main:	
+   177                           	opt	stack 8
+   178                           ; Regs used in _main: [wreg]
+   179                           	line	7
+   180                           	
+   181  03E2                     l1309:	
+   182                           ;fisier_test_c.c: 5: unsigned char x, y, aux;
+   183                           ;fisier_test_c.c: 7: x = 200;
+   184  03E2  30C8               	movlw	(0C8h)
+   185  03E3  1283               	bcf	status, 5	;RP0=0, select bank0
+   186  03E4  008E               	movwf	(??_main+0)+0
+   187  03E5  080E               	movf	(??_main+0)+0,w
+   188  03E6  0090               	movwf	(main@x)
+   189                           	line	8
+   190                           ;fisier_test_c.c: 8: y = 150;
+   191  03E7  3096               	movlw	(096h)
+   192  03E8  008E               	movwf	(??_main+0)+0
+   193  03E9  080E               	movf	(??_main+0)+0,w
+   194  03EA  0091               	movwf	(main@y)
+   195                           	line	10
+   196                           ;fisier_test_c.c: 10: if(x>y)
+   197  03EB  0810               	movf	(main@x),w
+   198  03EC  0211               	subwf	(main@y),w
+   199  03ED  1803               	skipnc
+   200  03EE  2BF0               	goto	u2151
+   201  03EF  2BF1               	goto	u2150
+   202  03F0                     u2151:
+   203  03F0  2BFE               	goto	l1313
+   204  03F1                     u2150:
+   205                           	line	12
+   206                           	
+   207  03F1                     l1311:	
+   208                           ;fisier_test_c.c: 11: {
+   209                           ;fisier_test_c.c: 12: aux = x;
+   210  03F1  0810               	movf	(main@x),w
+   211  03F2  008E               	movwf	(??_main+0)+0
+   212  03F3  080E               	movf	(??_main+0)+0,w
+   213  03F4  008F               	movwf	(main@aux)
+   214                           	line	13
+   215                           ;fisier_test_c.c: 13: x = y;
+   216  03F5  0811               	movf	(main@y),w
+   217  03F6  008E               	movwf	(??_main+0)+0
+   218  03F7  080E               	movf	(??_main+0)+0,w
+   219  03F8  0090               	movwf	(main@x)
+   220                           	line	14
+   221                           ;fisier_test_c.c: 14: y = aux;
+   222  03F9  080F               	movf	(main@aux),w
+   223  03FA  008E               	movwf	(??_main+0)+0
+   224  03FB  080E               	movf	(??_main+0)+0,w
+   225  03FC  0091               	movwf	(main@y)
+   226  03FD  2BFE               	goto	l1313
+   227                           	line	15
+   228                           	
+   229  03FE                     l167:	
+   230                           	line	16
+   231                           	
+   232  03FE                     l1313:	
+   233                           # 16 "D:\Documents\Facultate\Anul IV\Microcontrollere\LAB2\fisier_test_c.c"
+   234  03FE  0000               NOP ;#
+   235                           psect	maintext
+   236                           	line	17
+   237                           	
+   238  03FF                     l168:	
+   239                           	global	start
+   240  03FF  2800               	ljmp	start
+   241                           	opt stack 0
+   242                           GLOBAL	__end_of_main
+   243  0400                     	__end_of_main:
+   244 ;; =============== function _main ends ============
+   245                           
+   246                           	signat	_main,88
+   247                           psect	maintext
+   248                           	global	btemp
+   249  004E                     	btemp set 04Eh
+   250                           
+   251                           	DABS	1,78,2	;btemp
+   252                           	global	wtemp0
+   253  004E                     	wtemp0 set btemp
+
+
+HI-TECH Software PICC Macro Assembler V9.81 build 7503 
+Symbol Table                                                                                   Sat Oct 07 17:27:49 2017
+
+                 l167 03FE                   l168 03FF                  l1311 03F1                  l1313 03FE  
+                l1309 03E2                  u2150 03F1                  u2151 03F0                  _main 03E2  
+                btemp 004E                  start 0000                 ?_main 000C                 main@x 0010  
+               main@y 0011                 status 0003                 wtemp0 004E          __end_of_main 0400  
+              ??_main 000E            __pmaintext 03E2               main@aux 000F               main@voi 000C  
+end_of_initialization 03E0   start_initialization 03E0         __pcstackBANK0 000C         __size_of_main 001E  

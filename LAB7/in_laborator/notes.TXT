@@ -1,0 +1,15 @@
+generare pwm dc 50%, f = 2ms, generat pe rB 5
+RB0 pin de intrare cu buton care modifica factorul de umplere la 25%
+
+
+
+tema 7:
+realizati pe pinii rb6 si rb7 doua semnale pwm cu factor de umplere 50%
+ca cel prezentat in figura 1
+
+tema 10
+pwm cu factor de umplere variabil
+0, 1/5, 2/5, 3/5, 4/5, 5/5
+rb0 buton
+
+perioada = 1ms

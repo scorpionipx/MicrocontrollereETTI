@@ -1,0 +1,19 @@
+shiftare (impartire la 2)
+
+RRF - rotate right file
+
+BCF STATUS, C ; se sterge bitul de carry
+RRF Reg, 1 ; se rotesc spre dreapta bitii lui Reg
+
+CALL etich
+RETURN ; revenire la urmatoarea linie dupa apel
+
+
+
+
+
+
+
+
+
+

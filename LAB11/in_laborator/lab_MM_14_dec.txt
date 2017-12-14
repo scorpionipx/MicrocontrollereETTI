@@ -1,0 +1,10 @@
+Intreruperi
+
+INTCON - interrupt control
+GIE - global interrupt enable; 1 = automat, 0 = manual
+
+intreruperi de baza
+
+T0IE = timer 0 interrupt enable
+INTE
+RBIE

@@ -1,0 +1,428 @@
+MPASM  5.41                        FILTRU.ASM   10-25-2017  16:15:47         PAGE  1
+
+
+LOC  OBJECT CODE     LINE SOURCE TEXT
+  VALUE
+
+                      00001 #include p16f84.inc
+                      00001         LIST
+                      00002 
+                      00003 ;==========================================================================
+                      00004 ;  MPASM PIC16F84 processor include
+                      00005 ; 
+                      00006 ;  (c) Copyright 1999-2011 Microchip Technology, All rights reserved
+                      00007 ;==========================================================================
+                      00008 
+                      00199         LIST
+                      00002 
+                      00003 ; Enunt: sa se scrie un program ASM in care sa se implementeze filtrul recurent
+                      00004 ; definit de relatia: Yn = 1.2 * X0 - 0.9 * X1 - 0.7 Yn-1.
+                      00005 
+                      00006 ;       Pentru a nu folosi variabile in format cu virgula mobila, se inmultesc valorile 
+                      00007 ; valorile constante cu un factor putere a lui 2. Factorul este putere a lui 2 pentru
+                      00008 ; a se folosi instructiuni de shiftare in locul celor de impartire.
+                      00009 
+                      00010 ; 1.2 * 32 = 38.4 ==> 38
+                      00011 ; 0.9 * 32 = 28.8 ==> 29                      S-a ales factorul 32 = 2 ^ 5
+                      00012 ; 0.7 * 32 = 22.4 ==> 22
+                      00013 
+                      00014 ; ScorpionIPX
+                      00015 
+                      00016 #define FACTOR D'32'
+                      00017 #define FACTOR_POW D'5'
+                      00018 
+                      00019 #define CONSTANT_0 D'38'
+                      00020 #define CONSTANT_1 D'29'
+                      00021 #define CONSTANT_2 D'22'
+                      00022 
+                      00023 #define INIT_Y_L D'3'
+                      00024 #define INIT_Y_H D'0'
+                      00025 #define NUM_ITERATION D'5' 
+                      00026 
+                      00027 ;assign memory for variables
+  00000020            00028 x0 equ 0x20
+  00000021            00029 x1 equ 0x21
+                      00030 
+  00000022            00031 y0_L equ 0x22
+  00000023            00032 y0_H equ 0x23
+                      00033 
+  00000024            00034 y1_L equ 0x24
+  00000025            00035 y1_H equ 0x25
+                      00036 
+  00000026            00037 i equ 0x26
+                      00038 
+  00000027            00039 aux_L equ 0x27
+  00000028            00040 aux_H equ 0x28
+                      00041 
+  00000029            00042 j equ 0x29
+                      00043 
+                      00044 
+MPASM  5.41                        FILTRU.ASM   10-25-2017  16:15:47         PAGE  2
+
+
+LOC  OBJECT CODE     LINE SOURCE TEXT
+  VALUE
+
+0000                  00045 main:
+                      00046         ; assign values to variables
+                      00047 
+0000   300F           00048         MOVLW D'15'; W <- 15
+0001   00A0           00049         MOVWF x0; x0 <- 15
+                      00050 
+0002   3007           00051         MOVLW D'7'; W <- 7
+0003   00A1           00052         MOVWF x1; x1 <- 7
+                      00053 
+0004   3003           00054         MOVLW INIT_Y_L; W <- INIT_Y_L
+0005   00A2           00055         MOVWF y0_L; y0_H <- INIT_Y_L
+                      00056 
+0006   3000           00057         MOVLW INIT_Y_H; W <- INIT_Y_H
+0007   00A3           00058         MOVWF y0_H; y0_H <- INIT_Y_H
+                      00059 
+                      00060         
+0008   3000           00061         MOVLW D'0'; W <- 0
+0009   00A4           00062         MOVWF y1_L; y1_L <- 0
+000A   00A5           00063         MOVWF y1_H; y1_H <- 0
+000B   00A7           00064         MOVWF aux_L; aux_L <- 0
+000C   00A8           00065         MOVWF aux_H; aux_H <- 0
+                      00066 
+000D   0000           00067         NOP
+                      00068 
+000E   3005           00069         MOVLW NUM_ITERATION; W<- NUM_ITERATION
+000F   00A9           00070         MOVWF j; j <- W
+                      00071 
+0010   0000           00072         NOP
+                      00073 
+0011   08A9           00074         MOVF j, 1;
+0012   0000           00075         NOP
+0013   1D29           00076         BTFSS j, Z; skip if i is non zero
+0014   2876           00077         GOTO END_
+                      00078 
+Warning[207]: Found label after column 1. (ITER_LOOP)
+0015                  00079         ITER_LOOP:
+                      00080 
+0015   0000           00081                 NOP
+                      00082 
+0016   201F           00083                 CALL CALC_Y
+                      00084 
+0017   0824           00085                 MOVFW y1_L; W <- y1_L
+0018   00A2           00086                 MOVWF y0_L; y0_L <- W
+0019   0825           00087                 MOVFW y1_H; W <- y1_H
+001A   00A3           00088                 MOVWF y0_H; y0_H <- W
+                      00089 
+001B   0000           00090                 NOP
+                      00091 
+Message[305]: Using default destination of 1 (file).
+001C   0BA9           00092                 DECFSZ j; if i is zero, skip
+001D   2815           00093                 GOTO ITER_LOOP
+                      00094 
+001E   2876           00095                 GOTO END_
+MPASM  5.41                        FILTRU.ASM   10-25-2017  16:15:47         PAGE  3
+
+
+LOC  OBJECT CODE     LINE SOURCE TEXT
+  VALUE
+
+                      00096 
+                      00097         
+Warning[207]: Found label after column 1. (CALC_Y)
+001F                  00098         CALC_Y:
+001F   3000           00099                 MOVLW D'0'; W <- 0
+0020   00A7           00100                 MOVWF aux_L; aux_L <- 0
+0021   00A8           00101                 MOVWF aux_H; aux_H <- 0
+                      00102 
+0022   3026           00103                 MOVLW CONSTANT_0; W <- CONSTANT_0
+0023   0000           00104                 NOP
+0024   00A6           00105                 MOVWF i; i <- W
+                      00106 
+0025   3000           00107                 MOVLW D'0'; W <- 0
+                      00108 
+0026   0000           00109                 NOP
+                      00110 
+Warning[207]: Found label after column 1. (CALC_T1)
+0027                  00111                 CALC_T1:
+0027   0720           00112                         ADDWF x0, 0; W <_ W + x0
+0028   1803           00113                         BTFSC STATUS, C; if overflow, increase auh_H
+0029   0AA8           00114                         INCF aux_H, 1;
+002A   00A7           00115                         MOVWF aux_L; aux_L = W
+                      00116 
+002B   0000           00117                         NOP
+                      00118         
+Message[305]: Using default destination of 1 (file).
+002C   0BA6           00119                         DECFSZ i
+002D   2827           00120                         GOTO CALC_T1
+002E   0827           00121                         MOVFW aux_L; W = aux_L
+002F   00A4           00122                         MOVWF y1_L; y1_L <- W
+0030   0828           00123                         MOVFW aux_H; W = aux_H
+0031   00A5           00124                         MOVWF y1_H; y1_H <- W
+                      00125         
+0032   301D           00126                         MOVLW CONSTANT_1; W <- CONSTANT_1
+0033   0000           00127                         NOP
+0034   00A6           00128                         MOVWF i; i <- W
+                      00129         
+0035   3000           00130                         MOVLW D'0'; W <- 0
+0036   00A7           00131                         MOVWF aux_L; aux_L <- 0
+0037   00A8           00132                         MOVWF aux_H; aux_H <- 0
+                      00133         
+0038   0000           00134                         NOP
+                      00135 
+Warning[207]: Found label after column 1. (CALC_T2)
+0039                  00136                 CALC_T2:
+0039   0000           00137                         NOP
+003A   0721           00138                         ADDWF x1, 0; W <_ W + x1
+003B   1803           00139                         BTFSC STATUS, C; if overflow, increase auh_H
+003C   0AA8           00140                         INCF aux_H, 1;
+                      00141 
+003D   00A7           00142                         MOVWF aux_L; aux_L = W
+                      00143                         
+003E   0000           00144                         NOP
+MPASM  5.41                        FILTRU.ASM   10-25-2017  16:15:47         PAGE  4
+
+
+LOC  OBJECT CODE     LINE SOURCE TEXT
+  VALUE
+
+                      00145         
+Message[305]: Using default destination of 1 (file).
+003F   0BA6           00146                         DECFSZ i
+0040   2839           00147                         GOTO CALC_T2
+                      00148 
+0041   0000           00149                         NOP
+0042   09A8           00150                         COMF aux_H, 1; aux_H = ~aux_H
+0043   09A7           00151                         COMF aux_L,1; aux_L = ~aux_L
+0044   0AA8           00152                         INCF aux_H, 1; aux_H ++
+0045   0AA7           00153                         INCF aux_L, 1; aux_L++
+                      00154                 
+0046   0000           00155                         NOP
+                      00156 
+0047   0828           00157                         MOVFW aux_H; W <- aux_H
+0048   07A5           00158                         ADDWF y1_H, 1; y1_H += W
+0049   0827           00159                         MOVFW aux_L; W <- aux_L
+004A   07A4           00160                         ADDWF y1_L, 1; y1_L += W
+                      00161                         
+004B   1803           00162                         BTFSC STATUS, C; if overflow, decrease y1_H
+004C   03A5           00163                         DECF y1_H, 1; y1_H -- 
+004D   0000           00164                         NOP
+                      00165         
+004E   3016           00166                         MOVLW CONSTANT_2; W <- CONSTANT_2
+004F   0000           00167                         NOP
+0050   00A6           00168                         MOVWF i; i <- W
+                      00169         
+0051   3000           00170                         MOVLW D'0'; W <- 0
+0052   00A7           00171                         MOVWF aux_L; aux_L <- 0
+0053   00A8           00172                         MOVWF aux_H; aux_H <- 0
+0054   0000           00173                         NOP
+                      00174                         
+Warning[207]: Found label after column 1. (CALC_T3)
+0055                  00175                 CALC_T3:
+0055   0000           00176                         NOP
+0056   0827           00177                         MOVFW aux_L; W <- aux_L
+0057   0722           00178                         ADDWF y0_L, 0; W <- W + y0_L
+0058   1803           00179                         BTFSC STATUS, C; if overflow, increase auh_H
+0059   0AA8           00180                         INCF aux_H, 1;
+                      00181                         
+005A   00A7           00182                         MOVWF aux_L; aux_L = W
+005B   0828           00183                         MOVFW aux_H; W <- aux_H
+005C   07A5           00184                         ADDWF y1_H, 1; y1_H += W
+                      00185                         
+Message[305]: Using default destination of 1 (file).
+005D   0BA6           00186                         DECFSZ i
+005E   2855           00187                         GOTO CALC_T3
+                      00188 
+005F   0000           00189                         NOP
+0060   09A8           00190                         COMF aux_H, 1; aux_H = ~aux_H
+0061   09A7           00191                         COMF aux_L,1; aux_L = ~aux_L
+0062   0AA8           00192                         INCF aux_H, 1; aux_H ++
+0063   0AA7           00193                         INCF aux_L, 1; aux_L++
+                      00194                 
+MPASM  5.41                        FILTRU.ASM   10-25-2017  16:15:47         PAGE  5
+
+
+LOC  OBJECT CODE     LINE SOURCE TEXT
+  VALUE
+
+0064   0000           00195                         NOP
+0065   0828           00196                         MOVFW aux_H; W <- aux_H
+0066   07A5           00197                         ADDWF y1_H, 1; y1_H += W
+0067   0000           00198                         NOP
+0068   0827           00199                         MOVFW aux_L; W <- aux_L
+0069   07A4           00200                         ADDWF y1_L, 1; y1_L += W
+006A   1803           00201                         BTFSC STATUS, C; if overflow, decrease y1_H
+006B   03A5           00202                         DECF y1_H, 1; y1_H -- 
+006C   0000           00203                         NOP
+006D   3005           00204                         MOVLW FACTOR_POW; W <- CONSTANT_2
+006E   00A6           00205                         MOVWF i; i <- W
+                      00206 
+Warning[207]: Found label after column 1. (SHIFT)
+006F                  00207                 SHIFT:
+006F   0000           00208                         NOP
+0070   1003           00209                         BCF STATUS, C
+0071   0CA5           00210                         RRF y1_H, 1;
+0072   0CA4           00211                         RRF y1_L, 1;
+                      00212                         
+Message[305]: Using default destination of 1 (file).
+0073   0BA6           00213                         DECFSZ i
+0074   286F           00214                         GOTO SHIFT      
+                      00215                 
+                      00216                 
+                      00217 
+0075   0008           00218                 RETURN
+                      00219         
+                      00220 
+Warning[207]: Found label after column 1. (END_)
+0076                  00221         END_:
+0076   0000           00222                 NOP
+                      00223         end
+MPASM  5.41                        FILTRU.ASM   10-25-2017  16:15:47         PAGE  6
+
+
+SYMBOL TABLE
+  LABEL                             VALUE 
+
+C                                 00000000
+CALC_T1                           00000027
+CALC_T2                           00000039
+CALC_T3                           00000055
+CALC_Y                            0000001F
+CONSTANT_0                        D'38'
+CONSTANT_1                        D'29'
+CONSTANT_2                        D'22'
+DC                                00000001
+EEADR                             00000009
+EECON1                            00000088
+EECON2                            00000089
+EEDATA                            00000008
+EEIE                              00000006
+EEIF                              00000004
+END_                              00000076
+F                                 00000001
+FACTOR                            D'32'
+FACTOR_POW                        D'5'
+FSR                               00000004
+GIE                               00000007
+INDF                              00000000
+INIT_Y_H                          D'0'
+INIT_Y_L                          D'3'
+INTCON                            0000000B
+INTE                              00000004
+INTEDG                            00000006
+INTF                              00000001
+IRP                               00000007
+ITER_LOOP                         00000015
+NOT_PD                            00000003
+NOT_RBPU                          00000007
+NOT_TO                            00000004
+NUM_ITERATION                     D'5'
+OPTION_REG                        00000081
+PCL                               00000002
+PCLATH                            0000000A
+PORTA                             00000005
+PORTB                             00000006
+PS0                               00000000
+PS1                               00000001
+PS2                               00000002
+PSA                               00000003
+RA0                               00000000
+RA1                               00000001
+RA2                               00000002
+RA3                               00000003
+RA4                               00000004
+RB0                               00000000
+RB1                               00000001
+RB2                               00000002
+RB3                               00000003
+RB4                               00000004
+MPASM  5.41                        FILTRU.ASM   10-25-2017  16:15:47         PAGE  7
+
+
+SYMBOL TABLE
+  LABEL                             VALUE 
+
+RB5                               00000005
+RB6                               00000006
+RB7                               00000007
+RBIE                              00000003
+RBIF                              00000000
+RD                                00000000
+RP0                               00000005
+RP1                               00000006
+SHIFT                             0000006F
+STATUS                            00000003
+T0CS                              00000005
+T0IE                              00000005
+T0IF                              00000002
+T0SE                              00000004
+TMR0                              00000001
+TMR0IE                            00000005
+TMR0IF                            00000002
+TRISA                             00000085
+TRISA0                            00000000
+TRISA1                            00000001
+TRISA2                            00000002
+TRISA3                            00000003
+TRISA4                            00000004
+TRISB                             00000086
+TRISB0                            00000000
+TRISB1                            00000001
+TRISB2                            00000002
+TRISB3                            00000003
+TRISB4                            00000004
+TRISB5                            00000005
+TRISB6                            00000006
+TRISB7                            00000007
+W                                 00000000
+WR                                00000001
+WREN                              00000002
+WRERR                             00000003
+Z                                 00000002
+_CONFIG                           00002007
+_CP_OFF                           00003FFF
+_CP_ON                            0000000F
+_HS_OSC                           00003FFE
+_IDLOC0                           00002000
+_IDLOC1                           00002001
+_IDLOC2                           00002002
+_IDLOC3                           00002003
+_LP_OSC                           00003FFC
+_PWRTE_OFF                        00003FFF
+_PWRTE_ON                         00003FF7
+_RC_OSC                           00003FFF
+_WDT_OFF                          00003FFB
+_WDT_ON                           00003FFF
+_XT_OSC                           00003FFD
+__16F84                           00000001
+MPASM  5.41                        FILTRU.ASM   10-25-2017  16:15:47         PAGE  8
+
+
+SYMBOL TABLE
+  LABEL                             VALUE 
+
+__DEBUG                           1
+aux_H                             00000028
+aux_L                             00000027
+i                                 00000026
+j                                 00000029
+main                              00000000
+x0                                00000020
+x1                                00000021
+y0_H                              00000023
+y0_L                              00000022
+y1_H                              00000025
+y1_L                              00000024
+
+
+MEMORY USAGE MAP ('X' = Used,  '-' = Unused)
+
+0000 : XXXXXXXXXXXXXXXX XXXXXXXXXXXXXXXX XXXXXXXXXXXXXXXX XXXXXXXXXXXXXXXX
+0040 : XXXXXXXXXXXXXXXX XXXXXXXXXXXXXXXX XXXXXXXXXXXXXXXX XXXXXXX---------
+
+All other memory blocks unused.
+
+Program Memory Words Used:   119
+Program Memory Words Free:   905
+
+
+Errors   :     0
+Warnings :     7 reported,     0 suppressed
+Messages :     5 reported,     0 suppressed
+
+

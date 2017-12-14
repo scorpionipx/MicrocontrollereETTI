@@ -1,0 +1,51 @@
+MPLINK 4.39, Linker
+Linker Map File - Created Thu Nov 09 11:17:26 2017
+
+                                 Section Info
+                  Section       Type    Address   Location Size(Bytes)
+                ---------  ---------  ---------  ---------  ---------
+                   .org_0       code   0x000000    program   0x000058
+
+
+
+                              Program Memory Usage 
+                               Start         End      
+                           ---------   ---------      
+                            0x000000    0x00002b      
+            44 out of 1093 program addresses used, program memory utilization is 4%
+
+
+
+                              Symbols - Sorted by Name
+                     Name    Address   Location    Storage File                     
+                ---------  ---------  ---------  --------- ---------                
+                 LOOP_PWM   0x000006    program     static D:\Documents\Facultate\Anul IV\Microcontrollere\LAB7\in_laborator\proiect_lab\pwm.asm
+            button_apasat   0x00000f    program     static D:\Documents\Facultate\Anul IV\Microcontrollere\LAB7\in_laborator\proiect_lab\pwm.asm
+               button_end   0x000014    program     static D:\Documents\Facultate\Anul IV\Microcontrollere\LAB7\in_laborator\proiect_lab\pwm.asm
+          button_neapasat   0x000008    program     static D:\Documents\Facultate\Anul IV\Microcontrollere\LAB7\in_laborator\proiect_lab\pwm.asm
+                delay_1ms   0x000017    program     static D:\Documents\Facultate\Anul IV\Microcontrollere\LAB7\in_laborator\proiect_lab\pwm.asm
+            delay_half_ms   0x00001e    program     static D:\Documents\Facultate\Anul IV\Microcontrollere\LAB7\in_laborator\proiect_lab\pwm.asm
+           delay_third_ms   0x000025    program     static D:\Documents\Facultate\Anul IV\Microcontrollere\LAB7\in_laborator\proiect_lab\pwm.asm
+                   loop_j   0x000019    program     static D:\Documents\Facultate\Anul IV\Microcontrollere\LAB7\in_laborator\proiect_lab\pwm.asm
+                  loop_ji   0x000020    program     static D:\Documents\Facultate\Anul IV\Microcontrollere\LAB7\in_laborator\proiect_lab\pwm.asm
+                 loop_jiy   0x000027    program     static D:\Documents\Facultate\Anul IV\Microcontrollere\LAB7\in_laborator\proiect_lab\pwm.asm
+                     main   0x000000    program     static D:\Documents\Facultate\Anul IV\Microcontrollere\LAB7\in_laborator\proiect_lab\pwm.asm
+
+
+
+                              Symbols - Sorted by Address
+                     Name    Address   Location    Storage File                     
+                ---------  ---------  ---------  --------- ---------                
+                     main   0x000000    program     static D:\Documents\Facultate\Anul IV\Microcontrollere\LAB7\in_laborator\proiect_lab\pwm.asm
+                 LOOP_PWM   0x000006    program     static D:\Documents\Facultate\Anul IV\Microcontrollere\LAB7\in_laborator\proiect_lab\pwm.asm
+          button_neapasat   0x000008    program     static D:\Documents\Facultate\Anul IV\Microcontrollere\LAB7\in_laborator\proiect_lab\pwm.asm
+            button_apasat   0x00000f    program     static D:\Documents\Facultate\Anul IV\Microcontrollere\LAB7\in_laborator\proiect_lab\pwm.asm
+               button_end   0x000014    program     static D:\Documents\Facultate\Anul IV\Microcontrollere\LAB7\in_laborator\proiect_lab\pwm.asm
+                delay_1ms   0x000017    program     static D:\Documents\Facultate\Anul IV\Microcontrollere\LAB7\in_laborator\proiect_lab\pwm.asm
+                   loop_j   0x000019    program     static D:\Documents\Facultate\Anul IV\Microcontrollere\LAB7\in_laborator\proiect_lab\pwm.asm
+            delay_half_ms   0x00001e    program     static D:\Documents\Facultate\Anul IV\Microcontrollere\LAB7\in_laborator\proiect_lab\pwm.asm
+                  loop_ji   0x000020    program     static D:\Documents\Facultate\Anul IV\Microcontrollere\LAB7\in_laborator\proiect_lab\pwm.asm
+           delay_third_ms   0x000025    program     static D:\Documents\Facultate\Anul IV\Microcontrollere\LAB7\in_laborator\proiect_lab\pwm.asm
+                 loop_jiy   0x000027    program     static D:\Documents\Facultate\Anul IV\Microcontrollere\LAB7\in_laborator\proiect_lab\pwm.asm
+
+

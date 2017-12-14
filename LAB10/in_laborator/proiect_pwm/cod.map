@@ -1,0 +1,48 @@
+MPLINK 4.39, Linker
+Linker Map File - Created Thu Dec 07 11:20:07 2017
+
+                                 Section Info
+                  Section       Type    Address   Location Size(Bytes)
+                ---------  ---------  ---------  ---------  ---------
+                   .org_0       code   0x000000    program   0x000000
+                   .org_1       code   0x000000    program   0x000002
+                   .org_2       code   0x000010    program   0x000054
+
+
+
+                              Program Memory Usage 
+                               Start         End      
+                           ---------   ---------      
+                            0x000000    0x000000      
+                            0x000010    0x000039      
+            43 out of 8455 program addresses used, program memory utilization is 0%
+
+
+
+                              Symbols - Sorted by Name
+                     Name    Address   Location    Storage File                     
+                ---------  ---------  ---------  --------- ---------                
+                  LOOP_c1   0x000033    program     static D:\Documents\Facultate\Anul IV\Microcontrollere\LAB10\in_laborator\proiect_pwm\cod.asm
+                  LOOP_c2   0x000035    program     static D:\Documents\Facultate\Anul IV\Microcontrollere\LAB10\in_laborator\proiect_pwm\cod.asm
+               delay_20ms   0x000031    program     static D:\Documents\Facultate\Anul IV\Microcontrollere\LAB10\in_laborator\proiect_pwm\cod.asm
+          loop_0_triunghi   0x000025    program     static D:\Documents\Facultate\Anul IV\Microcontrollere\LAB10\in_laborator\proiect_pwm\cod.asm
+          loop_1_triunghi   0x00001b    program     static D:\Documents\Facultate\Anul IV\Microcontrollere\LAB10\in_laborator\proiect_pwm\cod.asm
+                     main   0x000010    program     static D:\Documents\Facultate\Anul IV\Microcontrollere\LAB10\in_laborator\proiect_pwm\cod.asm
+sfarsit_triunghi_crescator   0x000030    program     static D:\Documents\Facultate\Anul IV\Microcontrollere\LAB10\in_laborator\proiect_pwm\cod.asm
+       triunghi_crescator   0x000016    program     static D:\Documents\Facultate\Anul IV\Microcontrollere\LAB10\in_laborator\proiect_pwm\cod.asm
+
+
+
+                              Symbols - Sorted by Address
+                     Name    Address   Location    Storage File                     
+                ---------  ---------  ---------  --------- ---------                
+                     main   0x000010    program     static D:\Documents\Facultate\Anul IV\Microcontrollere\LAB10\in_laborator\proiect_pwm\cod.asm
+       triunghi_crescator   0x000016    program     static D:\Documents\Facultate\Anul IV\Microcontrollere\LAB10\in_laborator\proiect_pwm\cod.asm
+          loop_1_triunghi   0x00001b    program     static D:\Documents\Facultate\Anul IV\Microcontrollere\LAB10\in_laborator\proiect_pwm\cod.asm
+          loop_0_triunghi   0x000025    program     static D:\Documents\Facultate\Anul IV\Microcontrollere\LAB10\in_laborator\proiect_pwm\cod.asm
+sfarsit_triunghi_crescator   0x000030    program     static D:\Documents\Facultate\Anul IV\Microcontrollere\LAB10\in_laborator\proiect_pwm\cod.asm
+               delay_20ms   0x000031    program     static D:\Documents\Facultate\Anul IV\Microcontrollere\LAB10\in_laborator\proiect_pwm\cod.asm
+                  LOOP_c1   0x000033    program     static D:\Documents\Facultate\Anul IV\Microcontrollere\LAB10\in_laborator\proiect_pwm\cod.asm
+                  LOOP_c2   0x000035    program     static D:\Documents\Facultate\Anul IV\Microcontrollere\LAB10\in_laborator\proiect_pwm\cod.asm
+
+

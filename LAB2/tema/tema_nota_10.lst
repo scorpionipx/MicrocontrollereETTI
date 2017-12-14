@@ -1,0 +1,28 @@
+
+
+HI-TECH Software PIC Macro Assembler V9.81 build 7503 
+                                                                                                           Sat Oct 07 17:27:19 2017
+
+
+     1                           
+     2                           # 1 "D:\Documents\Facultate\Anul IV\Microcontrollere\LAB2\tema_nota_10.asm"
+     3                           
+     4  0000                     void main(voi)
+      + 0000                     main:	
+     5                           {
+     6  0000                     unsigned char x, y;
+      + 0000                     char:	
+      + 0000                     x:	
+     7                           
+     8  0000                     x = 200;
+     9  0000                     y = 150;
+    10                           
+    11  0000                     x ^= y;
+    12  0000                     y ^= x;
+    13  0000                     x ^=y;
+
+
+HI-TECH Software PICC Macro Assembler V9.81 build 7503 
+Symbol Table                                                                                               Sat Oct 07 17:27:19 2017
+
+         x 0000           y 0000        char 0000        main 0000        void 0000    unsigned 0000  

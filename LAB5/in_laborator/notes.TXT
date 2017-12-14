@@ -1,0 +1,48 @@
+Teme proiect:
+Sa se conceapa si sa se proiecteze la nivel de program si de circuit (hw si sw):
+
+1. un sistem cu uC PIC care sa controleze prin metoda PWM un motor DC a.i. 
+tensiunea echivalenta (efectiva) prin motor sa varieze dupa figura anexata fig_1.
+
+2. un stimulator pentru slabire [bla bla] pasiv care sa genereze stimuli pentru
+patru electrozi cu patru programe de stimulare diferite.
+(termeni utili: cronaxie, reobaz)
+
+3. un sistem cu uC PIC care sa genereze o melodie din minim 5 note muzicale
+
+Cerinte extra:
+	Explicatie pseudocod
+	Justificare calcule/timpi alesi
+	cod C + ASM
+	
+	
+Accesarea memoriei MD (memorie date)
+anexa - fig_2
+
+Accesare indirecta (pentru vectori)
+
+Accesare directa 
+
+Bank     ID
+      RP1 RP0
+bank0  0   0
+bank1  0   1
+bank2  1   0
+bank3  1   1
+
+STATUS REGISTER
+     7          6          5          4          3          2          1          0     
+||  IRP  ||    RP1   ||   RP2  ||          ||         ||    Z    ||         ||    C    ||
+
+Problema: sa se calc ma dintre Ra si Rb stocate in zonele specificate
+Ra      Rb      Rc
+0x20    0x25    0x20
+b0      b1      b2
+
+
+TEMA: se definesc 4 vars
+Ra,        Rb,      Rc,      Rd,     m(media)
+0x20 b0, 0x21 b0, 0x20 b1, 0x21 b1,   0x20 b3
+ 
+
+

@@ -1,0 +1,315 @@
+MPASM  5.41                           PWM.ASM   12-7-2017  11:28:40         PAGE  1
+
+
+LOC  OBJECT CODE     LINE SOURCE TEXT
+  VALUE
+
+                      00001 ;       Enunt tema nota 10: sa se implementeze un program ASM capabil sa 
+                      00002 ; genereze un semnal PWM cu factor de umplere variabil. Semnalul va
+                      00003 ; generat pe pinul RB7 al portului B. Schimbarea factorului de umplere 
+                      00004 ; se va face cu ajutorul unui buton a carui stare este citita pe pinul
+                      00005 ; RB0 al portului B. Perioada semnalului PWM este de 1ms. Se vor 
+                      00006 ; configura urmatorii factori de umplere: 0, 1/5, 2/5, 3/5, 4/5, 1.
+                      00007 ; Se considera ca uC-ul foloseste un cristal de quartz de 4MHz => 
+                      00008 ; 1 CM = 1us
+                      00009 
+                      00010 #include p16f84.inc
+                      00001         LIST
+                      00002 
+                      00003 ;==========================================================================
+                      00004 ;  MPASM PIC16F84 processor include
+                      00005 ; 
+                      00006 ;  (c) Copyright 1999-2011 Microchip Technology, All rights reserved
+                      00007 ;==========================================================================
+                      00008 
+                      00199         LIST
+                      00011 
+                      00012 #define BUTTON RB0
+                      00013 #define SIGNAL RB7
+                      00014 
+  00000020            00015 contor_delay equ 0x20
+                      00016 
+                      00017 
+0000                  00018 main:
+0000   1683           00019         BSF STATUS, RP0; pozitionare bank 1
+0001   307F           00020         MOVLW B'01111111'
+Message[302]: Register in operand not in bank 0.  Ensure that bank bits are correct.
+0002   0086           00021         MOVWF TRISB; RB0 input, RB7 output 
+0003   1283           00022         BCF STATUS, RP0; revenire in bank 0
+                      00023         
+0004   3000           00024         MOVLW D'0'
+0005   0086           00025         MOVWF PORTB 
+                      00026 
+Warning[207]: Found label after column 1. (PWM_0)
+0006                  00027         PWM_0:
+0006   0000           00028                 NOP
+0007   1386           00029                 BCF PORTB, SIGNAL
+0008   2041           00030                 call DELAY_800US
+0009   1806           00031                 BTFSC PORTB, BUTTON
+000A   280C           00032                         GOTO PWM_1_5
+000B   2806           00033                 GOTO PWM_0
+                      00034 
+Warning[207]: Found label after column 1. (PWM_1_5)
+000C                  00035         PWM_1_5:
+000C   0000           00036                 NOP
+000D   1786           00037                 BSF PORTB, SIGNAL
+000E   2032           00038                 call DELAY_200US
+                      00039 
+000F   1386           00040                 BCF PORTB, SIGNAL
+0010   2041           00041                 call DELAY_800US
+MPASM  5.41                           PWM.ASM   12-7-2017  11:28:40         PAGE  2
+
+
+LOC  OBJECT CODE     LINE SOURCE TEXT
+  VALUE
+
+                      00042 
+0011   1806           00043                 BTFSC PORTB, BUTTON
+0012   2814           00044                         GOTO PWM_2_5
+0013   280C           00045                 GOTO PWM_1_5
+                      00046 
+Warning[207]: Found label after column 1. (PWM_2_5)
+0014                  00047         PWM_2_5:
+0014   0000           00048                 NOP
+0015   1786           00049                 BSF PORTB, SIGNAL
+0016   2037           00050                 call DELAY_400US
+                      00051 
+0017   1386           00052                 BCF PORTB, SIGNAL
+0018   203C           00053                 call DELAY_600US
+                      00054 
+0019   1806           00055                 BTFSC PORTB, BUTTON
+001A   281C           00056                         GOTO PWM_3_5
+001B   2814           00057                 GOTO PWM_2_5
+                      00058 
+Warning[207]: Found label after column 1. (PWM_3_5)
+001C                  00059         PWM_3_5:
+001C   0000           00060                 NOP
+001D   1786           00061                 BSF PORTB, SIGNAL
+001E   203C           00062                 call DELAY_600US
+                      00063 
+001F   1386           00064                 BCF PORTB, SIGNAL
+0020   2037           00065                 call DELAY_400US
+                      00066 
+0021   1806           00067                 BTFSC PORTB, BUTTON
+0022   2824           00068                         GOTO PWM_4_5
+0023   281C           00069                 GOTO PWM_3_5
+                      00070 
+Warning[207]: Found label after column 1. (PWM_4_5)
+0024                  00071         PWM_4_5:
+0024   0000           00072                 NOP
+0025   1786           00073                 BSF PORTB, SIGNAL
+0026   2041           00074                 call DELAY_800US
+                      00075 
+0027   1386           00076                 BCF PORTB, SIGNAL
+0028   2032           00077                 call DELAY_200US
+                      00078 
+0029   1806           00079                 BTFSC PORTB, BUTTON
+002A   282C           00080                         GOTO PWM_1
+002B   2824           00081                 GOTO PWM_4_5
+                      00082 
+Warning[207]: Found label after column 1. (PWM_1)
+002C                  00083         PWM_1:
+002C   0000           00084                 NOP
+002D   2041           00085                 call DELAY_800US
+002E   1786           00086                 BSF PORTB, SIGNAL
+002F   1806           00087                 BTFSC PORTB, BUTTON
+0030   2806           00088                         GOTO PWM_0
+0031   282C           00089                 GOTO PWM_1
+                      00090                 
+MPASM  5.41                           PWM.ASM   12-7-2017  11:28:40         PAGE  3
+
+
+LOC  OBJECT CODE     LINE SOURCE TEXT
+  VALUE
+
+Warning[207]: Found label after column 1. (DELAY_200US)
+0032                  00091         DELAY_200US:
+0032   3027           00092                 MOVLW D'39'
+0033   00A0           00093                 MOVWF contor_delay
+Warning[207]: Found label after column 1. (DELAY_200US_INNER)
+0034                  00094                 DELAY_200US_INNER:
+0034   0BA0           00095                         DECFSZ contor_delay, 1
+0035   2834           00096                                 GOTO DELAY_200US_INNER
+0036   0008           00097                 RETURN
+                      00098                 
+Warning[207]: Found label after column 1. (DELAY_400US)
+0037                  00099         DELAY_400US:
+0037   304E           00100                 MOVLW D'78'
+0038   00A0           00101                 MOVWF contor_delay
+Warning[207]: Found label after column 1. (DELAY_400US_INNER)
+0039                  00102                 DELAY_400US_INNER:
+0039   0BA0           00103                 DECFSZ contor_delay, 1
+003A   2839           00104                         GOTO DELAY_400US_INNER
+003B   0008           00105                 RETURN
+                      00106                 
+Warning[207]: Found label after column 1. (DELAY_600US)
+003C                  00107         DELAY_600US:
+003C   3075           00108                 MOVLW D'117'
+003D   00A0           00109                 MOVWF contor_delay
+Warning[207]: Found label after column 1. (DELAY_600US_INNER)
+003E                  00110                 DELAY_600US_INNER:
+003E   0BA0           00111                 DECFSZ contor_delay, 1
+003F   283E           00112                         GOTO DELAY_600US_INNER
+0040   0008           00113                 RETURN
+                      00114                 
+Warning[207]: Found label after column 1. (DELAY_800US)
+0041                  00115         DELAY_800US:
+0041   309C           00116                 MOVLW D'156'
+0042   00A0           00117                 MOVWF contor_delay
+Warning[207]: Found label after column 1. (DELAY_800US_INNER)
+0043                  00118                 DELAY_800US_INNER:
+0043   0BA0           00119                 DECFSZ contor_delay, 1
+0044   2843           00120                         GOTO DELAY_800US_INNER
+0045   0008           00121                 RETURN
+                      00122                 
+                      00123 
+Warning[203]: Found opcode in column 1. (NOP)
+0046   0000           00124 NOP
+Warning[205]: Found directive in column 1. (end)
+                      00125 end
+MPASM  5.41                           PWM.ASM   12-7-2017  11:28:40         PAGE  4
+
+
+SYMBOL TABLE
+  LABEL                             VALUE 
+
+BUTTON                            RB0
+C                                 00000000
+DC                                00000001
+DELAY_200US                       00000032
+DELAY_200US_INNER                 00000034
+DELAY_400US                       00000037
+DELAY_400US_INNER                 00000039
+DELAY_600US                       0000003C
+DELAY_600US_INNER                 0000003E
+DELAY_800US                       00000041
+DELAY_800US_INNER                 00000043
+EEADR                             00000009
+EECON1                            00000088
+EECON2                            00000089
+EEDATA                            00000008
+EEIE                              00000006
+EEIF                              00000004
+F                                 00000001
+FSR                               00000004
+GIE                               00000007
+INDF                              00000000
+INTCON                            0000000B
+INTE                              00000004
+INTEDG                            00000006
+INTF                              00000001
+IRP                               00000007
+NOT_PD                            00000003
+NOT_RBPU                          00000007
+NOT_TO                            00000004
+OPTION_REG                        00000081
+PCL                               00000002
+PCLATH                            0000000A
+PORTA                             00000005
+PORTB                             00000006
+PS0                               00000000
+PS1                               00000001
+PS2                               00000002
+PSA                               00000003
+PWM_0                             00000006
+PWM_1                             0000002C
+PWM_1_5                           0000000C
+PWM_2_5                           00000014
+PWM_3_5                           0000001C
+PWM_4_5                           00000024
+RA0                               00000000
+RA1                               00000001
+RA2                               00000002
+RA3                               00000003
+RA4                               00000004
+RB0                               00000000
+RB1                               00000001
+RB2                               00000002
+RB3                               00000003
+MPASM  5.41                           PWM.ASM   12-7-2017  11:28:40         PAGE  5
+
+
+SYMBOL TABLE
+  LABEL                             VALUE 
+
+RB4                               00000004
+RB5                               00000005
+RB6                               00000006
+RB7                               00000007
+RBIE                              00000003
+RBIF                              00000000
+RD                                00000000
+RP0                               00000005
+RP1                               00000006
+SIGNAL                            RB7
+STATUS                            00000003
+T0CS                              00000005
+T0IE                              00000005
+T0IF                              00000002
+T0SE                              00000004
+TMR0                              00000001
+TMR0IE                            00000005
+TMR0IF                            00000002
+TRISA                             00000085
+TRISA0                            00000000
+TRISA1                            00000001
+TRISA2                            00000002
+TRISA3                            00000003
+TRISA4                            00000004
+TRISB                             00000086
+TRISB0                            00000000
+TRISB1                            00000001
+TRISB2                            00000002
+TRISB3                            00000003
+TRISB4                            00000004
+TRISB5                            00000005
+TRISB6                            00000006
+TRISB7                            00000007
+W                                 00000000
+WR                                00000001
+WREN                              00000002
+WRERR                             00000003
+Z                                 00000002
+_CONFIG                           00002007
+_CP_OFF                           00003FFF
+_CP_ON                            0000000F
+_HS_OSC                           00003FFE
+_IDLOC0                           00002000
+_IDLOC1                           00002001
+_IDLOC2                           00002002
+_IDLOC3                           00002003
+_LP_OSC                           00003FFC
+_PWRTE_OFF                        00003FFF
+_PWRTE_ON                         00003FF7
+_RC_OSC                           00003FFF
+_WDT_OFF                          00003FFB
+_WDT_ON                           00003FFF
+_XT_OSC                           00003FFD
+MPASM  5.41                           PWM.ASM   12-7-2017  11:28:40         PAGE  6
+
+
+SYMBOL TABLE
+  LABEL                             VALUE 
+
+__16F84                           00000001
+__DEBUG                           1
+contor_delay                      00000020
+main                              00000000
+
+
+MEMORY USAGE MAP ('X' = Used,  '-' = Unused)
+
+0000 : XXXXXXXXXXXXXXXX XXXXXXXXXXXXXXXX XXXXXXXXXXXXXXXX XXXXXXXXXXXXXXXX
+0040 : XXXXXXX--------- ---------------- ---------------- ----------------
+
+All other memory blocks unused.
+
+Program Memory Words Used:    71
+Program Memory Words Free:   953
+
+
+Errors   :     0
+Warnings :    16 reported,     0 suppressed
+Messages :     1 reported,     0 suppressed
+
+
