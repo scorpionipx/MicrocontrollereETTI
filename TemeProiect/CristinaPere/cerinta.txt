@@ -1,0 +1,4 @@
+Sa se conceapa si sa se proiecteze la nivel de program si de circuit (hw si sw):
+
+1. un sistem cu uC PIC care sa controleze prin metoda PWM un motor DC a.i. 
+tensiunea echivalenta (efectiva) prin motor sa varieze dupa figura anexata fig_1.
