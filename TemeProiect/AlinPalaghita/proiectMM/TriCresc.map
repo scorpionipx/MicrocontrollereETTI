@@ -1,0 +1,80 @@
+MPLINK 4.39, Linker
+Linker Map File - Created Sat Dec 16 12:56:32 2017
+
+                                 Section Info
+                  Section       Type    Address   Location Size(Bytes)
+                ---------  ---------  ---------  ---------  ---------
+                   .org_0       code   0x000000    program   0x000000
+                   .org_1       code   0x000000    program   0x000002
+                   .org_2       code   0x000010    program   0x000114
+
+
+
+                              Program Memory Usage 
+                               Start         End      
+                           ---------   ---------      
+                            0x000000    0x000000      
+                            0x000010    0x000099      
+            139 out of 8454 program addresses used, program memory utilization is 1%
+
+
+
+                              Symbols - Sorted by Name
+                     Name    Address   Location    Storage File                     
+                ---------  ---------  ---------  --------- ---------                
+            Loop0TriCresc   0x000026    program     static C:\Users\Alin\Desktop\ANUL4\MM\proiectMM\TriCresc.asm
+           Loop0TriCresc2   0x000059    program     static C:\Users\Alin\Desktop\ANUL4\MM\proiectMM\TriCresc.asm
+         Loop0TriDescresc   0x00003e    program     static C:\Users\Alin\Desktop\ANUL4\MM\proiectMM\TriCresc.asm
+        Loop0TriDescresc2   0x000076    program     static C:\Users\Alin\Desktop\ANUL4\MM\proiectMM\TriCresc.asm
+            Loop1TriCresc   0x00001b    program     static C:\Users\Alin\Desktop\ANUL4\MM\proiectMM\TriCresc.asm
+           Loop1TriCresc2   0x00004e    program     static C:\Users\Alin\Desktop\ANUL4\MM\proiectMM\TriCresc.asm
+         Loop1TriDescresc   0x000037    program     static C:\Users\Alin\Desktop\ANUL4\MM\proiectMM\TriCresc.asm
+        Loop1TriDescresc2   0x00006c    program     static C:\Users\Alin\Desktop\ANUL4\MM\proiectMM\TriCresc.asm
+                 LoopC0_2   0x00008e    program     static C:\Users\Alin\Desktop\ANUL4\MM\proiectMM\TriCresc.asm
+                   LoopC1   0x000084    program     static C:\Users\Alin\Desktop\ANUL4\MM\proiectMM\TriCresc.asm
+                 LoopC1_2   0x000090    program     static C:\Users\Alin\Desktop\ANUL4\MM\proiectMM\TriCresc.asm
+                   LoopC2   0x000086    program     static C:\Users\Alin\Desktop\ANUL4\MM\proiectMM\TriCresc.asm
+                 LoopC2_2   0x000092    program     static C:\Users\Alin\Desktop\ANUL4\MM\proiectMM\TriCresc.asm
+               SfTriCresc   0x000032    program     static C:\Users\Alin\Desktop\ANUL4\MM\proiectMM\TriCresc.asm
+              SfTriCresc2   0x000065    program     static C:\Users\Alin\Desktop\ANUL4\MM\proiectMM\TriCresc.asm
+            SfTriDescresc   0x000049    program     static C:\Users\Alin\Desktop\ANUL4\MM\proiectMM\TriCresc.asm
+           SfTriDescresc2   0x000081    program     static C:\Users\Alin\Desktop\ANUL4\MM\proiectMM\TriCresc.asm
+                 TriCresc   0x000016    program     static C:\Users\Alin\Desktop\ANUL4\MM\proiectMM\TriCresc.asm
+                TriCresc2   0x000049    program     static C:\Users\Alin\Desktop\ANUL4\MM\proiectMM\TriCresc.asm
+              TriDescresc   0x000032    program     static C:\Users\Alin\Desktop\ANUL4\MM\proiectMM\TriCresc.asm
+             TriDescresc2   0x000066    program     static C:\Users\Alin\Desktop\ANUL4\MM\proiectMM\TriCresc.asm
+               delay_20ms   0x000082    program     static C:\Users\Alin\Desktop\ANUL4\MM\proiectMM\TriCresc.asm
+               delay_2sec   0x00008c    program     static C:\Users\Alin\Desktop\ANUL4\MM\proiectMM\TriCresc.asm
+                     main   0x000010    program     static C:\Users\Alin\Desktop\ANUL4\MM\proiectMM\TriCresc.asm
+
+
+
+                              Symbols - Sorted by Address
+                     Name    Address   Location    Storage File                     
+                ---------  ---------  ---------  --------- ---------                
+                     main   0x000010    program     static C:\Users\Alin\Desktop\ANUL4\MM\proiectMM\TriCresc.asm
+                 TriCresc   0x000016    program     static C:\Users\Alin\Desktop\ANUL4\MM\proiectMM\TriCresc.asm
+            Loop1TriCresc   0x00001b    program     static C:\Users\Alin\Desktop\ANUL4\MM\proiectMM\TriCresc.asm
+            Loop0TriCresc   0x000026    program     static C:\Users\Alin\Desktop\ANUL4\MM\proiectMM\TriCresc.asm
+              TriDescresc   0x000032    program     static C:\Users\Alin\Desktop\ANUL4\MM\proiectMM\TriCresc.asm
+               SfTriCresc   0x000032    program     static C:\Users\Alin\Desktop\ANUL4\MM\proiectMM\TriCresc.asm
+         Loop1TriDescresc   0x000037    program     static C:\Users\Alin\Desktop\ANUL4\MM\proiectMM\TriCresc.asm
+         Loop0TriDescresc   0x00003e    program     static C:\Users\Alin\Desktop\ANUL4\MM\proiectMM\TriCresc.asm
+                TriCresc2   0x000049    program     static C:\Users\Alin\Desktop\ANUL4\MM\proiectMM\TriCresc.asm
+            SfTriDescresc   0x000049    program     static C:\Users\Alin\Desktop\ANUL4\MM\proiectMM\TriCresc.asm
+           Loop1TriCresc2   0x00004e    program     static C:\Users\Alin\Desktop\ANUL4\MM\proiectMM\TriCresc.asm
+           Loop0TriCresc2   0x000059    program     static C:\Users\Alin\Desktop\ANUL4\MM\proiectMM\TriCresc.asm
+              SfTriCresc2   0x000065    program     static C:\Users\Alin\Desktop\ANUL4\MM\proiectMM\TriCresc.asm
+             TriDescresc2   0x000066    program     static C:\Users\Alin\Desktop\ANUL4\MM\proiectMM\TriCresc.asm
+        Loop1TriDescresc2   0x00006c    program     static C:\Users\Alin\Desktop\ANUL4\MM\proiectMM\TriCresc.asm
+        Loop0TriDescresc2   0x000076    program     static C:\Users\Alin\Desktop\ANUL4\MM\proiectMM\TriCresc.asm
+           SfTriDescresc2   0x000081    program     static C:\Users\Alin\Desktop\ANUL4\MM\proiectMM\TriCresc.asm
+               delay_20ms   0x000082    program     static C:\Users\Alin\Desktop\ANUL4\MM\proiectMM\TriCresc.asm
+                   LoopC1   0x000084    program     static C:\Users\Alin\Desktop\ANUL4\MM\proiectMM\TriCresc.asm
+                   LoopC2   0x000086    program     static C:\Users\Alin\Desktop\ANUL4\MM\proiectMM\TriCresc.asm
+               delay_2sec   0x00008c    program     static C:\Users\Alin\Desktop\ANUL4\MM\proiectMM\TriCresc.asm
+                 LoopC0_2   0x00008e    program     static C:\Users\Alin\Desktop\ANUL4\MM\proiectMM\TriCresc.asm
+                 LoopC1_2   0x000090    program     static C:\Users\Alin\Desktop\ANUL4\MM\proiectMM\TriCresc.asm
+                 LoopC2_2   0x000092    program     static C:\Users\Alin\Desktop\ANUL4\MM\proiectMM\TriCresc.asm
+
+

@@ -1,0 +1,41 @@
+!_TAG_FILE_FORMAT	2	/extended format; --format=1 will not append ;" to lines/
+!_TAG_FILE_SORTED	1	/0=unsorted, 1=sorted, 2=foldcase/
+!_TAG_PROGRAM_AUTHOR	Darren Hiebert	/dhiebert@users.sourceforge.net/
+!_TAG_PROGRAM_NAME	Exuberant Ctags	//
+!_TAG_PROGRAM_URL	http://ctags.sourceforge.net	/official site/
+!_TAG_PROGRAM_VERSION	5.5.4	//
+!_TAG_REVISION_NAME	MCHPTags	//
+!_TAG_REVISION_VERSION	6.0.1	//
+Loop0TriCresc	C:\Users\Alin\Desktop\ANUL4\MM\proiectMM\TriCresc.asm	53;"	l	line:53
+Loop0TriCresc2	C:\Users\Alin\Desktop\ANUL4\MM\proiectMM\TriCresc.asm	158;"	l	line:158
+Loop0TriDescresc	C:\Users\Alin\Desktop\ANUL4\MM\proiectMM\TriCresc.asm	107;"	l	line:107
+Loop0TriDescresc2	C:\Users\Alin\Desktop\ANUL4\MM\proiectMM\TriCresc.asm	211;"	l	line:211
+Loop1TriCresc	C:\Users\Alin\Desktop\ANUL4\MM\proiectMM\TriCresc.asm	35;"	l	line:35
+Loop1TriCresc2	C:\Users\Alin\Desktop\ANUL4\MM\proiectMM\TriCresc.asm	140;"	l	line:140
+LoopC1	C:\Users\Alin\Desktop\ANUL4\MM\proiectMM\TriCresc.asm	240;"	l	line:240
+LoopC1_2	C:\Users\Alin\Desktop\ANUL4\MM\proiectMM\TriCresc.asm	257;"	l	line:257
+LoopC2	C:\Users\Alin\Desktop\ANUL4\MM\proiectMM\TriCresc.asm	244;"	l	line:244
+LoopC2_2	C:\Users\Alin\Desktop\ANUL4\MM\proiectMM\TriCresc.asm	261;"	l	line:261
+N	C:\Users\Alin\Desktop\ANUL4\MM\proiectMM\TriCresc.asm	5;"	q	line:5
+RETURN	C:\Users\Alin\Desktop\ANUL4\MM\proiectMM\TriCresc.asm	251;"	l	line:251
+RETURN	C:\Users\Alin\Desktop\ANUL4\MM\proiectMM\TriCresc.asm	269;"	l	line:269
+SfTriCresc	C:\Users\Alin\Desktop\ANUL4\MM\proiectMM\TriCresc.asm	71;"	l	line:71
+SfTriCresc2	C:\Users\Alin\Desktop\ANUL4\MM\proiectMM\TriCresc.asm	176;"	l	line:176
+SfTriDescresc	C:\Users\Alin\Desktop\ANUL4\MM\proiectMM\TriCresc.asm	123;"	l	line:123
+SfTriDescresc2	C:\Users\Alin\Desktop\ANUL4\MM\proiectMM\TriCresc.asm	227;"	l	line:227
+TriCresc	C:\Users\Alin\Desktop\ANUL4\MM\proiectMM\TriCresc.asm	24;"	l	line:24
+TriCresc2	C:\Users\Alin\Desktop\ANUL4\MM\proiectMM\TriCresc.asm	129;"	l	line:129
+TriDescresc	C:\Users\Alin\Desktop\ANUL4\MM\proiectMM\TriCresc.asm	75;"	l	line:75
+TriDescresc2	C:\Users\Alin\Desktop\ANUL4\MM\proiectMM\TriCresc.asm	180;"	l	line:180
+c1	C:\Users\Alin\Desktop\ANUL4\MM\proiectMM\TriCresc.asm	6;"	q	line:6
+c1_2	C:\Users\Alin\Desktop\ANUL4\MM\proiectMM\TriCresc.asm	8;"	q	line:8
+c2	C:\Users\Alin\Desktop\ANUL4\MM\proiectMM\TriCresc.asm	7;"	q	line:7
+c2_2	C:\Users\Alin\Desktop\ANUL4\MM\proiectMM\TriCresc.asm	9;"	q	line:9
+delay_20ms	C:\Users\Alin\Desktop\ANUL4\MM\proiectMM\TriCresc.asm	236;"	l	line:236
+delay_2sec	C:\Users\Alin\Desktop\ANUL4\MM\proiectMM\TriCresc.asm	253;"	l	line:253
+goto	C:\Users\Alin\Desktop\ANUL4\MM\proiectMM\TriCresc.asm	12;"	l	line:12
+i	C:\Users\Alin\Desktop\ANUL4\MM\proiectMM\TriCresc.asm	3;"	q	line:3
+j	C:\Users\Alin\Desktop\ANUL4\MM\proiectMM\TriCresc.asm	4;"	q	line:4
+main	C:\Users\Alin\Desktop\ANUL4\MM\proiectMM\TriCresc.asm	15;"	l	line:15
+org	C:\Users\Alin\Desktop\ANUL4\MM\proiectMM\TriCresc.asm	11;"	l	line:11
+org	C:\Users\Alin\Desktop\ANUL4\MM\proiectMM\TriCresc.asm	13;"	l	line:13
